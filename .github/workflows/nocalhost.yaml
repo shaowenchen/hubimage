@@ -2,7 +2,7 @@ name: Nocalhost
 
 on:
   schedule:
-    - cron: '30 19 * * 3'
+    - cron: "30 19 * * 3"
   workflow_dispatch:
 jobs:
   build:
@@ -16,7 +16,7 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
-          
+
       - name: Working
         env:
           DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
