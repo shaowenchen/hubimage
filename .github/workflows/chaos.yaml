@@ -1,4 +1,4 @@
-name: Chao
+name: Chaos
 
 on:
   schedule:
@@ -21,4 +21,4 @@ jobs:
         env:
           DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
           DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
-        run: bash ./.github/workflows/copy.sh ./chao/images.yaml
+        run: bash ./.github/workflows/copy.sh ./chaos/images.yaml

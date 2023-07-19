@@ -14,4 +14,5 @@ hubimage/demo-whoami:latest
 ## demo
 
 hubimage/demo-nginx-stream:latest
+hubimage/demo-nginx-vts:latest
 hubimage/demo-nginx-vts-exporter:latest
