@@ -1,0 +1,2 @@
+deb https://mirrors.aliyun.com/debian-archive/debian/ jessie main non-free contrib
+deb-src https://mirrors.aliyun.com/debian-archive/debian/ jessie main non-free contrib

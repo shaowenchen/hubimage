@@ -1,0 +1,25 @@
+# thanos
+thanosio/thanos: hubimage/thanos
+
+# grafana
+grafana/grafana: hubimage/grafana
+
+# prometheus
+quay.io/prometheus/node-exporter: hubimage/node-exporter
+quay.io/prometheus/alertmanager: hubimage/alertmanager
+quay.io/prometheus/prometheus: hubimage/prometheus
+jimmidyson/configmap-reload: hubimage/configmap-reload
+quay.io/prometheus-operator/prometheus-config-reloader: hubimage/prometheus-config-reloader
+prom/pushgateway: hubimage/pushgateway
+prom/blackbox-exporter: hubimage/blackbox-exporter
+
+# metrics
+k8s.gcr.io/metrics-server/metrics-server: hubimage/metrics-server
+k8s.gcr.io/kube-state-metrics/kube-state-metrics: hubimage/kube-state-metrics
+
+# elasticsearch
+elasticsearch: hubimage/elasticsearch
+logstash: hubimage/logstash
+elastic/filebeat: hubimage/filebeat
+elastic/kibana: hubimage/kibana
+elastic/metricbeat: hubimage/metricbeat

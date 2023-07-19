@@ -1,0 +1,2 @@
+# descheduler
+k8s.gcr.io/descheduler/descheduler: hubimage/descheduler

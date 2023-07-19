@@ -1,0 +1,22 @@
+# ingress
+registry.k8s.io/ingress-nginx/controller: hubimage/ingress-nginx-controller
+
+# calico
+calico/kube-controllers: hubimage/kube-controllers
+calico/node: hubimage/node
+calico/cni: hubimage/cni
+calico/pod2daemon-flexvol: hubimage/pod2daemon-flexvol
+calico/ctl: hubimage/ctl
+calico/typha: hubimage/typha
+
+# cilium
+quay.io/cilium/cilium: hubimage/cilium
+quay.io/cilium/certgen: hubimage/certgen
+quay.io/cilium/clustermesh-apiserver: hubimage/clustermesh-apiserver
+quay.io/cilium/cilium-etcd-operator: hubimage/cilium-etcd-operator
+quay.io/cilium/hubble-relay: hubimage/hubble-relay
+quay.io/cilium/hubble-ui-backend: hubimage/hubble-ui-backend
+quay.io/cilium/hubble-ui: hubimage/hubble-ui
+quay.io/cilium/startup-script: hubimage/startup-script
+quay.io/cilium/operator: hubimage/operator
+quay.io/cilium/operator-generic: hubimage/operator-generic
