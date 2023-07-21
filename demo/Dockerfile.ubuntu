@@ -4,6 +4,9 @@ RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get install -y \
     python3 \
+    iputils-ping \
+    curl \
+    mtr \
     iptables && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /tmp/* && \
