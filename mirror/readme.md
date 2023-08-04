@@ -21,3 +21,9 @@ curl -sfL https://raw.githubusercontent.com/shaowenchen/kubernetes-components/ma
 ```
 
 version: 14.04, 16.04, 18.04, 20.04
+
+## Alpine
+
+```bash
+sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
+```
