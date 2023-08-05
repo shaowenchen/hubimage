@@ -4,7 +4,7 @@ for line in $(cat tag)
 do
     echo $line
     docker buildx build --push --platform=linux/arm64,linux/amd64 -t hubimage/builder-maven:3.9-openjdk-$line - << EOF
-FROM hubimage/runtime-openjdk:$line as builder
+FROM hubimage/runtime-openjdk:$line AS builder
 ADD https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/3.9.4/apache-maven-3.9.4-bin.tar.gz /temp/apache-maven-3.9.4-bin.tar.gz
 RUN cd /temp/ && tar -zxvf apache-maven-3.9.4-bin.tar.gz
 
