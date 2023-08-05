@@ -3,7 +3,7 @@
 for line in $(cat tag)
 do
     echo $line
-    docker build -t hubimage/builder-golang:$line - << EOF
+    docker buildx build --push --platform=linux/arm,linux/arm64,linux/amd64 -t hubimage/builder-golang:$line - << EOF
 FROM golang:$line
 LABEL maintainer="shaowenchen <mail@chenshaowen.com>"
 RUN mkdir -p /builder && \
@@ -12,6 +12,4 @@ RUN mkdir -p /builder && \
     go env -w GOPROXY=https://mirrors.aliyun.com/goproxy,direct
 WORKDIR /builder
 EOF
-
-    docker push hubimage/builder-golang:$line
 done
