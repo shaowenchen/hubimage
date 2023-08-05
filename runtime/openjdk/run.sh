@@ -3,7 +3,7 @@
 for line in $(cat tag)
 do
     echo $line
-    docker buildx build --push --platform=linux/arm,linux/arm64,linux/amd64 -t hubimage/runtime-openjdk:$line - << EOF
+    docker buildx build --push --platform=linux/arm64,linux/amd64 -t hubimage/runtime-openjdk:$line - << EOF
 FROM openjdk:$line
 LABEL maintainer="shaowenchen <mail@chenshaowen.com>"
 RUN mkdir -p /runtime && \

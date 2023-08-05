@@ -64,10 +64,10 @@ hubimage/builder-python:3.11
 
 ## maven
 
-hubimage/builder-maven:3.8-openjdk-17
+hubimage/builder-maven:3.9-openjdk-17
 
-hubimage/builder-maven:3.8-openjdk-18
+hubimage/builder-maven:3.9-openjdk-18
 
-hubimage/builder-maven:3.8-openjdk-19
+hubimage/builder-maven:3.9-openjdk-19
 
-hubimage/builder-maven:3.8-openjdk-20
+hubimage/builder-maven:3.9-openjdk-20

@@ -4,7 +4,7 @@ if [ "x${VERSION}" = "x" ]; then
   VERSION=$(cat /etc/os-release | grep "VERSION_ID" | cut -d '"' -f 2)
 fi
 
-repo_url="https://raw.githubusercontent.com/shaowenchen/kubernetes-components/master/mirror/centos/"
+repo_url="https://raw.githubusercontent.com/shaowenchen/hubimage/master/mirror/centos/"
 case $VERSION in
   6)
     repo_url=$repo_url"6.aliyun.repo"
