@@ -9,7 +9,8 @@ LABEL maintainer="shaowenchen <mail@chenshaowen.com>"
 RUN mkdir -p /builder && \
     go env -w GO111MODULE=on && \
     go env -w GOSUMDB=on && \
-    go env -w GOPROXY=https://mirrors.aliyun.com/goproxy,direct
+    go env -w GOPROXY=https://mirrors.aliyun.com/goproxy,direct && \
+    true
 WORKDIR /builder
 EOF
 done

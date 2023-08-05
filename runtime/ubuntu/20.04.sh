@@ -1,6 +1,6 @@
 #!/bin/sh
 
-docker build -t hubimage/runtime-ubuntu:20.04 - << EOF
+docker buildx build --push --platform=linux/arm,linux/arm64,linux/amd64 -t hubimage/runtime-ubuntu:20.04 - << EOF
 FROM ubuntu:20.04
 LABEL maintainer="shaowenchen <mail@chenshaowen.com>"
 RUN mkdir -p /runtime && \
@@ -12,4 +12,3 @@ RUN mkdir -p /runtime && \
     rm -rf /var/cache/apt/archives /var/lib/apt/lists/*
 WORKDIR /runtime
 EOF
-docker push hubimage/runtime-ubuntu:20.04

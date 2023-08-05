@@ -3,7 +3,7 @@
 for line in $(cat tag)
 do
     echo $line
-    docker build -t hubimage/builder-node:$line - << EOF
+    docker buildx build --push --platform=linux/arm,linux/arm64,linux/amd64 -t hubimage/builder-node:$line - << EOF
 FROM hubimage/runtime-node:$line
 RUN npm config set registry http://registry.npm.taobao.org/ && \
     npm config set sass_binary_site http://cdn.npm.taobao.org/dist/node-sass && \
@@ -21,5 +21,4 @@ RUN yarn config set registry http://registry.npm.taobao.org/ && \
     yarn config set fse_binary_host_mirror https://cdn.npm.taobao.org/dist/fsevents && \
     yarn config set install.prefer-offline true || true
 EOF
-    docker push hubimage/builder-node:$line
 done
