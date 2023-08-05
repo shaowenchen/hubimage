@@ -26,3 +26,7 @@ jobs:
         run: cd ./runtime/ubuntu && bash run.sh
       - name: Build and Push openjdk
         run: cd ./runtime/openjdk && bash run.sh
+      - name: Build and Push node
+        run: cd ./runtime/node && bash run.sh
+      - name: Build and Push python
+        run: cd ./runtime/python && bash run.sh

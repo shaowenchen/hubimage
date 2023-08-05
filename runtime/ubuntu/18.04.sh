@@ -1,7 +1,7 @@
 #!/bin/sh
 
-docker build -t hubimage/runtime-ubuntu:22.04 - << EOF
-FROM ubuntu:22.04
+docker build -t hubimage/runtime-ubuntu:18.04 - << EOF
+FROM ubuntu:18.04
 LABEL maintainer="shaowenchen <mail@chenshaowen.com>"
 RUN set -eux && \
     apt-get -y update && \
@@ -11,5 +11,4 @@ RUN set -eux && \
     apt-get clean && \
     rm -rf /var/cache/apt/archives /var/lib/apt/lists/*
 EOF
-
-docker push hubimage/runtime-ubuntu:22.04
+docker push hubimage/runtime-ubuntu:18.04
