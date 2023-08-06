@@ -22,11 +22,13 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
-      - name: Build and Push ubuntu
+      - name: Build and Push Ubuntu
         run: cd ./runtime/ubuntu && bash run.sh
-      - name: Build and Push openjdk
+      - name: Build and Push Openjdk
         run: cd ./runtime/openjdk && bash run.sh
-      - name: Build and Push node
+      - name: Build and Push Openresty
+        run: cd ./runtime/openresty && bash run.sh
+      - name: Build and Push Node
         run: cd ./runtime/node && bash run.sh
-      - name: Build and Push python
+      - name: Build and Push Python
         run: cd ./runtime/python && bash run.sh
