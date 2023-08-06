@@ -62,13 +62,16 @@ hubimage/runtime-openjdk:17
 
 ## openresty
 
-> config filepath is `/etc/nginx/conf.d/default.conf`
+> nginx config location `/etc/nginx/conf.d/default.conf`
+> openresty config location `/usr/local/openresty/nginx/conf/nginx.conf`
 
-hubimage/runtime-openresty:1.21.4.2-fedora
+hubimage/runtime-openresty:1.21.4.2-jammy
 
-hubimage/runtime-openresty:1.19.3.2-fedora
+hubimage/runtime-openresty:1.21.4.2-focal
 
-hubimage/runtime-openresty:1.17.8.2-fedora
+hubimage/runtime-openresty:1.19.3.2-focal
+
+hubimage/runtime-openresty:1.17.8.2-focal
 
 hubimage/runtime-openresty:1.15.8.3-2-centos
 
