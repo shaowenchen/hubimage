@@ -4,7 +4,7 @@ if [ "x${VERSION}" = "x" ]; then
   VERSION=$(cat /etc/os-release | grep "VERSION_ID" | cut -d '"' -f 2)
 fi
 
-repo_url="https://raw.githubusercontent.com/shaowenchen/hubimage/master/mirror/debian/"
+repo_url="https://raw.githubusercontent.com/shaowenchen/hubimage/main/mirror/debian/"
 
 case $VERSION in
   7)

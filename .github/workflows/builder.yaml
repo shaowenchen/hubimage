@@ -5,7 +5,7 @@ on:
     paths:
       - "builder/**"
     branches:
-      - master
+      - main
   workflow_dispatch:
 jobs:
   docker:
