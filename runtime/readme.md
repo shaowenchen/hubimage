@@ -59,3 +59,17 @@ hubimage/runtime-openjdk:18
 hubimage/runtime-openjdk:19
 
 hubimage/runtime-openjdk:20
+
+## openresty
+
+> config filepath is `/etc/nginx/conf.d/default.conf`
+
+hubimage/runtime-openresty:1.21.4.2-fedora
+
+hubimage/runtime-openresty:1.19.3.2-fedora
+
+hubimage/runtime-openresty:1.17.8.2-fedora
+
+hubimage/runtime-openresty:1.15.8.3-2-centos
+
+hubimage/runtime-openresty:1.13.6.2-2-centos
