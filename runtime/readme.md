@@ -1,10 +1,22 @@
-## ubuntu
+## nginx
 
-hubimage/runtime-ubuntu:22.04
+> nginx config location `/etc/nginx/nginx.conf`
 
-hubimage/runtime-ubuntu:20.04
+hubimage/runtime-nginx:1.25.1
 
-hubimage/runtime-ubuntu:18.04
+hubimage/runtime-nginx:1.25.1-vts
+
+hubimage/runtime-nginx:1.24.0
+
+hubimage/runtime-nginx:1.24.0-vts
+
+hubimage/runtime-nginx:1.22.1
+
+hubimage/runtime-nginx:1.22.1-vts
+
+hubimage/runtime-nginx:1.20.2
+
+hubimage/runtime-nginx:1.20.2-vts
 
 ## node
 
@@ -34,22 +46,6 @@ hubimage/runtime-node:9
 
 hubimage/runtime-node:8
 
-## python
-
-hubimage/runtime-python:3.11
-
-hubimage/runtime-python:3.10
-
-hubimage/runtime-python:3.9
-
-hubimage/runtime-python:3.8
-
-hubimage/runtime-python:3.7
-
-hubimage/runtime-python:3.6
-
-hubimage/runtime-python:2.7
-
 ## openjdk
 
 hubimage/runtime-openjdk:20
@@ -73,6 +69,26 @@ hubimage/runtime-openresty:1.19.3.2-focal
 
 hubimage/runtime-openresty:1.17.8.2-focal
 
-hubimage/runtime-openresty:1.15.8.3-2-centos
+## python
 
-hubimage/runtime-openresty:1.13.6.2-2-centos
+hubimage/runtime-python:3.11
+
+hubimage/runtime-python:3.10
+
+hubimage/runtime-python:3.9
+
+hubimage/runtime-python:3.8
+
+hubimage/runtime-python:3.7
+
+hubimage/runtime-python:3.6
+
+hubimage/runtime-python:2.7
+
+## ubuntu
+
+hubimage/runtime-ubuntu:22.04
+
+hubimage/runtime-ubuntu:20.04
+
+hubimage/runtime-ubuntu:18.04

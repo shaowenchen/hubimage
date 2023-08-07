@@ -14,13 +14,13 @@ case $VERSION in
     repo_url=$repo_url"16.04.xenial.aliyun.sources.list"
     ;;
   18.04)
-    repo_url=$repo_url"18.04.bionic.sources.list"
+    repo_url=$repo_url"18.04.bionic.aliyun.sources.list"
     ;;
   20.04)
-    repo_url=$repo_url"20.04.focal.sources.list"
+    repo_url=$repo_url"20.04.focal.aliyun.sources.list"
     ;;
   22.04)
-    repo_url=$repo_url"22.04.jammy.sources.list"
+    repo_url=$repo_url"22.04.jammy.aliyun.sources.list"
     ;;
   *)
     echo "Unsupported version"
@@ -28,7 +28,12 @@ case $VERSION in
     ;;
 esac
 
-mv /etc/apt/sources.list /etc/apt/sources.list.backup.$(date +"%Y%m%d%H%M%S") || true
+if [ -e "/etc/apt/sources.list" ]; then
+    mv /etc/apt/sources.list /etc/apt/sources.list.backup.$(date +"%Y%m%d%H%M%S")
+else
+    echo "File not found: /etc/apt/sources.list"
+fi
+
 curl -sfL $repo_url -o /etc/apt/sources.list
 
 apt update

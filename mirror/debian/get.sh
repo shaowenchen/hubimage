@@ -28,7 +28,12 @@ case $VERSION in
     ;;
 esac
 
-mv /etc/apt/sources.list /etc/apt/sources.list.backup.$(date +"%Y%m%d%H%M%S") || true
+if [ -e "/etc/apt/sources.list" ]; then
+    mv /etc/apt/sources.list /etc/apt/sources.list.backup.$(date +"%Y%m%d%H%M%S")
+else
+    echo "File not found: /etc/apt/sources.list"
+fi
+
 curl -sfL $repo_url -o /etc/apt/sources.list
 
 apt update
