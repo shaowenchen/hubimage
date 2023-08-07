@@ -6,7 +6,7 @@ LABEL maintainer="shaowenchen <mail@chenshaowen.com>"
 RUN mkdir -p /runtime && \
     apt-get -y update && \
     apt-get -y install wget curl xz-utils bash gettext ca-certificates && \
-    wget https://raw.githubusercontent.com/shaowenchen/hubimage/main/mirror/ubuntu/20.04.focal.aliyun.source.list -O /etc/apt/sources.list && \
+    wget https://raw.githubusercontent.com/shaowenchen/hubimage/main/mirror/ubuntu/20.04.focal.aliyun.sources.list -O /etc/apt/sources.list && \
     ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
     echo "Asia/Shanghai" > /etc/timezone && \
     apt-get clean && \

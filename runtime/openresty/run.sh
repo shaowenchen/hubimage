@@ -11,8 +11,7 @@ ENV LUA_PROM_VERSION=0.20230607
 RUN mkdir -p /runtime && \
     curl -LO https://github.com/knyar/nginx-lua-prometheus/archive/refs/tags/\$LUA_PROM_VERSION.tar.gz && \
     tar -zxvf \$LUA_PROM_VERSION.tar.gz --remove-files && \
-    cp nginx-lua-prometheus-\$LUA_PROM_VERSION/prometheus.lua /usr/local/openresty/lualib/ && \
-    rm -rf ./nginx-lua-prometheus-\$LUA_PROM_VERSION && \
+    mv nginx-lua-prometheus-\$LUA_PROM_VERSION /usr/local/openresty/lualib/nginx-lua-prometheus && \
     ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
     echo "Asia/Shanghai" > /etc/timezone
 WORKDIR /runtime

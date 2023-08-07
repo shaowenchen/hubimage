@@ -22,14 +22,14 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
-      - name: Build and Push Nginx
-        run: cd ./runtime/nginx && bash run.sh
-      - name: Build and Push Ubuntu
-        run: cd ./runtime/ubuntu && bash run.sh
-      - name: Build and Push Openjdk
-        run: cd ./runtime/openjdk && bash run.sh
       - name: Build and Push Openresty
         run: cd ./runtime/openresty && bash run.sh
+      - name: Build and Push Ubuntu
+        run: cd ./runtime/ubuntu && bash run.sh
+      - name: Build and Push Nginx
+        run: cd ./runtime/nginx && bash run.sh
+      - name: Build and Push Openjdk
+        run: cd ./runtime/openjdk && bash run.sh
       - name: Build and Push Node
         run: cd ./runtime/node && bash run.sh
       - name: Build and Push Python
