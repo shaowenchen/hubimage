@@ -23,7 +23,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
       - name: Build and Push PyPy
-        run: cd ./builder/PyPy && bash run.sh
+        run: cd ./builder/pypy && bash run.sh
       - name: Build and Push Golang
         run: cd ./builder/golang && bash run.sh
       - name: Build and Push Maven
