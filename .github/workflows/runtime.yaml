@@ -22,6 +22,8 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
+      - name: Build and Push PyPy
+        run: cd ./runtime/pypy && bash run.sh
       - name: Build and Push Openresty
         run: cd ./runtime/openresty && bash run.sh
       - name: Build and Push Ubuntu

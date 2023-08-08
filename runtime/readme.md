@@ -69,6 +69,14 @@ hubimage/runtime-openresty:1.19.3.2-focal
 
 hubimage/runtime-openresty:1.17.8.2-focal
 
+## pypy
+
+hubimage/runtime-pypy:3.10
+
+hubimage/runtime-pypy:3.9
+
+hubimage/runtime-pypy:2.7
+
 ## python
 
 hubimage/runtime-python:3.11
