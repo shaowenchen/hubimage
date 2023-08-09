@@ -71,3 +71,7 @@ hubimage/builder-maven:3.9-openjdk-19
 hubimage/builder-maven:3.9-openjdk-18
 
 hubimage/builder-maven:3.9-openjdk-17
+
+hubimage/builder-maven:3.9-openjdk-11
+
+hubimage/builder-maven:3.9-openjdk-8

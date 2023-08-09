@@ -56,6 +56,10 @@ hubimage/runtime-openjdk:18
 
 hubimage/runtime-openjdk:17
 
+hubimage/runtime-openjdk:11
+
+hubimage/runtime-openjdk:18
+
 ## openresty
 
 > nginx config location `/etc/nginx/conf.d/default.conf`
