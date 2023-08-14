@@ -1,5 +1,7 @@
 ## golang
 
+hubimage/builder-golang:1.21
+
 hubimage/builder-golang:1.20
 
 hubimage/builder-golang:1.19
