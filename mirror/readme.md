@@ -1,3 +1,11 @@
+## Quick Start
+
+```bash
+curl -sfL https://raw.githubusercontent.com/shaowenchen/hubimage/main/mirror/get.sh | sh -
+```
+
+Automatically detect the system version and install the corresponding mirror.
+
 ## CentOS
 
 ```bash
