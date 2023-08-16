@@ -6,6 +6,12 @@ curl -sfL https://raw.githubusercontent.com/shaowenchen/hubimage/main/mirror/cen
 
 version: 6, 7, 8
 
+Or let the script detect the version:
+
+```bash
+curl -sfL https://raw.githubusercontent.com/shaowenchen/hubimage/main/mirror/centos/get.sh | sh -
+```
+
 ## Debian
 
 ```bash
@@ -14,6 +20,12 @@ curl -sfL https://raw.githubusercontent.com/shaowenchen/hubimage/main/mirror/deb
 
 version: 7, 8, 9, 10, 11
 
+Or let the script detect the version:
+
+```bash
+curl -sfL https://raw.githubusercontent.com/shaowenchen/hubimage/main/mirror/debian/get.sh | sh -
+```
+
 ## Ubuntu
 
 ```bash
@@ -21,6 +33,12 @@ curl -sfL https://raw.githubusercontent.com/shaowenchen/hubimage/main/mirror/ubu
 ```
 
 version: 14.04, 16.04, 18.04, 20.04, 22.04
+
+Or let the script detect the version:
+
+```bash
+curl -sfL https://raw.githubusercontent.com/shaowenchen/hubimage/main/mirror/ubuntu/get.sh | sh -
+```
 
 ## Alpine
 
