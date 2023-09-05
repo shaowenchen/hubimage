@@ -9,6 +9,10 @@ RUN mkdir -p /builder && \
     pip config --user set global.index https://mirrors.aliyun.com/pypi/simple/ && \
     pip config --user set global.index-url https://mirrors.aliyun.com/pypi/simple/ && \
     pip config --user set global.trusted-host mirrors.aliyun.com
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    build-essential && \
+    rm -rf /var/lib/apt/lists/*
 WORKDIR /builder
 EOF
 done
