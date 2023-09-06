@@ -1,0 +1,2 @@
+nvcr.io/nvidia/pytorch: hubimage/nvidia-pytorch
+nvidia/cuda: hubimage/nvidia-cuda
