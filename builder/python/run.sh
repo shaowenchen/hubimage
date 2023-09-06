@@ -11,6 +11,7 @@ RUN mkdir -p /builder && \
     pip config --user set global.trusted-host mirrors.aliyun.com
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
+    ninja-build && \
     build-essential && \
     rm -rf /var/lib/apt/lists/*
 WORKDIR /builder
