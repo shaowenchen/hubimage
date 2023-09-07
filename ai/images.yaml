@@ -1,2 +1,3 @@
+ghcr.io/abetlen/llama-cpp-python: hubimage/llama-cpp-python
 nvcr.io/nvidia/pytorch: hubimage/nvidia-pytorch
 nvidia/cuda: hubimage/nvidia-cuda

@@ -1,6 +1,11 @@
 name: AI
 
 on:
+  push:
+    paths:
+      - "ai/**"
+    branches:
+      - main
   schedule:
     - cron: "30 18 * * 2"
   workflow_dispatch:
