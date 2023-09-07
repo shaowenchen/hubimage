@@ -1,6 +1,0 @@
-traefik/whoami: hubimage/demo-whomai
-
-tekn0ir/nginx-stream: hubimage/demo-nginx-stream
-
-softonic/nginx-vts: hubimage/demo-nginx-vts
-sophos/nginx-vts-exporter: hubimage/demo-nginx-vts-exporter
