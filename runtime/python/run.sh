@@ -7,6 +7,7 @@ do
 FROM python:$line
 LABEL maintainer="shaowenchen <mail@chenshaowen.com>"
 RUN mkdir -p /runtime && \
+    pip install --upgrade pip && \
     pip config --user set global.index https://mirrors.aliyun.com/pypi/simple/ && \
     pip config --user set global.index-url https://mirrors.aliyun.com/pypi/simple/ && \
     pip config --user set global.trusted-host mirrors.aliyun.com && \
