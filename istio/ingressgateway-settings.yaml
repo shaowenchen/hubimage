@@ -17,7 +17,7 @@ spec:
       value:
         typed_config:
           "@type": "type.googleapis.com/envoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager"
-          xff_num_trusted_hops: 2
+          xff_num_trusted_hops: 1
   workloadSelector:
     labels:
       istio: ingressgateway
