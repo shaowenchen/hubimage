@@ -1,16 +1,16 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: EnvoyFilter
 metadata:
-  name: compression-gzip
-  namespace: istio-system
+  name: compression-gzip-sidecar
+  namespace: default
 spec:
-  workloadSelector:
-    labels:
-      app: istio-ingressgateway
+  # workloadSelector:
+  #   labels:
+  #     app: app-a
   configPatches:
     - applyTo: HTTP_FILTER
       match:
-        context: GATEWAY
+        context: SIDECAR_INBOUND
         listener:
           filterChain:
             filter:
@@ -49,4 +49,4 @@ spec:
               typed_config:
                 "@type": type.googleapis.com/envoy.extensions.compression.gzip.compressor.v3.Gzip
                 memory_level: 3
-                compression_level: COMPRESSION_LEVEL_6
+                compression_level: COMPRESSION_LEVEL_3
