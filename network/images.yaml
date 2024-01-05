@@ -5,6 +5,7 @@ registry.k8s.io/ingress-nginx/controller: hubimage/ingress-nginx-controller
 calico/kube-controllers: hubimage/kube-controllers
 calico/node: hubimage/node
 calico/cni: hubimage/cni
+calico/csi: hubimage/csi
 calico/pod2daemon-flexvol: hubimage/pod2daemon-flexvol
 calico/ctl: hubimage/ctl
 calico/typha: hubimage/typha
