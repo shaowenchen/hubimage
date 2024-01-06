@@ -1,5 +1,7 @@
 [Unit]
 Description=nydus snapshotter
+After=network.target
+Before=containerd.service
 
 [Service]
 Type=simple
