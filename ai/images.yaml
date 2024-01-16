@@ -1,3 +1,4 @@
+nvcr.io/nvidia/tensorrtserver: hubimage/nvidia-tensorrtserver
 nvcr.io/nvidia/tensorrt: hubimage/nvidia-tensorrt
 nvcr.io/nvidia/pytorch: hubimage/nvidia-pytorch
 nvidia/cuda: hubimage/nvidia-cuda
