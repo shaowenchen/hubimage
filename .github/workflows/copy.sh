@@ -12,7 +12,7 @@ for image in ${ALL_IMAGES}; do
     IFS=', ' read -r -a imagearr <<< "$image"
     for tag in $(skopeo list-tags docker://${imagearr[0]} | jq '.Tags[]' | sed '1!G;h;$!d' ); do
         tag=$(echo $tag | sed 's/"//g')
-        if [ ${#tag} -gt 20 ]
+        if [ ${#tag} -gt 28 ]
         then
             echo "Skipping too long tag ${imagearr[0]}:${tag}"
             continue
