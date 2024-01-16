@@ -1,5 +1,6 @@
-nvidia/cuda: hubimage/nvidia-cuda
+nvcr.io/nvidia/tensorrt: hubimage/nvidia-tensorrt
 nvcr.io/nvidia/pytorch: hubimage/nvidia-pytorch
+nvidia/cuda: hubimage/nvidia-cuda
 zhayujie/chatgpt-on-wechat: hubimage/chatgpt-on-wechat
 ghcr.io/mckaywrigley/chatbot-ui: hubimage/chatbot-ui
 ghcr.io/ggerganov/llama.cpp: hubimage/llama-cpp
