@@ -8,27 +8,27 @@ gcInterval: 1m0s
 # WorkHome is working directory.
 # In linux, default value is /usr/local/dragonfly.
 # In macos(just for testing), default value is /Users/$USER/.dragonfly.
-workHome: ""
+workHome: ''
 
 # logDir is the log directory.
 # In linux, default value is /var/log/dragonfly.
 # In macos(just for testing), default value is /Users/$USER/.dragonfly/logs.
-logDir: ""
+logDir: ''
 
 # cacheDir is dynconfig cache directory.
 # In linux, default value is /var/cache/dragonfly.
 # In macos(just for testing), default value is /Users/$USER/.dragonfly/cache.
-cacheDir: ""
+cacheDir: ''
 
 # pluginDir is the plugin directory.
 # In linux, default value is /usr/local/dragonfly/plugins.
 # In macos(just for testing), default value is /Users/$USER/.dragonfly/plugins.
-pluginDir: ""
+pluginDir: ''
 
 # dataDir is the download data directory.
 # In linux, default value is /var/lib/dragonfly.
 # In macos(just for testing), default value is /Users/$USER/.dragonfly/data.
-dataDir: ""
+dataDir: ''
 
 # when daemon exit, keep peer task data or not
 # it is usefully when upgrade daemon service, all local cache will be saved
@@ -36,7 +36,7 @@ dataDir: ""
 keepStorage: true
 
 # console shows log on console
-console: true
+console: false
 
 # whether to enable debug level logger and enable pprof
 verbose: true
@@ -55,27 +55,26 @@ jaeger: ""
 scheduler:
   manager:
     # get scheduler list dynamically from manager
-    enable: true
-    netAddrs:
-      - type: tcp
-        addr: __MANAGER_IP__:65003
+    enable: false
   # schedule timeout
   scheduleTimeout: 30s
   # when true, only scheduler says back source, daemon can back source
   disableAutoBackSource: false
   # below example is a stand address
   netAddrs:
+    - type: tcp
+      addr: __IP__:8002
 
 # current host info used for scheduler
 host:
   # access ip for other peers
   # when local ip is different with access ip, advertiseIP should be set
-  # advertiseIP: ""
+  advertiseIP: __IP__
   # geographical location, separated by "|" characters
   location: ""
   # idc deployed by daemon
   idc: ""
-  # daemon hostname
+ # daemon hostname
   # hostname: ""
 
 # download service option
@@ -126,9 +125,9 @@ download:
     # Security option.
     security:
       insecure: true
-      cacert: ""
-      cert: ""
-      key: ""
+      cacert: ''
+      cert: ''
+      key: ''
       tlsVerify: true
       tlsConfig: null
     # Download service listen address
@@ -136,15 +135,15 @@ download:
     unixListen:
       # In linux, default value is /var/run/dfdaemon.sock.
       # In macos(just for testing), default value is /tmp/dfdaemon.sock.
-      socket: ""
+      socket: ''
   # peer grpc option
   # peer grpc service send pieces info to other peers
   peerGRPC:
     security:
       insecure: true
-      cacert: ""
-      cert: ""
-      key: ""
+      cacert: ''
+      cert: ''
+      key: ''
       tlsVerify: true
     tcpListen:
       # # Listen address.
@@ -163,9 +162,9 @@ upload:
   rateLimit: 1024Mi
   security:
     insecure: true
-    cacert: ""
-    cert: ""
-    key: ""
+    cacert: ''
+    cert: ''
+    key: ''
     tlsVerify: false
   tcpListen:
     # # Listen address.
@@ -188,7 +187,7 @@ objectStorage:
   # When filter: "Expires&Signature&ns", for example:
   #  http://localhost/xyz?Expires=111&Signature=222&ns=docker.io and http://localhost/xyz?Expires=333&Signature=999&ns=docker.io
   # is same task.
-  filter: "Expires&Signature&ns"
+  filter: 'Expires&Signature&ns'
   # maxReplicas is the maximum number of replicas of an object cache in seed peers.
   maxReplicas: 3
   # Object storage service security option.
@@ -227,9 +226,9 @@ storage:
 health:
   security:
     insecure: true
-    cacert: ""
-    cert: ""
-    key: ""
+    cacert: ''
+    cert: ''
+    key: ''
     tlsVerify: false
   tcpListen:
     # # Listen address.
@@ -254,18 +253,18 @@ proxy:
   # the same download url can be divided into different tasks according to the tag,
   # it is also possible to override the default tag by adding
   # the X-Dragonfly-Tag header through the proxy.
-  defaultTag: ""
+  defaultTag: ''
   security:
     insecure: true
-    cacert: ""
-    cert: ""
-    key: ""
+    cacert: ''
+    cert: ''
+    key: ''
     tlsVerify: false
   tcpListen:
     # namespace stands the linux net namespace, like /proc/1/ns/net.
     # It's useful for running daemon in pod with ip allocated and listening the special port in host net namespace.
     # Linux only.
-    namespace: ""
+    namespace: ''
     # # Listen address.
     # listen: 0.0.0.0
     # Listen port, daemon will try to listen,
