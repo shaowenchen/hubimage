@@ -3,6 +3,8 @@
 docker buildx build --push --platform=linux/arm,linux/arm64,linux/amd64 -t hubimage/runtime-ubuntu:20.04 - << EOF
 FROM ubuntu:20.04
 LABEL maintainer="shaowenchen <mail@chenshaowen.com>"
+ENV DEBIAN_FRONTEND=noninteractive
+ENV TZ=Asia/Shanghai
 RUN mkdir -p /runtime && \
     apt-get -y update && \
     apt-get -y install python3-pip vim tzdata wget curl xz-utils bash gettext ca-certificates && \
