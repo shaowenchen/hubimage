@@ -1,3 +1,6 @@
+# exporters
+ncabatoff/process-exporter: hubimage/process-exporter
+
 # thanos
 thanosio/thanos: hubimage/thanos
 
