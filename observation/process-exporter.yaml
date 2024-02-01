@@ -1,0 +1,68 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  labels:
+    app.kubernetes.io/name: process-exporter
+  name: process-exporter
+  namespace: monitoring
+spec:
+  selector:
+    matchLabels:
+      app: process-exporter
+  template:
+    metadata:
+      labels:
+        app: process-exporter
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "9256"
+        prometheus.io/path: "/metrics"
+        prometheus.io/scheme: "http"
+    spec:
+      containers:
+        - name: process-exporter
+          image: ncabatoff/process-exporter:latest
+          args:
+            - "--procfs=/host/proc"
+            - "--config.path=/etc/process-exporter/process-exporter.yaml"
+          ports:
+            - name: metrics
+              containerPort: 9256
+          resources:
+            limits:
+              cpu: 250m
+              memory: 200Mi
+            requests:
+              cpu: 100m
+              memory: 100Mi
+          securityContext:
+            runAsGroup: 65532
+            runAsNonRoot: true
+            runAsUser: 65532
+
+          volumeMounts:
+            - name: proc
+              mountPath: /host/proc
+              readOnly: true
+            - name: config-volume
+              mountPath: /etc/process-exporter/process-exporter.yaml
+              subPath: process-exporter.yaml
+      volumes:
+        - name: proc
+          hostPath:
+            path: /proc
+        - name: config-volume
+          configMap:
+            name: process-exporter-config
+---
+apiVersion: v1
+data:
+  process-exporter.yaml: |-
+    process_names:
+      - name: "{{.Comm}}"
+        cmdline:
+        - '.+'
+kind: ConfigMap
+metadata:
+  name: process-exporter-config
+  namespace: monitoring
