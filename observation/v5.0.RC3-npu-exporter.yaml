@@ -17,6 +17,8 @@ spec:
         prometheus.io/path: "/metrics"
         prometheus.io/scheme: "http"
     spec:
+      nodeSelector:
+        accelerator/provider: huawei-npu
       containers:
         - args:
             - umask 027;npu-exporter -port=8082 -ip=0.0.0.0  -updateTime=5 -logFile=/home/hwMindX/npu-exporter.log
