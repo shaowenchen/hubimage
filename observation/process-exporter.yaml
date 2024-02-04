@@ -4,7 +4,7 @@ metadata:
   labels:
     app.kubernetes.io/name: process-exporter
   name: process-exporter
-  namespace: monitoring
+  namespace: monitor
 spec:
   selector:
     matchLabels:
@@ -65,4 +65,4 @@ data:
 kind: ConfigMap
 metadata:
   name: process-exporter-config
-  namespace: monitoring
+  namespace: monitor

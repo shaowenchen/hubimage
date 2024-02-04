@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: DaemonSet
 metadata:
   name: host-9567-exporter
-  namespace: monitoring
+  namespace: monitor
 spec:
   selector:
     matchLabels:
