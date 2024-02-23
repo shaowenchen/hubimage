@@ -1,0 +1,7 @@
+# argo-cd
+quay.io/argoproj/argocd: hubimage/argoproj-argocd
+ghcr.io/dexidp/dex: hubimage/dexidp-dex
+
+# argo-workflow
+quay.io/argoproj/argocli: hubimage/argoproj-argocli
+quay.io/argoproj/workflow-controller: hubimage/argoproj-workflow-controller
