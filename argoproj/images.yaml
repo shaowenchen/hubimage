@@ -1,3 +1,7 @@
+# argo-rollouts
+quay.io/argoproj/argo-rollouts: hubimage/argoproj-argo-rollouts
+quay.io/argoproj/kubectl-argo-rollouts: hubimage/argoproj-kubectl-argo-rollouts
+
 # argo-cd
 quay.io/argoproj/argocd: hubimage/argoproj-argocd
 ghcr.io/dexidp/dex: hubimage/dexidp-dex
