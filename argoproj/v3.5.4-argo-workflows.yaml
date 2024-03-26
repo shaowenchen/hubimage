@@ -1317,6 +1317,8 @@ spec:
       - args: []
         command:
         - workflow-controller
+        - --executor-image
+        - hubimage/argoproj-argoexec:v3.5.4
         env:
         - name: LEADER_ELECTION_IDENTITY
           valueFrom:
