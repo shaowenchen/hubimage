@@ -1,0 +1,38 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Workflow
+metadata:
+  name: workflow-continue-on-fail
+spec:
+  entrypoint: dag
+  serviceAccountName: workflow-pods-sa
+  templates:
+    - name: dag
+      dag:
+        tasks:
+          - name: task-1
+            templateRef:
+              name: exit-status-template
+              template: exit-status
+              clusterScope: true
+            arguments:
+              parameters:
+                - name: status
+                  value: "{{ workflow.parameters.status }}"
+            continueOn:
+              failed: true
+          - name: ignore-continue-on-failure
+            templateRef:
+              name: whalesay-template
+              template: whalesay
+              clusterScope: true
+            arguments:
+              parameters:
+                - name: message
+                  value: "{{ workflow.parameters.message }}"
+            dependencies: [task-1]
+  arguments:
+    parameters:
+      - name: message
+        value: "hello world from workflow"
+      - name: status
+        value: "1"

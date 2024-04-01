@@ -1,0 +1,82 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Workflow
+metadata:
+  name: workflow-withsequence
+spec:
+  entrypoint: dag
+  serviceAccountName: workflow-pods-sa
+  templates:
+    - name: dag
+      dag:
+        tasks:
+          - name: task-1
+            templateRef:
+              name: whalesay-template
+              template: whalesay
+              clusterScope: true
+            withSequence:
+              count: "3"
+            arguments:
+              parameters:
+                - name: message
+                  value: "{{workflow.parameters.message}}"
+  arguments:
+    parameters:
+      - name: message
+        value: "hello world from workflow"
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Workflow
+metadata:
+  name: workflow-withitems
+spec:
+  entrypoint: dag
+  serviceAccountName: workflow-pods-sa
+  templates:
+    - name: dag
+      dag:
+        tasks:
+          - name: task-1
+            templateRef:
+              name: whalesay-template
+              template: whalesay
+              clusterScope: true
+            withItems: 
+              - "a"
+              - "b"
+            arguments:
+              parameters:
+                - name: message
+                  value: "{{item}}"
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Workflow
+metadata:
+  name: workflow-withparam
+spec:
+  entrypoint: dag
+  serviceAccountName: workflow-pods-sa
+  templates:
+    - name: dag
+      dag:
+        tasks:
+          - name: task-1
+            templateRef:
+              name: whalesay-template
+              template: whalesay
+              clusterScope: true
+            arguments:
+              parameters:
+                - name: message
+                  value: "{{item.message}}"
+            withParam: "{{workflow.parameters.message-list}}"
+  arguments:
+    parameters:
+      - name: message-list
+        value: |
+          [
+            { "message": "a" },
+            { "message": "b"},
+            { "message": "c" },
+            { "message": "d" }
+          ]
