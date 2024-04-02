@@ -92,3 +92,23 @@ spec:
           - name: message
             valueFrom:
               path: /tmp/outputs-message
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ClusterWorkflowTemplate
+metadata:
+  name: whalesay-template-2
+spec:
+  templates:
+    - name: whalesay
+      inputs:
+        parameters:
+          - name: message
+            value: "{{workflow.parameters.message}}"
+      container:
+        image: docker/whalesay
+        command: [cowsay]
+        args: ["{{inputs.parameters.message}}"]
+  arguments:
+    parameters:
+      - name: message
+        value: hello

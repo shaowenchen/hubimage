@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Workflow
+metadata:
+  name: workflow-paramter-2
+spec:
+  entrypoint: dag
+  serviceAccountName: workflow-pods-sa
+  templates:
+    - name: dag
+      dag:
+        tasks:
+          - name: task-1
+            templateRef:
+              name: whalesay-template-2
+              template: whalesay
+              clusterScope: true
+            arguments:
+              parameters:
+                - name: message
+                  value: "{{workflow.parameters.message}}"
+  arguments:
+    parameters:
+      - name: message
+        value: "3"
