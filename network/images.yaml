@@ -1,8 +1,3 @@
-# ib
-ghcr.io/mellanox/k8s-rdma-shared-dev-plugin: hubimage/k8s-rdma-shared-dev-plugin
-# ingress
-registry.k8s.io/ingress-nginx/controller: hubimage/ingress-nginx-controller
-
 # calico
 calico/kube-controllers: hubimage/kube-controllers
 calico/node: hubimage/node
