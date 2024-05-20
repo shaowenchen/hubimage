@@ -26,3 +26,4 @@ logstash: hubimage/logstash
 elastic/filebeat: hubimage/filebeat
 elastic/kibana: hubimage/kibana
 elastic/metricbeat: hubimage/metricbeat
+docker.elastic.co/eck/eck-operator: hubimage/eck-operator
