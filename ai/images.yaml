@@ -1,3 +1,5 @@
+gcr.io/spark-operator/spark-operator: hubimage/spark-operator
+gcr.io/spark/spark: hubimage/spark
 nvcr.io/nvidia/k8s/dcgm-exporter: hubimage/nvidia-dcgm-exporter
 nvcr.io/nvidia/tritonserver: hubimage/nvidia-tritonserver
 nvcr.io/nvidia/tensorrtserver: hubimage/nvidia-tensorrtserver
