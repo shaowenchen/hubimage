@@ -1,0 +1,28 @@
+name: AI1
+
+on:
+  push:
+    paths:
+      - "ai/**"
+    branches:
+      - main
+  schedule:
+    - cron: "30 18 * * 2"
+  workflow_dispatch:
+jobs:
+  build:
+    name: Image Sync
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+      - name: Working
+        env:
+          DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+          DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
+        run: bash ./.github/workflows/copy.sh ./ai/images1.yaml

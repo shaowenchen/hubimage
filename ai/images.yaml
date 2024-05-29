@@ -1,11 +1,6 @@
-docker.elastic.co/beats/metricbeat: hubimage/elastic-metricbeat
 nvcr.io/nvidia/k8s/dcgm-exporter: hubimage/nvidia-dcgm-exporter
 nvcr.io/nvidia/tritonserver: hubimage/nvidia-tritonserver
 nvcr.io/nvidia/tensorrtserver: hubimage/nvidia-tensorrtserver
 nvcr.io/nvidia/tensorrt: hubimage/nvidia-tensorrt
 nvcr.io/nvidia/pytorch: hubimage/nvidia-pytorch
 nvidia/cuda: hubimage/nvidia-cuda
-zhayujie/chatgpt-on-wechat: hubimage/chatgpt-on-wechat
-ghcr.io/mckaywrigley/chatbot-ui: hubimage/chatbot-ui
-ghcr.io/ggerganov/llama.cpp: hubimage/llama-cpp
-ghcr.io/abetlen/llama-cpp-python: hubimage/llama-cpp-python
