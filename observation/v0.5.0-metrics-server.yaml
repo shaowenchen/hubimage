@@ -168,7 +168,7 @@ spec:
         volumeMounts:
         - mountPath: /tmp
           name: tmp-dir
-      hostNetwork: true
+      hostNetwork: false
       dnsPolicy: ClusterFirst
       nodeSelector:
         kubernetes.io/os: linux

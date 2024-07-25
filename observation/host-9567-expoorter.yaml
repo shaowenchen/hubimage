@@ -17,7 +17,7 @@ spec:
         prometheus.io/path: "/metrics"
         prometheus.io/scheme: "http"
     spec:
-      hostNetwork: true
+      hostNetwork: false
       containers:
         - name: socat
           image: alpine/socat

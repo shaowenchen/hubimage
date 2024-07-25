@@ -172,7 +172,7 @@ spec:
         volumeMounts:
         - mountPath: /tmp
           name: tmp-dir
-      hostNetwork: true
+      hostNetwork: false
       nodeSelector:
         kubernetes.io/os: linux
       priorityClassName: system-cluster-critical
