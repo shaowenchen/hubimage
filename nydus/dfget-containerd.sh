@@ -12,5 +12,5 @@ server = "https://docker.io"
     capabilities = ["pull", "resolve"]
 EOF
 
-wget https://mirror.ghproxy.com/https://raw.githubusercontent.com/dragonflyoss/Dragonfly2/main/hack/gen-containerd-hosts.sh -O /usr/local/bin/gen-containerd-hosts.sh
+wget https://ghp.ci/https://raw.githubusercontent.com/dragonflyoss/Dragonfly2/main/hack/gen-containerd-hosts.sh -O /usr/local/bin/gen-containerd-hosts.sh
 chmod +x /usr/local/bin/gen-containerd-hosts.sh

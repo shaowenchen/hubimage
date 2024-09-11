@@ -2,7 +2,7 @@
 
 os=$(awk -F= '/^NAME/{print $2}' /etc/os-release | tr -d '"')
 
-default_proxy="https://mirror.ghproxy.com/"
+default_proxy="https://ghp.ci/"
 proxy=${PROXY:-$default_proxy}
 
 case "$os" in
