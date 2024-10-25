@@ -11,4 +11,4 @@ RUN ARCH=$(dpkg --print-architecture) && \
     mv kubectl /usr/local/bin/kubectl && \
     chmod +x /usr/local/bin/kubectl
 
-ENTRYPOINT []
+COPY . .
