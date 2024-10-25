@@ -1,4 +1,5 @@
 # kubernetes 1.25+, k8s.gcr.io -> registry.k8s.io
+registry.k8s.io/kubectl: hubimage/kubectl
 registry.k8s.io/node-problem-detector/node-problem-detector: hubimage/node-problem-detector
 registry.k8s.io/k8s-dns-node-cache: hubimage/k8s-dns-node-cache
 registry.k8s.io/kube-apiserver: hubimage/kube-apiserver
