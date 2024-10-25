@@ -70,7 +70,7 @@ spec:
         accelerator: huawei-Ascend910
       serviceAccountName: ascend-device-plugin-sa-910
       containers:
-      - image: ${IMAGE}
+      - image: ${DEVICE_PLUGIN_VOLCANO_IMAGE}
         name: device-plugin-01
         resources:
           requests:

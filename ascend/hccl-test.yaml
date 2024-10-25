@@ -1,4 +1,9 @@
 apiVersion: v1
+kind: Namespace
+metadata:
+  name: mindx-dl
+---
+apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: hccl-controller
@@ -61,7 +66,7 @@ spec:
           allowPrivilegeEscalation: false
           capabilities:
             drop: ["ALL"]
-        image: ${IMAGE}
+        image: ${HCCL_TEST_IMAGE}
         resources:
           requests:
               memory: 300Mi
