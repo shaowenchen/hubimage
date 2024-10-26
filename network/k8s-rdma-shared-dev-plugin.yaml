@@ -34,7 +34,7 @@ spec:
       hostNetwork: true
       priorityClassName: system-node-critical
       containers:
-        - image: hubimage/k8s-rdma-shared-dev-plugin
+        - image: hubimage/mellanox-k8s-rdma-shared-dev-plugin
           name: k8s-rdma-shared-dp-ds
           imagePullPolicy: IfNotPresent
           securityContext:

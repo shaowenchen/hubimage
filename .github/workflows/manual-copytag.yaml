@@ -6,11 +6,15 @@ on:
       src:
         description: ""
         required: true
-        default: "docker.elastic.co/beats/metricbeat:8.3.2"
+        default: "quay.io/argoproj/argo-events"
       dest:
         description: ""
         required: true
-        default: "hubimage/elastic-metricbeat:8.3.2"
+        default: "registry.cn-hangzhou.aliyuncs.com/opshub/argoproj-argo-events"
+      tag:
+        description: ""
+        required: true
+        default: "v1.8.0"
 jobs:
   build:
     name: Image Sync
@@ -23,8 +27,12 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
-      - name: Copy
+      - name: Login to ACR
+        uses: docker/login-action@v3
+        with:
+          registry: https://registry.cn-hangzhou.aliyuncs.com
+          username: "${{ secrets.ACR_USERNAME }}"
+          password: "${{ secrets.ACR_PASSWORD }}"
+      - name: Working
         run: |
-          docker pull ${{ inputs.src }}
-          docker tag ${{ inputs.src }} ${{ inputs.dest }}
-          docker push ${{ inputs.dest }}
+          docker run --rm -v ~/.docker/config.json:/auth.json quay.io/skopeo/stable copy docker://${{ inputs.src }}:${{ input.tag }} docker://${{ inputs.dest }}:${{ input.tag }} --dest-authfile /auth.json --insecure-policy --src-tls-verify=false --dest-tls-verify=false --retry-times 5 --all

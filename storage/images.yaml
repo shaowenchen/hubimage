@@ -1,8 +1,8 @@
 # nfs
-quay.io/external_storage/nfs-client-provisioner: hubimage/nfs-client-provisioner
+quay.io/external_storage/nfs-client-provisioner: hubimage/external-storage-nfs-client-provisioner
 
 # openebs
-openebs/provisioner-localpv: hubimage/provisioner-localpv
-openebs/node-disk-exporter: hubimage/node-disk-exporter
-openebs/node-disk-operator: hubimage/node-disk-operator
-openebs/node-disk-manager: hubimage/node-disk-manager
+openebs/provisioner-localpv: hubimage/openebs-provisioner-localpv
+openebs/node-disk-exporter: hubimage/openebs-node-disk-exporter
+openebs/node-disk-operator: hubimage/openebs-node-disk-operator
+openebs/node-disk-manager: hubimage/openebs-node-disk-manager

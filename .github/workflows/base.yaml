@@ -1,8 +1,13 @@
-name: Descheduler
+name: Base
 
 on:
+  push:
+    paths:
+      - "base/**"
+    branches:
+      - main
   schedule:
-    - cron: "0 16 * * 3"
+    - cron: "30 21 * * 3"
   workflow_dispatch:
 jobs:
   build:
@@ -23,4 +28,4 @@ jobs:
           username: "${{ secrets.ACR_USERNAME }}"
           password: "${{ secrets.ACR_PASSWORD }}"
       - name: Working
-        run: bash ./.github/workflows/copy.sh ./descheduler/images.yaml
+        run: bash ./.github/workflows/copy.sh ./base/images.yaml
