@@ -8,6 +8,7 @@ ncabatoff/process-exporter: hubimage/ncabatoff-process-exporter
 
 # thanos
 thanosio/thanos: hubimage/thanos
+thanosio/thanos: registry.cn-hangzhou.aliyuncs.com/opshub/thanos
 
 # grafana
 grafana/grafana: hubimage/grafana
