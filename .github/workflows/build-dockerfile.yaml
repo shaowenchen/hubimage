@@ -1,9 +1,23 @@
-name: Build
+name: BuildDockerfile
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
+    inputs:
+      repo:
+        description: ""
+        required: true
+        default: "Ascend/ascend-hccl-controller"
+      ref:
+        description: ""
+        required: true
+        default: "branch_v5.0.0-RC3"
+      dockerfile:
+        description: ""
+        required: true
+        default: "build/Dockerfile"
+      image:
+        description: ""
+        required: true
+        default: "registry.cn-hangzhou.aliyuncs.com/opshub/ascend-hccl-controller"
 
 jobs:
   docker:
@@ -24,14 +38,14 @@ jobs:
         uses: docker/setup-qemu-action@v3
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
+      - uses: actions/checkout@v4
+        with:
+          repository: "${{ inputs.repo }}"
+          ref: "${{ inputs.ref }}"
       - name: Build and push
         uses: docker/build-push-action@v6
         with:
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: docker.io/shaowenchen/hubimage:latest
-          file: Dockerfile
-      - name: Copy to Aliyun
-        run: |
-          export image=hubimage:latest
-          docker run --rm -v ~/.docker/config.json:/auth.json quay.io/skopeo/stable copy docker://shaowenchen/${image} docker://registry.cn-hangzhou.aliyuncs.com/shaowenchen/${image} --dest-authfile /auth.json --insecure-policy --src-tls-verify=false --dest-tls-verify=false --retry-times 5 --all
+          tags: "${{ inputs.image }}:${{ inputs.ref }}"
+          file: "${{ inputs.dockerfile }}"

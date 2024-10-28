@@ -134,8 +134,6 @@ spec:
       annotations:
         seccomp.security.alpha.kubernetes.io/pod: runtime/default
     spec:
-      nodeSelector:
-        masterselector: dls-master-node
       serviceAccount: volcano-scheduler
       securityContext:
         fsGroup: 9000
@@ -294,8 +292,6 @@ spec:
       annotations:
         seccomp.security.alpha.kubernetes.io/pod: runtime/default
     spec:
-      nodeSelector:
-        masterselector: dls-master-node
       serviceAccount: volcano-controllers
       securityContext:
         fsGroup: 9000
