@@ -28,6 +28,8 @@ jobs:
           registry: https://registry.cn-hangzhou.aliyuncs.com
           username: "${{ secrets.ACR_USERNAME }}"
           password: "${{ secrets.ACR_PASSWORD }}"
+      - name: Build and Push Node
+        run: cd ./builder/node && bash run.sh
       - name: Build and Push Golang
         run: cd ./builder/golang && bash run.sh
       - name: Build and Push Python
@@ -36,5 +38,3 @@ jobs:
         run: cd ./builder/pypy && bash run.sh
       - name: Build and Push Maven
         run: cd ./builder/maven && bash run.sh
-      - name: Build and Push Node
-        run: cd ./builder/node && bash run.sh

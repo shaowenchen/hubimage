@@ -7,6 +7,7 @@ do
 FROM hubimage/runtime-node:$line
 RUN mkdir -p builder && \
     npm config set registry http://registry.npm.taobao.org/ && \
+    npm config set fetch-retry-maxtimeout 600000 -g && \
     npm config set sass_binary_site http://cdn.npm.taobao.org/dist/node-sass && \
     npm config set phantomjs_cdnurl https://cdn.npm.taobao.org/dist/phantomjs/ && \
     npm config set chromedriver_cdnurl https://cdn.npm.taobao.org/dist/chromedriver && \
@@ -14,6 +15,7 @@ RUN mkdir -p builder && \
     npm config set fse_binary_host_mirror https://cdn.npm.taobao.org/dist/fsevents && \
     npm config set prefer-offline true || true && \
     yarn config set registry http://registry.npm.taobao.org/ && \
+    yarn config set network-timeout 600000 && \
     yarn config set sass_binary_site http://cdn.npm.taobao.org/dist/node-sass && \
     yarn config set phantomjs_cdnurl https://cdn.npm.taobao.org/dist/phantomjs/ && \
     yarn config set chromedriver_cdnurl https://cdn.npm.taobao.org/dist/chromedriver && \
