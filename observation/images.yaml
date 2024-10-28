@@ -16,7 +16,8 @@ grafana/grafana: hubimage/grafana
 # prometheus
 quay.io/prometheus/node-exporter: hubimage/prometheus-node-exporter
 quay.io/prometheus/alertmanager: hubimage/prometheus-alertmanager
-quay.io/prometheus/prometheus: hubimage/prometheus-prometheus
+quay.io/prometheus/prometheus: hubimage/prometheus
+quay.io/prometheus/prometheus: registry.cn-hangzhou.aliyuncs.com/opshub/prometheus
 jimmidyson/configmap-reload: hubimage/jimmidyson-configmap-reload
 quay.io/prometheus-operator/prometheus-config-reloader: hubimage/prometheus-config-reloader
 prom/pushgateway: hubimage/prom-pushgateway

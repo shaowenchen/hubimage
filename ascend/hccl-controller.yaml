@@ -67,7 +67,7 @@ spec:
           limits:
               memory: 300Mi
               cpu: 500m
-        imagePullPolicy: Never
+        imagePullPolicy: IfNotPresent
         command: [ "/bin/bash", "-c", "--"]
         args: ["umask 027;hccl-controller
          -logFile=/home/hwMindX/hccl-controller.log  -logLevel=0   " ]

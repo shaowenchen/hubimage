@@ -35,4 +35,4 @@ jobs:
           password: "${{ secrets.ACR_PASSWORD }}"
       - name: Working
         run: |
-          docker run --rm -v ~/.docker/config.json:/auth.json quay.io/skopeo/stable copy docker://${{ inputs.src }}:${{ input.tag }} docker://${{ inputs.dest }}:${{ input.tag }} --dest-authfile /auth.json --insecure-policy --src-tls-verify=false --dest-tls-verify=false --retry-times 5 --all
+          docker run --rm -v ~/.docker/config.json:/auth.json quay.io/skopeo/stable copy docker://${{ inputs.src }}:${{ inputs.tag }} docker://${{ inputs.dest }}:${{ inputs.tag }} --dest-authfile /auth.json --insecure-policy --src-tls-verify=false --dest-tls-verify=false --retry-times 5 --all
