@@ -52,8 +52,6 @@ spec:
       annotations:
         seccomp.security.alpha.kubernetes.io/pod: runtime/default
     spec:
-      nodeSelector:
-        masterselector: dls-master-node
       serviceAccountName: hccl-controller
       containers:
       - name: hccl-controller
@@ -61,7 +59,7 @@ spec:
           allowPrivilegeEscalation: false
           capabilities:
             drop: ["ALL"]
-        image: ${HCCL_TEST_IMAGE}
+        image: ${HCCL_CONTROLLER_IMAGE}
         resources:
           requests:
               memory: 300Mi
