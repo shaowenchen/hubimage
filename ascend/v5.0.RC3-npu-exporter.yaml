@@ -43,7 +43,7 @@ spec:
         accelerator: huawei-Ascend910
       containers:
       - name: npu-exporter
-        image: ${NPU_EXPORTER_IMAGE}
+        image: registry.cn-hangzhou.aliyuncs.com/opshub/npu-exporter:v5.0.RC3
         resources:
           requests:
               memory: 1000Mi
