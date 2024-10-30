@@ -24,7 +24,13 @@ for image in ${ALL_IMAGES}; do
             echo "Skipping copy ${imagearr[0]}:${tag} as it already exists in ${imagearr[1]}:${tag}"
         else
             echo "Copying ${imagearr[0]}:${tag} to ${imagearr[1]}:${tag}"
-            docker run --rm -v ~/.docker/config.json:/auth.json quay.io/skopeo/stable copy docker://${imagearr[0]}:${tag} docker://${imagearr[1]}:${tag} --dest-authfile /auth.json --insecure-policy --src-tls-verify=false --dest-tls-verify=false --retry-times 5 --all
+            output=$(docker run --rm -v ~/.docker/config.json:/auth.json quay.io/skopeo/stable copy docker://${imagearr[0]}:${tag} docker://${imagearr[1]}:${tag} --dest-authfile /auth.json --insecure-policy --src-tls-verify=false --dest-tls-verify=false --retry-times 5 --all）
+            if echo "$output" | grep -q "You have reached your pull rate limit"; then
+                echo "You have reached your pull rate limit"
+                break 2
+            else
+                echo "$output"
+            fi
         fi
     done
 done
