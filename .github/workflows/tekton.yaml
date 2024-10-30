@@ -1,6 +1,11 @@
 name: Tekton
 
 on:
+  push:
+    paths:
+      - "tekton/images.yaml"
+    branches:
+      - main
   schedule:
     - cron: "30 18 * * 3"
   workflow_dispatch:

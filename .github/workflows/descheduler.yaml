@@ -1,6 +1,11 @@
 name: Descheduler
 
 on:
+  push:
+    paths:
+      - "descheduler/images.yaml"
+    branches:
+      - main
   schedule:
     - cron: "0 16 * * 3"
   workflow_dispatch:

@@ -3,7 +3,7 @@ name: AI
 on:
   push:
     paths:
-      - "ai/**"
+      - "ai/images.yaml"
     branches:
       - main
   schedule:

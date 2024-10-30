@@ -24,7 +24,7 @@ for image in ${ALL_IMAGES}; do
             echo "Skipping copy ${imagearr[0]}:${tag} as it already exists in ${imagearr[1]}:${tag}"
         else
             echo "Copying ${imagearr[0]}:${tag} to ${imagearr[1]}:${tag}"
-            docker run --rm -v ~/.docker/config.json:/auth.json quay.io/skopeo/stable copy docker://${imagearr[0]}:${tag} docker://${imagearr[1]}:${tag} --dest-authfile /auth.json --insecure-policy --src-tls-verify=false --dest-tls-verify=false --retry-times 5 --all
+            docker run --rm -v ~/.docker/config.json:/auth.json quay.io/skopeo/stable copy --multi-arch all docker://${imagearr[0]}:${tag} docker://${imagearr[1]}:${tag} --dest-authfile /auth.json --insecure-policy --src-tls-verify=false --dest-tls-verify=false --retry-times 5 --all
             if [ $? -ne 0 ]; then
                 echo "Failed to copy ${imagearr[0]}:${tag} to ${imagearr[1]}:${tag}"
                 break 2

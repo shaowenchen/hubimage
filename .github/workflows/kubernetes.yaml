@@ -1,6 +1,11 @@
 name: Kubernetes
 
 on:
+  push:
+    paths:
+      - "kubernetes/images.yaml"
+    branches:
+      - main
   schedule:
     - cron: '30 16 * * 3'
   workflow_dispatch:

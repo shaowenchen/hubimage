@@ -1,6 +1,11 @@
 name: Observation
 
 on:
+  push:
+    paths:
+      - "observation/images.yaml"
+    branches:
+      - main
   schedule:
     - cron: "30 17 * * 3"
   workflow_dispatch:

@@ -1,6 +1,11 @@
 name: Network2
 
 on:
+  push:
+    paths:
+      - "network/images2.yaml"
+    branches:
+      - main
   schedule:
     - cron: '0 17 * * 3'
   workflow_dispatch:

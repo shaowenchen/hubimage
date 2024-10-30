@@ -1,6 +1,11 @@
 name: KEDA
 
 on:
+  push:
+    paths:
+      - "keda/images.yaml"
+    branches:
+      - main
   schedule:
     - cron: "30 20 * * 3"
   workflow_dispatch:

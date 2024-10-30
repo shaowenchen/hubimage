@@ -3,7 +3,7 @@ name: Base
 on:
   push:
     paths:
-      - "base/**"
+      - "base/images.yaml"
     branches:
       - main
   schedule:

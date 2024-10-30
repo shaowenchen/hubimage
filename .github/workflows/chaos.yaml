@@ -1,6 +1,11 @@
 name: Chaos
 
 on:
+  push:
+    paths:
+      - "chaos/images.yaml"
+    branches:
+      - main
   schedule:
     - cron: "0 19 * * 3"
   workflow_dispatch:

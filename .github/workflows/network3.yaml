@@ -1,6 +1,11 @@
 name: Network3
 
 on:
+  push:
+    paths:
+      - "network/images3.yaml"
+    branches:
+      - main
   schedule:
     - cron: '0 17 * * 3'
   workflow_dispatch:

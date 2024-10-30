@@ -3,7 +3,7 @@ name: Volcanosh
 on:
   push:
     paths:
-      - "volcanosh/**"
+      - "volcanosh/images.yaml"
     branches:
       - main
   schedule:

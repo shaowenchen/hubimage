@@ -1,6 +1,11 @@
 name: ArgoProj
 
 on:
+  push:
+    paths:
+      - "argoproj/images.yaml"
+    branches:
+      - main
   schedule:
     - cron: "30 18 * * 3"
   workflow_dispatch:

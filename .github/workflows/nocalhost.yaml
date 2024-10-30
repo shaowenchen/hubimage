@@ -1,6 +1,11 @@
 name: Nocalhost
 
 on:
+  push:
+    paths:
+      - "nocalhost/images.yaml"
+    branches:
+      - main
   schedule:
     - cron: "30 19 * * 3"
   workflow_dispatch:
