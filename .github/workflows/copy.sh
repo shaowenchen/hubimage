@@ -4,7 +4,7 @@ IMAGES_LIST_FILE=$1
 ALL_IMAGES="$(cat $1 | sed '/#/d' | sed 's/: /,/g')"
 
 function tag_exists() {
-    if skopeo inspect docker://$1:$2 > /dev/null 2>&1; then
+    if skopeo inspect docker://$1:$2 >/dev/null 2>&1; then
         return 0
     else
         return 1
@@ -24,12 +24,10 @@ for image in ${ALL_IMAGES}; do
             echo "Skipping copy ${imagearr[0]}:${tag} as it already exists in ${imagearr[1]}:${tag}"
         else
             echo "Copying ${imagearr[0]}:${tag} to ${imagearr[1]}:${tag}"
-            output=$(docker run --rm -v ~/.docker/config.json:/auth.json quay.io/skopeo/stable copy docker://${imagearr[0]}:${tag} docker://${imagearr[1]}:${tag} --dest-authfile /auth.json --insecure-policy --src-tls-verify=false --dest-tls-verify=false --retry-times 5 --all）
-            if echo "$output" | grep -q "You have reached your pull rate limit"; then
-                echo "You have reached your pull rate limit"
+            docker run --rm -v ~/.docker/config.json:/auth.json quay.io/skopeo/stable copy docker://${imagearr[0]}:${tag} docker://${imagearr[1]}:${tag} --dest-authfile /auth.json --insecure-policy --src-tls-verify=false --dest-tls-verify=false --retry-times 5 --all
+            if [ $? -ne 0 ]; then
+                echo "Failed to copy ${imagearr[0]}:${tag} to ${imagearr[1]}:${tag}"
                 break 2
-            else
-                echo "$output"
             fi
         fi
     done
