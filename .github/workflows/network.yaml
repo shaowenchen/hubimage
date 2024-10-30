@@ -3,7 +3,8 @@ name: Network
 on:
   push:
     paths:
-      - "network/images*.yaml"
+      - "network/images-acr.yaml"
+      - "network/images.yaml"
     branches:
       - main
   schedule:

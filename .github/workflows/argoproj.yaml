@@ -3,7 +3,8 @@ name: ArgoProj
 on:
   push:
     paths:
-      - "argoproj/images*.yaml"
+      - "argoproj/images-acr.yaml"
+      - "argoproj/images.yaml"
     branches:
       - main
   schedule:

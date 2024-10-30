@@ -5,7 +5,8 @@ on:
     branches:
       - main
     paths:
-      - ./storage/images*.yaml
+      - "storage/images-acr.yaml"
+      - "storage/images.yaml"
   schedule:
     - cron: "0 18 * * 3"
   workflow_dispatch:

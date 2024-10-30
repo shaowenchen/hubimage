@@ -1,5 +1,14 @@
-# juicefs
-juicedata/juicefs-fuse: registry.cn-hangzhou.aliyuncs.com/opshub/juicedata-juicefs-fuse
+# release-1.0 amd64 and arm64
+hubimage/fluidcloudnative-goosefsruntime-controller: registry.cn-hangzhou.aliyuncs.com/opshub/fluidcloudnative-goosefsruntime-controller
+hubimage/fluidcloudnative-efcruntime-controller: registry.cn-hangzhou.aliyuncs.com/opshub/fluidcloudnative-efcruntime-controller
+hubimage/fluidcloudnative-alluxioruntime-controller: registry.cn-hangzhou.aliyuncs.com/opshub/fluidcloudnative-alluxioruntime-controller
+hubimage/fluidcloudnative-application-controller: registry.cn-hangzhou.aliyuncs.com/opshub/fluidcloudnative-application-controller
+hubimage/fluidcloudnative-jindoruntime-controller: registry.cn-hangzhou.aliyuncs.com/opshub/fluidcloudnative-jindoruntime-controller
+hubimage/fluidcloudnative-juicefsruntime-controller: registry.cn-hangzhou.aliyuncs.com/opshub/fluidcloudnative-juicefsruntime-controller
+hubimage/fluidcloudnative-vineyardruntime-controller: registry.cn-hangzhou.aliyuncs.com/opshub/fluidcloudnative-vineyardruntime-controller
+hubimage/fluidcloudnative-fluid-csi: registry.cn-hangzhou.aliyuncs.com/opshub/fluidcloudnative-fluid-csi
+hubimage/fluidcloudnative-fluid-webhook: registry.cn-hangzhou.aliyuncs.com/opshub/fluidcloudnative-fluid-webhook
+hubimage/fluidcloudnative-dataset-controller: registry.cn-hangzhou.aliyuncs.com/opshub/fluidcloudnative-dataset-controller
 
 # fluid
 fluidcloudnative/init-users: registry.cn-hangzhou.aliyuncs.com/opshub/fluidcloudnative-init-users
@@ -16,3 +25,6 @@ fluidcloudnative/thinruntime-controller: registry.cn-hangzhou.aliyuncs.com/opshu
 fluidcloudnative/vineyardruntime-controller: registry.cn-hangzhou.aliyuncs.com/opshub/fluidcloudnative-vineyardruntime-controller
 fluidcloudnative/csi-node-driver-registrar: registry.cn-hangzhou.aliyuncs.com/opshub/fluidcloudnative-csi-node-driver-registrar
 fluidcloudnative/fluid-csi: registry.cn-hangzhou.aliyuncs.com/opshub/fluidcloudnative-fluid-csi
+
+# juicefs
+juicedata/juicefs-fuse: registry.cn-hangzhou.aliyuncs.com/opshub/juicedata-juicefs-fuse

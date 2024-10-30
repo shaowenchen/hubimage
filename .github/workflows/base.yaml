@@ -3,7 +3,7 @@ name: Base
 on:
   push:
     paths:
-      - "base/images*.yaml"
+      - "base/images-acr.yaml"
     branches:
       - main
   schedule:
@@ -28,4 +28,4 @@ jobs:
           username: "${{ secrets.ACR_USERNAME }}"
           password: "${{ secrets.ACR_PASSWORD }}"
       - name: Working
-        run: bash ./.github/workflows/copy.sh ./acr/images.yaml
+        run: bash ./.github/workflows/copy.sh ./base/images-acr.yaml

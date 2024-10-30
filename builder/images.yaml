@@ -1,0 +1,4 @@
+hubimage/builder-golang: registry.cn-hangzhou.aliyuncs.com/opshub/builder-golang
+hubimage/builder-node: registry.cn-hangzhou.aliyuncs.com/opshub/builder-node
+hubimage/builder-python: registry.cn-hangzhou.aliyuncs.com/opshub/builder-python
+hubimage/builder-maven: registry.cn-hangzhou.aliyuncs.com/opshub/builder-maven

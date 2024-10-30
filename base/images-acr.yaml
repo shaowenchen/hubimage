@@ -1,0 +1,4 @@
+golang: registry.cn-hangzhou.aliyuncs.com/opshub/golang
+nginx: registry.cn-hangzhou.aliyuncs.com/opshub/nginx
+debian: registry.cn-hangzhou.aliyuncs.com/opshub/debian
+ubuntu: registry.cn-hangzhou.aliyuncs.com/opshub/ubuntu

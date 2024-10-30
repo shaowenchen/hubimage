@@ -38,3 +38,5 @@ jobs:
         run: cd ./builder/pypy && bash run.sh
       - name: Build and Push Maven
         run: cd ./builder/maven && bash run.sh
+      - name: Working
+        run: bash ./.github/workflows/copy.sh ./builder/images.yaml
