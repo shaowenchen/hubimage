@@ -15,7 +15,7 @@ for image in ${ALL_IMAGES}; do
     IFS=', ' read -r -a imagearr <<<"$image"
     for tag in $(skopeo list-tags docker://${imagearr[0]} | jq '.Tags[]' | sed '1!G;h;$!d'); do
         tag=$(echo $tag | sed 's/"//g')
-        if [[ ${#tag} -gt 30 || ${tag} == *"--"* || ${tag} =~ ([0-9]{8}) || ${tag} =~ -[a-f0-9]+- ]]; then
+        if [[ ${#tag} -gt 30 || ${tag} == *"--"* || ${tag} =~ ([0-9]{8}) || ${tag} =~ -[a-f0-9]{7,}- || ${tag} =~ -[a-f0-9]{7,}$ || ${tag} =~ -SNAPSHOT$ ]]; then
             echo "Skipping special tag ${imagearr[0]}:${tag}"
             continue
         fi
@@ -24,7 +24,7 @@ for image in ${ALL_IMAGES}; do
             echo "Skipping copy ${imagearr[0]}:${tag} as it already exists in ${imagearr[1]}:${tag}"
         else
             echo "Copying ${imagearr[0]}:${tag} to ${imagearr[1]}:${tag}"
-            docker run --rm -v ~/.docker/config.json:/auth.json quay.io/skopeo/stable copy --multi-arch all docker://${imagearr[0]}:${tag} docker://${imagearr[1]}:${tag} --dest-authfile /auth.json --insecure-policy --src-tls-verify=false --dest-tls-verify=false --retry-times 5 --all
+            docker run --rm -v ~/.docker/config.json:/auth.json quay.io/skopeo/stable copy --multi-arch all docker://${imagearr[0]}:${tag} docker://${imagearr[1]}:${tag} --dest-authfile /auth.json --insecure-policy --src-tls-verify=false --dest-tls-verify=false --retry-times 5
             if [ $? -ne 0 ]; then
                 echo "Failed to copy ${imagearr[0]}:${tag} to ${imagearr[1]}:${tag}"
                 break 2
