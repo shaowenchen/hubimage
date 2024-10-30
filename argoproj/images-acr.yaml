@@ -1,0 +1,19 @@
+# natsio/prometheus-nats-exporter
+natsio/prometheus-nats-exporter: registry.cn-hangzhou.aliyuncs.com/opshub/natsio-prometheus-nats-exporter
+natsio/nats-server-config-reloader: registry.cn-hangzhou.aliyuncs.com/opshub/natsio-nats-server-config-reloader
+# argo-rollouts
+quay.io/argoproj/argo-rollouts: registry.cn-hangzhou.aliyuncs.com/opshub/argoproj-argo-rollouts
+quay.io/argoproj/kubectl-argo-rollouts: registry.cn-hangzhou.aliyuncs.com/opshub/argoproj-kubectl-argo-rollouts
+
+# argo-cd
+quay.io/argoproj/argocd: registry.cn-hangzhou.aliyuncs.com/opshub/argoproj-argocd
+
+ghcr.io/dexidp/dex: registry.cn-hangzhou.aliyuncs.com/opshub/dexidp-dex
+
+# argo-workflow
+quay.io/argoproj/argoexec: registry.cn-hangzhou.aliyuncs.com/opshub/argoproj-argoexec
+quay.io/argoproj/argocli: registry.cn-hangzhou.aliyuncs.com/opshub/argoproj-argocli
+quay.io/argoproj/workflow-controller: registry.cn-hangzhou.aliyuncs.com/opshub/argoproj-workflow-controller
+
+# argo-events
+quay.io/argoproj/argo-events: registry.cn-hangzhou.aliyuncs.com/opshub/argoproj-argo-events

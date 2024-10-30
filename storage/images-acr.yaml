@@ -1,0 +1,18 @@
+# juicefs
+juicedata/juicefs-fuse: registry.cn-hangzhou.aliyuncs.com/opshub/juicedata-juicefs-fuse
+
+# fluid
+fluidcloudnative/init-users: registry.cn-hangzhou.aliyuncs.com/opshub/fluidcloudnative-init-users
+alluxio/alluxio-dev: registry.cn-hangzhou.aliyuncs.com/opshub/alluxio-alluxio-dev
+fluidcloudnative/alluxioruntime-controller: registry.cn-hangzhou.aliyuncs.com/opshub/fluidcloudnative-alluxioruntime-controller
+fluidcloudnative/dataset-controller: registry.cn-hangzhou.aliyuncs.com/opshub/fluidcloudnative-dataset-controller
+fluidcloudnative/efcruntime-controller: registry.cn-hangzhou.aliyuncs.com/opshub/fluidcloudnative-efcruntime-controller
+fluidcloudnative/fluid-webhook: registry.cn-hangzhou.aliyuncs.com/opshub/fluidcloudnative-fluid-webhook
+fluidcloudnative/application-controller: registry.cn-hangzhou.aliyuncs.com/opshub/fluidcloudnative-application-controller
+fluidcloudnative/goosefsruntime-controller: registry.cn-hangzhou.aliyuncs.com/opshub/fluidcloudnative-goosefsruntime-controller
+fluidcloudnative/jindoruntime-controller: registry.cn-hangzhou.aliyuncs.com/opshub/fluidcloudnative-jindoruntime-controller
+fluidcloudnative/juicefsruntime-controller: registry.cn-hangzhou.aliyuncs.com/opshub/fluidcloudnative-juicefsruntime-controller
+fluidcloudnative/thinruntime-controller: registry.cn-hangzhou.aliyuncs.com/opshub/fluidcloudnative-thinruntime-controller
+fluidcloudnative/vineyardruntime-controller: registry.cn-hangzhou.aliyuncs.com/opshub/fluidcloudnative-vineyardruntime-controller
+fluidcloudnative/csi-node-driver-registrar: registry.cn-hangzhou.aliyuncs.com/opshub/fluidcloudnative-csi-node-driver-registrar
+fluidcloudnative/fluid-csi: registry.cn-hangzhou.aliyuncs.com/opshub/fluidcloudnative-fluid-csi

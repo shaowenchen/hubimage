@@ -1,17 +1,9 @@
 # calico
 calico/kube-controllers: hubimage/calico-kube-controllers
-calico/kube-controllers: registry.cn-hangzhou.aliyuncs.com/opshub/calico-kube-controllers
 calico/node: hubimage/calico-node
-calico/node: registry.cn-hangzhou.aliyuncs.com/opshub/calico-node
 calico/cni: hubimage/calico-cni
-calico/cni: registry.cn-hangzhou.aliyuncs.com/opshub/calico-cni
 calico/csi: hubimage/calico-csi
-calico/csi: registry.cn-hangzhou.aliyuncs.com/opshub/calico-csi
 calico/node-driver-registrar: hubimage/calico-node-driver-registrar
 calico/pod2daemon-flexvol: hubimage/calico-pod2daemon-flexvol
-calico/node-driver-registrar: registry.cn-hangzhou.aliyuncs.com/opshub/calico-node-driver-registrar
-calico/pod2daemon-flexvol: registry.cn-hangzhou.aliyuncs.com/opshub/calico-pod2daemon-flexvol
 calico/ctl: hubimage/calico-ctl
-calico/ctl: registry.cn-hangzhou.aliyuncs.com/opshub/calico-ctl
 calico/typha: hubimage/calico-typha
-calico/typha: registry.cn-hangzhou.aliyuncs.com/opshub/calico-typha

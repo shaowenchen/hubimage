@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - ./storage/images.yaml
+      - ./storage/images*.yaml
   schedule:
     - cron: "0 18 * * 3"
   workflow_dispatch:
@@ -27,5 +27,7 @@ jobs:
           registry: https://registry.cn-hangzhou.aliyuncs.com
           username: "${{ secrets.ACR_USERNAME }}"
           password: "${{ secrets.ACR_PASSWORD }}"
+      - name: Working
+        run: bash ./.github/workflows/copy.sh ./storage/images-acr.yaml
       - name: Working
         run: bash ./.github/workflows/copy.sh ./storage/images.yaml

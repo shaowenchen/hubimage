@@ -3,7 +3,7 @@ name: Volcanosh
 on:
   push:
     paths:
-      - "volcanosh/images.yaml"
+      - "volcanosh/images*.yaml"
     branches:
       - main
   schedule:
@@ -28,4 +28,4 @@ jobs:
           username: "${{ secrets.ACR_USERNAME }}"
           password: "${{ secrets.ACR_PASSWORD }}"
       - name: Working
-        run: bash ./.github/workflows/copy.sh ./volcanosh/images.yaml
+        run: bash ./.github/workflows/copy.sh ./volcanosh/images-acr.yaml
