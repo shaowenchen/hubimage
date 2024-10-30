@@ -9,7 +9,6 @@ registry.k8s.io/kube-proxy: hubimage/kube-proxy
 registry.k8s.io/pause: hubimage/pause
 registry.k8s.io/etcd: hubimage/etcd
 registry.k8s.io/coredns/coredns: hubimage/coredns
-
 # without v in tag
 coredns/coredns: hubimage/coredns
 

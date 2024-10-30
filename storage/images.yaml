@@ -1,3 +1,10 @@
+# csi
+registry.k8s.io/sig-storage/csi-node-driver-registrar: hubimage/csi-node-driver-registrar
+registry.k8s.io/sig-storage/csi-node-driver-registrar: registry.cn-hangzhou.aliyuncs.com/opshub/csi-node-driver-registrar
+
+# juicefs
+juicedata/juicefs-fuse: registry.cn-hangzhou.aliyuncs.com/opshub/juicedata-juicefs-fuse
+
 # fluid
 fluidcloudnative/init-users: registry.cn-hangzhou.aliyuncs.com/opshub/fluidcloudnative-init-users
 alluxio/alluxio-dev: registry.cn-hangzhou.aliyuncs.com/opshub/alluxio-alluxio-dev

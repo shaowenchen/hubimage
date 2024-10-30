@@ -5,19 +5,19 @@ on:
       repo:
         description: ""
         required: true
-        default: "Ascend/ascend-hccl-controller"
+        default: "fluid-cloudnative/fluid"
       ref:
         description: ""
         required: true
-        default: "branch_v5.0.0-RC3"
+        default: "release-1.0"
       dockerfile:
         description: ""
         required: true
-        default: "build/Dockerfile"
+        default: "docker/Dockerfile.dataset"
       image:
         description: ""
         required: true
-        default: "registry.cn-hangzhou.aliyuncs.com/opshub/ascend-hccl-controller"
+        default: "hubimage/fluidcloudnative-dataset-controller"
 
 jobs:
   docker:
@@ -26,8 +26,8 @@ jobs:
       - name: Login to DockerHub
         uses: docker/login-action@v3
         with:
-          username: ${{ secrets.IDOCKERHUB_USERNAME }}
-          password: ${{ secrets.IDOCKERHUB_PASSWORD }}
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
       - name: Login to ACR
         uses: docker/login-action@v3
         with:
@@ -40,12 +40,17 @@ jobs:
         uses: docker/setup-buildx-action@v3
       - uses: actions/checkout@v4
         with:
-          repository: "${{ inputs.repo }}"
-          ref: "${{ inputs.ref }}"
-      - name: Build and push
-        uses: docker/build-push-action@v6
-        with:
-          platforms: linux/amd64,linux/arm64
-          push: true
-          tags: "${{ inputs.image }}:${{ inputs.ref }}"
-          file: "${{ inputs.dockerfile }}"
+          repository: ${{inputs.repo}}
+          ref: ${{inputs.ref}}
+      - name: Build and push amd64
+        run: |
+          docker buildx build --push --platform=linux/amd64 -t ${{inputs.image}}:${{inputs.ref}}-amd64 -f ${{inputs.dockerfile}} .
+      - name: Build and push arm64
+        run: |
+          docker buildx build --push --platform=linux/arm64 -t ${{inputs.image}}:${{inputs.ref}}-arm64 -f ${{inputs.dockerfile}} .
+      - name: Manifest
+        run: |
+          docker manifest create ${{inputs.image}}:${{inputs.ref}} ${{inputs.image}}:${{inputs.ref}}-amd64 ${{inputs.image}}:${{inputs.ref}}-arm64
+          docker manifest annotate ${{inputs.image}}:${{inputs.ref}} ${{inputs.image}}:${{inputs.ref}}-arm64 --arch arm64
+          docker manifest annotate ${{inputs.image}}:${{inputs.ref}} ${{inputs.image}}:${{inputs.ref}}-amd64 --arch amd64
+          docker manifest push ${{inputs.image}}:${{inputs.ref}}
