@@ -1,4 +1,5 @@
 # sriov
+ghcr.io/k8snetworkplumbingwg/multus-cni: registry.cn-hangzhou.aliyuncs.com/opshub/k8snetworkplumbingwg-multus-cni
 ghcr.io/k8snetworkplumbingwg/sriov-cni: registry.cn-hangzhou.aliyuncs.com/opshub/k8snetworkplumbingwg-sriov-cni
 ghcr.io/k8snetworkplumbingwg/sriov-network-device-plugin: registry.cn-hangzhou.aliyuncs.com/opshub/k8snetworkplumbingwg-sriov-network-device-plugin
 # ib
