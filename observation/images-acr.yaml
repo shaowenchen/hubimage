@@ -1,0 +1,8 @@
+# metrics
+registry.k8s.io/metrics-server/metrics-server: registry.cn-hangzhou.aliyuncs.com/opshub/metrics-server
+thanosio/thanos: registry.cn-hangzhou.aliyuncs.com/opshub/thanos
+quay.io/prometheus/node-exporter: registry.cn-hangzhou.aliyuncs.com/opshub/prometheus-node-exporter
+quay.io/prometheus/alertmanager: hubimage/prometheus-alertmanager
+quay.io/prometheus/prometheus: registry.cn-hangzhou.aliyuncs.com/opshub/prometheus
+jimmidyson/configmap-reload: registry.cn-hangzhou.aliyuncs.com/opshub/jimmidyson-configmap-reload
+quay.io/prometheus-operator/prometheus-config-reloader: registry.cn-hangzhou.aliyuncs.com/opshub/prometheus-config-reloader
