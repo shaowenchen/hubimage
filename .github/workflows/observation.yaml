@@ -3,6 +3,7 @@ name: Observation
 on:
   push:
     paths:
+      - "observation/images-acr.yaml"
       - "observation/images.yaml"
     branches:
       - main

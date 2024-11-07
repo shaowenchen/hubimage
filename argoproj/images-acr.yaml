@@ -1,6 +1,3 @@
-# natsio/prometheus-nats-exporter
-natsio/prometheus-nats-exporter: registry.cn-hangzhou.aliyuncs.com/opshub/natsio-prometheus-nats-exporter
-natsio/nats-server-config-reloader: registry.cn-hangzhou.aliyuncs.com/opshub/natsio-nats-server-config-reloader
 # argo-rollouts
 quay.io/argoproj/argo-rollouts: registry.cn-hangzhou.aliyuncs.com/opshub/argoproj-argo-rollouts
 quay.io/argoproj/kubectl-argo-rollouts: registry.cn-hangzhou.aliyuncs.com/opshub/argoproj-kubectl-argo-rollouts

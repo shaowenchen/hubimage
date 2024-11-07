@@ -1,3 +1,8 @@
+# nats
+nats: registry.cn-hangzhou.aliyuncs.com/opshub/nats
+natsio/nats-box: registry.cn-hangzhou.aliyuncs.com/opshub/nats-box
+natsio/prometheus-nats-exporter: registry.cn-hangzhou.aliyuncs.com/opshub/natsio-prometheus-nats-exporter
+natsio/nats-server-config-reloader: registry.cn-hangzhou.aliyuncs.com/opshub/natsio-nats-server-config-reloader
 # metrics
 registry.k8s.io/metrics-server/metrics-server: registry.cn-hangzhou.aliyuncs.com/opshub/metrics-server
 thanosio/thanos: registry.cn-hangzhou.aliyuncs.com/opshub/thanos
