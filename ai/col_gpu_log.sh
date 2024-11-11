@@ -16,6 +16,10 @@ function check_cmd() {
     done
 }
 
+function kern_log() {
+    cp /var/log/kern.log $temp_dir
+}
+
 function collect_pci_log() {
     lspci -vt > "$temp_dir/lspci_vt.log" &
     lspci | grep -i 'Nvidia' | grep -v 'rev ff' > "$temp_dir/lspci_ff.log" &
@@ -107,6 +111,7 @@ function main() {
     collect_pci_log
     collect_xid_log
     collect_gpu_log
+    kern_log
     # Wait for all background processes to complete
     wait
     package_log
