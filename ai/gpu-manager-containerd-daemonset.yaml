@@ -1,0 +1,135 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: gpu-manager-containerd-daemonset
+  namespace: kube-system
+spec:
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      name: gpu-manager-ds
+  template:
+    metadata:
+      annotations:
+        scheduler.alpha.kubernetes.io/critical-pod: ""
+      creationTimestamp: null
+      labels:
+        name: gpu-manager-ds
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: gpu
+                operator: Exists
+      containers:
+      - env:
+        - name: LOG_LEVEL
+          value: "5"
+        - name: EXTRA_FLAGS
+          value: --logtostderr=true --container-runtime-endpoint=/run/containerd/containerd.sock
+            --cgroup-driver=systemd --allocation-check-period=60
+        - name: NODE_NAME
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: spec.nodeName
+        image: registry.cn-hangzhou.aliyuncs.com/opshub/gpu-manager-containerd:1.1.5.2
+        imagePullPolicy: IfNotPresent
+        name: gpu-manager
+        ports:
+        - containerPort: 5678
+          protocol: TCP
+        resources: {}
+        securityContext:
+          privileged: true
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /var/lib/kubelet/device-plugins
+          name: device-plugin
+        - mountPath: /etc/gpu-manager/vdriver
+          name: vdriver
+        - mountPath: /etc/gpu-manager/vm
+          name: vmdata
+        - mountPath: /var/log/gpu-manager
+          name: log
+        - mountPath: /etc/gpu-manager/checkpoint
+          name: checkpoint
+        - mountPath: /run
+          name: run-dir
+        - mountPath: /sys/fs/cgroup
+          name: cgroup
+          readOnly: true
+        - mountPath: /usr/local/host
+          name: usr-directory
+          readOnly: true
+      dnsPolicy: ClusterFirst
+      hostPID: true
+      priorityClassName: system-node-critical
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      serviceAccount: gpu-manager
+      serviceAccountName: gpu-manager
+      terminationGracePeriodSeconds: 30
+      tolerations:
+      - key: CriticalAddonsOnly
+        operator: Exists
+      - effect: NoSchedule
+        key: tencent.com/vcuda-core
+        operator: Exists
+      volumes:
+      - hostPath:
+          path: /var/lib/kubelet/device-plugins
+          type: Directory
+        name: device-plugin
+      - hostPath:
+          path: /etc/gpu-manager/vm
+          type: DirectoryOrCreate
+        name: vmdata
+      - hostPath:
+          path: /etc/gpu-manager/vdriver
+          type: DirectoryOrCreate
+        name: vdriver
+      - hostPath:
+          path: /etc/gpu-manager/log
+          type: DirectoryOrCreate
+        name: log
+      - hostPath:
+          path: /etc/gpu-manager/checkpoint
+          type: DirectoryOrCreate
+        name: checkpoint
+      - hostPath:
+          path: /run
+          type: Directory
+        name: run-dir
+      - hostPath:
+          path: /sys/fs/cgroup
+          type: Directory
+        name: cgroup
+      - hostPath:
+          path: /usr
+          type: Directory
+        name: usr-directory
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: gpu-manager
+  namespace: kube-system
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: gpu-manager-role
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+- kind: ServiceAccount
+  name: gpu-manager
+  namespace: kube-system
+---
