@@ -1,0 +1,7 @@
+# argo-workflow
+quay.io/argoproj/argoexec: hubimage/argoproj-argoexec
+quay.io/argoproj/argocli: hubimage/argoproj-argocli
+quay.io/argoproj/workflow-controller: hubimage/argoproj-workflow-controller
+
+# argo-events
+quay.io/argoproj/argo-events: hubimage/argoproj-argo-events

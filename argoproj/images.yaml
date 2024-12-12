@@ -9,11 +9,3 @@ quay.io/argoproj/kubectl-argo-rollouts: hubimage/argoproj-kubectl-argo-rollouts
 quay.io/argoproj/argocd: hubimage/argoproj-argocd
 
 ghcr.io/dexidp/dex: hubimage/dexidp-dex
-
-# argo-workflow
-quay.io/argoproj/argoexec: hubimage/argoproj-argoexec
-quay.io/argoproj/argocli: hubimage/argoproj-argocli
-quay.io/argoproj/workflow-controller: hubimage/argoproj-workflow-controller
-
-# argo-events
-quay.io/argoproj/argo-events: hubimage/argoproj-argo-events

@@ -1,0 +1,15 @@
+# dashboard
+gcr.io/tekton-releases/github.com/tektoncd/dashboard/cmd/dashboard: hubimage/tekton-dashboard-dashboard
+
+# trigger
+gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/controller: hubimage/tekton-triggers-controller
+gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/eventlistenersink: hubimage/tekton-trigger-eventlistenersink
+gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/webhook: hubimage/tekton-trigger-webhook
+gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/interceptors: hubimage/tekton-trigger-interceptors
+
+# tools
+gcr.io/google.com/cloudsdktool/cloud-sdk: hubimage/tekton-cloudsdktool-cloud-sdk
+gcr.io/distroless/base: hubimage/tekton-distroless-base
+
+# catalog
+gcr.io/cloud-builders/kubectl: hubimage/tekton-cloud-builder-kubectl
