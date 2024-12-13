@@ -48,7 +48,7 @@ spec:
       hostNetwork: true
       priorityClassName: system-node-critical
       containers:
-      - image: registry.cn-hangzhou.aliyuncs.com/opshub/mellanox-k8s-rdma-shared-dev-plugin:v1.5.1
+      - image: registry.cn-beijing.aliyuncs.com/opshub/mellanox-k8s-rdma-shared-dev-plugin:v1.5.1
         name: k8s-rdma-shared-dp-ds
         imagePullPolicy: IfNotPresent
         securityContext:

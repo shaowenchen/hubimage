@@ -1268,7 +1268,7 @@ spec:
       - args:
         - server
         env: []
-        image: registry.cn-hangzhou.aliyuncs.com/opshub/argoproj-argocli:v3.5.5
+        image: registry.cn-beijing.aliyuncs.com/opshub/argoproj-argocli:v3.5.5
         name: argo-server
         ports:
         - containerPort: 2746
@@ -1323,7 +1323,7 @@ spec:
             fieldRef:
               apiVersion: v1
               fieldPath: metadata.name
-        image: registry.cn-hangzhou.aliyuncs.com/opshub/argoproj-workflow-controller:v3.5.5
+        image: registry.cn-beijing.aliyuncs.com/opshub/argoproj-workflow-controller:v3.5.5
         imagePullPolicy: IfNotPresent
         livenessProbe:
           failureThreshold: 3

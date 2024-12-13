@@ -139,7 +139,7 @@ spec:
         fsGroup: 9000
       containers:
         - name: volcano-scheduler
-          image: registry.cn-hangzhou.aliyuncs.com/opshub/volcanosh-vc-scheduler:v1.7.0
+          image: registry.cn-beijing.aliyuncs.com/opshub/volcanosh-vc-scheduler:v1.7.0
           command: ["/bin/ash"]
           args: ["-c", "umask 027; /vc-scheduler
                   --scheduler-conf=/volcano.scheduler/volcano-scheduler.conf
@@ -297,7 +297,7 @@ spec:
         fsGroup: 9000
       containers:
         - name: volcano-controllers
-          image: registry.cn-hangzhou.aliyuncs.com/opshub/volcanosh-vc-controller-manager:v1.7.0
+          image: registry.cn-beijing.aliyuncs.com/opshub/volcanosh-vc-controller-manager:v1.7.0
           imagePullPolicy: "IfNotPresent"
           command: [ "/bin/ash" ]
           args: [ "-c", "umask 027;/vc-controller-manager

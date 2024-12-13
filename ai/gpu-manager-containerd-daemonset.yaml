@@ -35,7 +35,7 @@ spec:
             fieldRef:
               apiVersion: v1
               fieldPath: spec.nodeName
-        image: registry.cn-hangzhou.aliyuncs.com/opshub/gpu-manager-containerd:1.1.5.2
+        image: registry.cn-beijing.aliyuncs.com/opshub/gpu-manager-containerd:1.1.5.2
         imagePullPolicy: IfNotPresent
         name: gpu-manager
         ports:

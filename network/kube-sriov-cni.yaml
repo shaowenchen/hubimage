@@ -27,7 +27,7 @@ spec:
         effect: NoSchedule
       containers:
       - name: kube-sriov-cni
-        image: registry.cn-hangzhou.aliyuncs.com/opshub/k8snetworkplumbingwg-sriov-cni:latest
+        image: registry.cn-beijing.aliyuncs.com/opshub/k8snetworkplumbingwg-sriov-cni:latest
         imagePullPolicy: IfNotPresent
         securityContext:
           allowPrivilegeEscalation: false

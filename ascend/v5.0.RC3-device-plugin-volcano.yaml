@@ -70,7 +70,7 @@ spec:
         accelerator: huawei-Ascend910
       serviceAccountName: ascend-device-plugin-sa-910
       containers:
-      - image: registry.cn-hangzhou.aliyuncs.com/opshub/ascend-k8sdeviceplugin:v5.0.RC3
+      - image: registry.cn-beijing.aliyuncs.com/opshub/ascend-k8sdeviceplugin:v5.0.RC3
         name: device-plugin-01
         resources:
           requests:

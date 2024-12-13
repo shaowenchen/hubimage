@@ -1,6 +1,6 @@
-nvcr.io/nvidia/tritonserver: registry.cn-hangzhou.aliyuncs.com/opshub/nvidia-tritonserver
-nvcr.io/nvidia/tensorrtserver: registry.cn-hangzhou.aliyuncs.com/opshub/nvidia-tensorrtserver
-nvcr.io/nvidia/tensorrt: registry.cn-hangzhou.aliyuncs.com/opshub/nvidia-tensorrt
-nvcr.io/nvidia/pytorch: registry.cn-hangzhou.aliyuncs.com/opshub/nvidia-pytorch
-pytorch/pytorch: registry.cn-hangzhou.aliyuncs.com/opshub/pytorch
-nvidia/cuda: registry.cn-hangzhou.aliyuncs.com/opshub/nvidia-cuda
+nvcr.io/nvidia/tritonserver: registry.cn-beijing.aliyuncs.com/opshub/nvidia-tritonserver
+nvcr.io/nvidia/tensorrtserver: registry.cn-beijing.aliyuncs.com/opshub/nvidia-tensorrtserver
+nvcr.io/nvidia/tensorrt: registry.cn-beijing.aliyuncs.com/opshub/nvidia-tensorrt
+nvcr.io/nvidia/pytorch: registry.cn-beijing.aliyuncs.com/opshub/nvidia-pytorch
+pytorch/pytorch: registry.cn-beijing.aliyuncs.com/opshub/pytorch
+nvidia/cuda: registry.cn-beijing.aliyuncs.com/opshub/nvidia-cuda

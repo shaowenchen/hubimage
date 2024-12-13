@@ -34,5 +34,5 @@ spec:
       maxUnavailable: 1
     type: RollingUpdate
   nonPrivileged: Disabled
-  registry: registry.cn-hangzhou.aliyuncs.com/
+  registry: registry.cn-beijing.aliyuncs.com/
   variant: Calico
