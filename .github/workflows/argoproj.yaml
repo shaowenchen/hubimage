@@ -3,7 +3,6 @@ name: ArgoProj
 on:
   push:
     paths:
-      - "argoproj/images-acr.yaml"
       - "argoproj/images.yaml"
     branches:
       - main
@@ -30,5 +29,3 @@ jobs:
           password: "${{ secrets.ACR_PASSWORD }}"
       - name: Working
         run: bash ./.github/workflows/copy.sh ./argoproj/images-acr.yaml
-      - name: Working
-        run: bash ./.github/workflows/copy.sh ./argoproj/images.yaml

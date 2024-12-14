@@ -1,13 +1,13 @@
-name: Volcanosh
+name: Storage-ACR
 
 on:
   push:
-    paths:
-      - "volcanosh/images-acr.yaml"
     branches:
       - main
+    paths:
+      - "storage/images-acr.yaml"
   schedule:
-    - cron: "30 20 * * 3"
+    - cron: "0 18 * * 3"
   workflow_dispatch:
 jobs:
   build:
@@ -28,4 +28,4 @@ jobs:
           username: "${{ secrets.ACR_USERNAME }}"
           password: "${{ secrets.ACR_PASSWORD }}"
       - name: Working
-        run: bash ./.github/workflows/copy.sh ./volcanosh/images-acr.yaml
+        run: bash ./.github/workflows/copy.sh ./storage/images-acr.yaml

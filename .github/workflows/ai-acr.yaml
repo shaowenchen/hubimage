@@ -1,13 +1,13 @@
-name: Base
+name: AI-ACR
 
 on:
   push:
     paths:
-      - "base/images-acr.yaml"
+      - "ai/images-acr.yaml"
     branches:
       - main
   schedule:
-    - cron: "30 21 * * 3"
+    - cron: "30 18 * * 2"
   workflow_dispatch:
 jobs:
   build:
@@ -28,4 +28,4 @@ jobs:
           username: "${{ secrets.ACR_USERNAME }}"
           password: "${{ secrets.ACR_PASSWORD }}"
       - name: Working
-        run: bash ./.github/workflows/copy.sh ./base/images-acr.yaml
+        run: bash ./.github/workflows/copy.sh ./ai/images-acr.yaml

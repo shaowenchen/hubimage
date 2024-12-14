@@ -3,7 +3,6 @@ name: Network
 on:
   push:
     paths:
-      - "network/images-acr.yaml"
       - "network/images.yaml"
     branches:
       - main
@@ -28,7 +27,5 @@ jobs:
           registry: https://registry.cn-beijing.aliyuncs.com
           username: "${{ secrets.ACR_USERNAME }}"
           password: "${{ secrets.ACR_PASSWORD }}"
-      - name: Working
-        run: bash ./.github/workflows/copy.sh ./network/images-acr.yaml
       - name: Working
         run: bash ./.github/workflows/copy.sh ./network/images.yaml
