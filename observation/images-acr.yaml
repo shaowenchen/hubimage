@@ -1,3 +1,5 @@
+# exporter
+prom/blackbox-exporter: registry.cn-beijing.aliyuncs.com/opshub/blackbox-exporter
 # nats
 nats: registry.cn-beijing.aliyuncs.com/opshub/nats
 natsio/nats-box: registry.cn-beijing.aliyuncs.com/opshub/nats-box
