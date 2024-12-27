@@ -392,7 +392,6 @@ spec:
         env:
         - name: ARGO_EVENTS_IMAGE
           value: registry.cn-beijing.aliyuncs.com/opshub/argoproj-argo-events:v1.8.0
-    action:
         - name: NAMESPACE
           valueFrom:
             fieldRef:
