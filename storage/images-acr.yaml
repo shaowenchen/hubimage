@@ -1,3 +1,4 @@
+registry.k8s.io/sig-storage/csi-node-driver-registrar: registry.cn-beijing.aliyuncs.com/opshub/csi-node-driver-registrar
 # fluid
 fluidcloudnative/init-users: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudnative-init-users
 alluxio/alluxio-dev: registry.cn-beijing.aliyuncs.com/opshub/alluxio-alluxio-dev
