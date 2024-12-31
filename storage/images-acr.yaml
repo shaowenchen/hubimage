@@ -1,6 +1,3 @@
-# velero
-velero/velero: registry.cn-beijing.aliyuncs.com/opshub/velero
-velero/velero-plugin-for-aws: registry.cn-beijing.aliyuncs.com/opshub/velero-plugin-for-aws
 # release-1.0 amd64 and arm64
 hubimage/fluidcloudnative-goosefsruntime-controller: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudnative-goosefsruntime-controller
 hubimage/fluidcloudnative-efcruntime-controller: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudnative-efcruntime-controller
@@ -31,3 +28,7 @@ fluidcloudnative/fluid-csi: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudna
 
 # juicefs
 juicedata/juicefs-fuse: registry.cn-beijing.aliyuncs.com/opshub/juicedata-juicefs-fuse
+
+# velero
+velero/velero: registry.cn-beijing.aliyuncs.com/opshub/velero
+velero/velero-plugin-for-aws: registry.cn-beijing.aliyuncs.com/opshub/velero-plugin-for-aws
