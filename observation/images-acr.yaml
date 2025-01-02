@@ -1,6 +1,7 @@
 # exporter
 prom/blackbox-exporter: registry.cn-beijing.aliyuncs.com/opshub/blackbox-exporter
 # nats
+nats-streaming: registry.cn-beijing.aliyuncs.com/opshub/nats-streaming
 nats: registry.cn-beijing.aliyuncs.com/opshub/nats
 natsio/nats-box: registry.cn-beijing.aliyuncs.com/opshub/nats-box
 natsio/prometheus-nats-exporter: registry.cn-beijing.aliyuncs.com/opshub/natsio-prometheus-nats-exporter
