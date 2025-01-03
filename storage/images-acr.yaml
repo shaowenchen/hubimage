@@ -1,3 +1,6 @@
+# nfs
+registry.k8s.io/sig-storage/nfsplugin: registry.cn-beijing.aliyuncs.com/opshub/nfsplugin
+registry.k8s.io/sig-storage/csi-snapshotter: registry.cn-beijing.aliyuncs.com/opshub/csi-snapshotter
 registry.k8s.io/sig-storage/csi-node-driver-registrar: registry.cn-beijing.aliyuncs.com/opshub/csi-node-driver-registrar
 # fluid
 fluidcloudnative/init-users: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudnative-init-users
