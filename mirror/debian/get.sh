@@ -4,7 +4,7 @@ if [ "x${VERSION}" = "x" ]; then
   VERSION=$(cat /etc/os-release | grep "VERSION_ID" | cut -d '"' -f 2)
 fi
 
-default_proxy="https://cf.ghproxy.cc/"
+default_proxy="https://ghproxy.chenshaowen.com/"
 proxy=${PROXY:-$default_proxy}
 repo_url="$proxy""https://raw.githubusercontent.com/shaowenchen/hubimage/main/mirror/debian/"
 
