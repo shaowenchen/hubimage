@@ -1,4 +1,5 @@
 # nfs
+registry.k8s.io/sig-storage/livenessprobe: registry.cn-beijing.aliyuncs.com/opshub/livenessprobe
 registry.k8s.io/sig-storage/nfsplugin: registry.cn-beijing.aliyuncs.com/opshub/nfsplugin
 registry.k8s.io/sig-storage/csi-snapshotter: registry.cn-beijing.aliyuncs.com/opshub/csi-snapshotter
 registry.k8s.io/sig-storage/csi-node-driver-registrar: registry.cn-beijing.aliyuncs.com/opshub/csi-node-driver-registrar
