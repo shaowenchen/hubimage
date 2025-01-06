@@ -27,7 +27,7 @@ for image in ${ALL_IMAGES}; do
             docker run --rm -v ~/.docker/config.json:/auth.json quay.io/skopeo/stable copy --multi-arch all docker://${imagearr[0]}:${tag} docker://${imagearr[1]}:${tag} --dest-authfile /auth.json --insecure-policy --src-tls-verify=false --dest-tls-verify=false --retry-times 5
             if [ $? -ne 0 ]; then
                 echo "Failed to copy ${imagearr[0]}:${tag} to ${imagearr[1]}:${tag}"
-                # break 2
+                break 2
             fi
         fi
     done
