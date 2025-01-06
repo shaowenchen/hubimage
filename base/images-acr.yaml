@@ -1,3 +1,5 @@
+docker.io/bitnami/redis: registry.cn-beijing.aliyuncs.com/opshub/bitnami-redis
+docker.io/bitnami/mysql: registry.cn-beijing.aliyuncs.com/opshub/bitnami-mysql
 busybox: registry.cn-beijing.aliyuncs.com/opshub/busybox
 golang: registry.cn-beijing.aliyuncs.com/opshub/golang
 nginx: registry.cn-beijing.aliyuncs.com/opshub/nginx
