@@ -1,3 +1,5 @@
+dragonflyoss/dfdaemon: registry.cn-beijing.aliyuncs.com/opshub/dragonflyoss-dfdaemon
+dragonflyoss/manager: registry.cn-beijing.aliyuncs.com/opshub/dragonflyoss-manager
 # sriov
 ghcr.io/k8snetworkplumbingwg/multus-cni: registry.cn-beijing.aliyuncs.com/opshub/k8snetworkplumbingwg-multus-cni
 ghcr.io/k8snetworkplumbingwg/sriov-cni: registry.cn-beijing.aliyuncs.com/opshub/k8snetworkplumbingwg-sriov-cni
