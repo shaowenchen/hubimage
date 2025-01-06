@@ -1,3 +1,4 @@
+busybox: registry.cn-beijing.aliyuncs.com/opshub/busybox
 golang: registry.cn-beijing.aliyuncs.com/opshub/golang
 nginx: registry.cn-beijing.aliyuncs.com/opshub/nginx
 debian: registry.cn-beijing.aliyuncs.com/opshub/debian
