@@ -14,37 +14,18 @@ data:
   MYSQL_PASSWORD: mysqlpassword
   MYSQL_ROOT_PASSWORD: rootpassword
 ---
-kind: PersistentVolume
 apiVersion: v1
-metadata:
-  name: mysql-pv-volume
-  namespace: mysql
-  labels:
-    type: local
-    app: mysql
-spec:
-  storageClassName: manual
-  capacity:
-    storage: 500Gi
-  accessModes:
-    - ReadWriteMany
-  hostPath:
-    path: "/data/mysql"
----
 kind: PersistentVolumeClaim
-apiVersion: v1
 metadata:
   name: mysql-pv-claim
   namespace: mysql
-  labels:
-    app: mysql
 spec:
-  storageClassName: manual
   accessModes:
     - ReadWriteMany
   resources:
     requests:
-      storage: 5Gi
+      storage: 10Gi
+  storageClassName: nfs-csi-host1
 ---
 apiVersion: apps/v1
 kind: Deployment

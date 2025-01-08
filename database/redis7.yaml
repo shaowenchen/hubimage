@@ -11,37 +11,18 @@ metadata:
 data:
   REDIS_PASSWORD: redispassword
 ---
-kind: PersistentVolume
 apiVersion: v1
-metadata:
-  name: redis-pv-volume
-  namespace: redis
-  labels:
-    type: local
-    app: redis
-spec:
-  storageClassName: nfs-csi-host1
-  capacity:
-    storage: 100Gi
-  accessModes:
-    - ReadWriteMany
-  hostPath:
-    path: "/data/redis"
----
 kind: PersistentVolumeClaim
-apiVersion: v1
 metadata:
   name: redis-pv-claim
   namespace: redis
-  labels:
-    app: redis
 spec:
-  storageClassName: nfs-csi-host1
   accessModes:
     - ReadWriteMany
   resources:
     requests:
       storage: 10Gi
+  storageClassName: nfs-csi-host1
 ---
 apiVersion: apps/v1
 kind: Deployment
