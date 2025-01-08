@@ -20,7 +20,7 @@ metadata:
     type: local
     app: redis
 spec:
-  storageClassName: manual
+  storageClassName: nfs-csi-host1
   capacity:
     storage: 100Gi
   accessModes:
@@ -36,7 +36,7 @@ metadata:
   labels:
     app: redis
 spec:
-  storageClassName: manual
+  storageClassName: nfs-csi-host1
   accessModes:
     - ReadWriteMany
   resources:
@@ -69,7 +69,7 @@ spec:
                 configMapKeyRef:
                   name: redis-config
                   key: REDIS_PASSWORD
-          command: ["redis-server", "--requirepass", "$(REDIS_PASSWORD)"]
+          command: ["redis-server", "--requirepass", "$(REDIS_PASSWORD)", "--dir", "/data"]
           volumeMounts:
             - mountPath: /data
               name: redisdata
