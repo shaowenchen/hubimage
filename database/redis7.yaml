@@ -50,7 +50,8 @@ spec:
                 configMapKeyRef:
                   name: redis-config
                   key: REDIS_PASSWORD
-          command: ["redis-server", "--requirepass", "$(REDIS_PASSWORD)", "--dir", "/data"]
+            - name: REDIS_DATA_DIR
+              value: "/data"
           volumeMounts:
             - mountPath: /data
               name: redisdata
