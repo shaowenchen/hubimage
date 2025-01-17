@@ -1,3 +1,4 @@
+tonistiigi/binfmt: registry.cn-beijing.aliyuncs.com/opshub/tonistiigi-binfmt
 docker.io/bitnami/redis: registry.cn-beijing.aliyuncs.com/opshub/bitnami-redis
 docker.io/bitnami/mysql: registry.cn-beijing.aliyuncs.com/opshub/bitnami-mysql
 busybox: registry.cn-beijing.aliyuncs.com/opshub/busybox
