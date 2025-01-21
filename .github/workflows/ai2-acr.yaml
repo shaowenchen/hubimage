@@ -12,7 +12,8 @@ on:
 jobs:
   build:
     name: Image Sync
-    runs-on: ubuntu-latest
+    # runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
