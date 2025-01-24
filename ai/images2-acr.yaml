@@ -1,3 +1,4 @@
+nvcr.io/nvidia/k8s/dcgm-exporter: registry.cn-beijing.aliyuncs.com/opshub/dcgm-exporter
 ollama/ollama: registry.cn-beijing.aliyuncs.com/opshub/ollama-ollama
 ascendai/cann: registry.cn-beijing.aliyuncs.com/opshub/ascendai-cann
 condaforge/miniforge3: registry.cn-beijing.aliyuncs.com/opshub/condaforge-miniforge3
