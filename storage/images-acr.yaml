@@ -23,7 +23,7 @@ fluidcloudnative/fluid-csi: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudna
 
 # juicefs
 juicedata/juicefs-fuse: registry.cn-beijing.aliyuncs.com/opshub/juicedata-juicefs-fuse
-
+juicedata/mount: registry.cn-beijing.aliyuncs.com/opshub/juicedata-mount
 # velero
 velero/velero: registry.cn-beijing.aliyuncs.com/opshub/velero
 velero/velero-plugin-for-aws: registry.cn-beijing.aliyuncs.com/opshub/velero-plugin-for-aws
