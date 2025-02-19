@@ -5,6 +5,7 @@ registry.k8s.io/sig-storage/nfsplugin: registry.cn-beijing.aliyuncs.com/opshub/n
 registry.k8s.io/sig-storage/csi-snapshotter: registry.cn-beijing.aliyuncs.com/opshub/csi-snapshotter
 registry.k8s.io/sig-storage/csi-node-driver-registrar: registry.cn-beijing.aliyuncs.com/opshub/csi-node-driver-registrar
 # fluid
+fluidcloudnative/fluid-crd-upgrader: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudnative-fluid-crd-upgrader
 fluidcloudnative/init-users: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudnative-init-users
 alluxio/alluxio-dev: registry.cn-beijing.aliyuncs.com/opshub/alluxio-alluxio-dev
 fluidcloudnative/alluxioruntime-controller: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudnative-alluxioruntime-controller
