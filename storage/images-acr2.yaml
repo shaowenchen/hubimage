@@ -1,0 +1,22 @@
+# velero
+velero/velero: registry.cn-beijing.aliyuncs.com/opshub/velero
+velero/velero-plugin-for-aws: registry.cn-beijing.aliyuncs.com/opshub/velero-plugin-for-aws
+
+# release-1.0 amd64 and arm64
+hubimage/fluidcloudnative-goosefsruntime-controller: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudnative-goosefsruntime-controller
+hubimage/fluidcloudnative-efcruntime-controller: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudnative-efcruntime-controller
+hubimage/fluidcloudnative-alluxioruntime-controller: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudnative-alluxioruntime-controller
+hubimage/fluidcloudnative-application-controller: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudnative-application-controller
+hubimage/fluidcloudnative-jindoruntime-controller: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudnative-jindoruntime-controller
+hubimage/fluidcloudnative-juicefsruntime-controller: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudnative-juicefsruntime-controller
+hubimage/fluidcloudnative-vineyardruntime-controller: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudnative-vineyardruntime-controller
+hubimage/fluidcloudnative-fluid-csi: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudnative-fluid-csi
+hubimage/fluidcloudnative-fluid-webhook: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudnative-fluid-webhook
+hubimage/fluidcloudnative-dataset-controller: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudnative-dataset-controller
+
+# nfs
+registry.k8s.io/sig-storage/csi-provisioner: registry.cn-beijing.aliyuncs.com/opshub/csi-provisioner
+registry.k8s.io/sig-storage/livenessprobe: registry.cn-beijing.aliyuncs.com/opshub/livenessprobe
+registry.k8s.io/sig-storage/nfsplugin: registry.cn-beijing.aliyuncs.com/opshub/nfsplugin
+registry.k8s.io/sig-storage/csi-snapshotter: registry.cn-beijing.aliyuncs.com/opshub/csi-snapshotter
+registry.k8s.io/sig-storage/csi-node-driver-registrar: registry.cn-beijing.aliyuncs.com/opshub/csi-node-driver-registrar
