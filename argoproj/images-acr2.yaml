@@ -1,0 +1,7 @@
+# argo-workflow
+quay.io/argoproj/argoexec: registry.cn-beijing.aliyuncs.com/opshub/argoproj-argoexec
+quay.io/argoproj/argocli: registry.cn-beijing.aliyuncs.com/opshub/argoproj-argocli
+quay.io/argoproj/workflow-controller: registry.cn-beijing.aliyuncs.com/opshub/argoproj-workflow-controller
+
+# argo-events
+quay.io/argoproj/argo-events: registry.cn-beijing.aliyuncs.com/opshub/argoproj-argo-events
