@@ -1,9 +1,4 @@
-# nfs
-registry.k8s.io/sig-storage/csi-provisioner: registry.cn-beijing.aliyuncs.com/opshub/csi-provisioner
-registry.k8s.io/sig-storage/livenessprobe: registry.cn-beijing.aliyuncs.com/opshub/livenessprobe
-registry.k8s.io/sig-storage/nfsplugin: registry.cn-beijing.aliyuncs.com/opshub/nfsplugin
-registry.k8s.io/sig-storage/csi-snapshotter: registry.cn-beijing.aliyuncs.com/opshub/csi-snapshotter
-registry.k8s.io/sig-storage/csi-node-driver-registrar: registry.cn-beijing.aliyuncs.com/opshub/csi-node-driver-registrar
+
 # fluid
 fluidcloudnative/fluid-crd-upgrader: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudnative-fluid-crd-upgrader
 fluidcloudnative/init-users: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudnative-init-users
@@ -39,3 +34,10 @@ hubimage/fluidcloudnative-vineyardruntime-controller: registry.cn-beijing.aliyun
 hubimage/fluidcloudnative-fluid-csi: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudnative-fluid-csi
 hubimage/fluidcloudnative-fluid-webhook: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudnative-fluid-webhook
 hubimage/fluidcloudnative-dataset-controller: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudnative-dataset-controller
+
+# nfs
+registry.k8s.io/sig-storage/csi-provisioner: registry.cn-beijing.aliyuncs.com/opshub/csi-provisioner
+registry.k8s.io/sig-storage/livenessprobe: registry.cn-beijing.aliyuncs.com/opshub/livenessprobe
+registry.k8s.io/sig-storage/nfsplugin: registry.cn-beijing.aliyuncs.com/opshub/nfsplugin
+registry.k8s.io/sig-storage/csi-snapshotter: registry.cn-beijing.aliyuncs.com/opshub/csi-snapshotter
+registry.k8s.io/sig-storage/csi-node-driver-registrar: registry.cn-beijing.aliyuncs.com/opshub/csi-node-driver-registrar
