@@ -1,3 +1,11 @@
+# elasticsearch
+elastic/kibana: registry.cn-beijing.aliyuncs.com/opshub/elastic-kibana
+elasticsearch: registry.cn-beijing.aliyuncs.com/opshub/elasticsearch
+logstash: registry.cn-beijing.aliyuncs.com/opshub/logstash
+elastic/filebeat: registry.cn-beijing.aliyuncs.com/opshub/elastic-filebeat
+elastic/metricbeat: registry.cn-beijing.aliyuncs.com/opshub/elastic-metricbeat
+docker.elastic.co/eck/eck-operator: registry.cn-beijing.aliyuncs.com/opshub/eck-operator
+ghcr.io/jaegertracing/spark-dependencies/spark-dependencies: registry.cn-beijing.aliyuncs.com/opshub/jaegertracing-spark-dependencies
 # exporter
 prom/blackbox-exporter: registry.cn-beijing.aliyuncs.com/opshub/blackbox-exporter
 # nats
