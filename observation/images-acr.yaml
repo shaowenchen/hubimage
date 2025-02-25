@@ -1,3 +1,6 @@
+# istio
+istio/pilot: registry.cn-beijing.aliyuncs.com/opshub/istio-pilot
+istio/proxyv2: registry.cn-beijing.aliyuncs.com/opshub/istio-proxyv2
 # jaeger
 jaegertracing/jaeger-agent: registry.cn-beijing.aliyuncs.com/opshub/jaegertracing-jaeger-agent
 # elasticsearch
