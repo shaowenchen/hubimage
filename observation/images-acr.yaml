@@ -1,3 +1,5 @@
+# jaeger
+jaegertracing/jaeger-agent: registry.cn-beijing.aliyuncs.com/opshub/jaegertracing-jaeger-agent
 # elasticsearch
 elastic/kibana: registry.cn-beijing.aliyuncs.com/opshub/elastic-kibana
 elasticsearch: registry.cn-beijing.aliyuncs.com/opshub/elasticsearch
