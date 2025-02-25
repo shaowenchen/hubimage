@@ -1,4 +1,9 @@
 # fluid
+juicedata/juicefs-csi-driver: registry.cn-beijing.aliyuncs.com/opshub/juicedata-juicefs-csi-driver
+juicedata/juicefs-fuse: registry.cn-beijing.aliyuncs.com/opshub/juicedata-juicefs-fuse
+juicedata/mount: registry.cn-beijing.aliyuncs.com/opshub/juicedata-mount
+
+# juicefs
 fluidcloudnative/fluid-webhook: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudnative-fluid-webhook
 fluidcloudnative/application-controller: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudnative-application-controller
 fluidcloudnative/goosefsruntime-controller: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudnative-goosefsruntime-controller
@@ -8,10 +13,6 @@ fluidcloudnative/thinruntime-controller: registry.cn-beijing.aliyuncs.com/opshub
 fluidcloudnative/vineyardruntime-controller: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudnative-vineyardruntime-controller
 fluidcloudnative/csi-node-driver-registrar: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudnative-csi-node-driver-registrar
 fluidcloudnative/fluid-csi: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudnative-fluid-csi
-
-# juicefs
-juicedata/juicefs-fuse: registry.cn-beijing.aliyuncs.com/opshub/juicedata-juicefs-fuse
-juicedata/mount: registry.cn-beijing.aliyuncs.com/opshub/juicedata-mount
 
 # velero
 velero/velero: registry.cn-beijing.aliyuncs.com/opshub/velero
