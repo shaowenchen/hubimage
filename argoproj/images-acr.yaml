@@ -5,3 +5,6 @@ quay.io/argoproj/kubectl-argo-rollouts: registry.cn-beijing.aliyuncs.com/opshub/
 # argo-cd
 quay.io/argoproj/argocd: registry.cn-beijing.aliyuncs.com/opshub/argoproj-argocd
 ghcr.io/dexidp/dex: registry.cn-beijing.aliyuncs.com/opshub/dexidp-dex
+
+# argo-events
+quay.io/argoproj/argo-events: registry.cn-beijing.aliyuncs.com/opshub/argoproj-argo-events
