@@ -15,7 +15,7 @@ for image in ${ALL_IMAGES}; do
     IFS=', ' read -r -a imagearr <<<"$image"
     for tag in $(skopeo list-tags docker://${imagearr[0]} | jq '.Tags[]' | sed '1!G;h;$!d'); do
         tag=$(echo $tag | sed 's/"//g')
-        if [[ ${#tag} -gt 30 || ${tag} == *"--"* || ${tag} =~ ([0-9]{8}) || ${tag} =~ -[a-f0-9]{7,}- || ${tag} =~ -SNAPSHOT$ || ${tag} =~ beta[0-9]+ || ${tag} == *"windows"* || ${tag} == *"0.0.0"* || ${tag} == *"dev"* ]]; then
+        if [[ ${#tag} -gt 30 || ${tag} == *"--"* || ${tag} =~ ([0-9]{8}) || ${tag} =~ -[a-f0-9]{7,}- || ${tag} =~ -SNAPSHOT$ || ${tag} =~ beta[0-9]+ || ${tag} == *"windows"* || ${tag} == *"0.0.0"* || ${tag} == *"dev"* || ${tag} == sha256* || ${tag} == *.sig || ${tag} == *post1 || ${tag} == *post2 ]]; then
             echo "Skipping special tag ${imagearr[0]}:${tag}"
             continue
         fi

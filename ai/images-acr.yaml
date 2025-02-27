@@ -1,5 +1,5 @@
-vllm/vllm-openai: registry.cn-beijing.aliyuncs.com/opshub/vllm-openai
 nvcr.io/nvidia/tritonserver: registry.cn-beijing.aliyuncs.com/opshub/nvidia-tritonserver
+vllm/vllm-openai: registry.cn-beijing.aliyuncs.com/opshub/vllm-openai
 nvcr.io/nvidia/tensorrtserver: registry.cn-beijing.aliyuncs.com/opshub/nvidia-tensorrtserver
 nvcr.io/nvidia/tensorrt: registry.cn-beijing.aliyuncs.com/opshub/nvidia-tensorrt
 nvcr.io/nvidia/pytorch: registry.cn-beijing.aliyuncs.com/opshub/nvidia-pytorch
