@@ -1,0 +1,5 @@
+clickhouse/clickhouse-operator: registry.cn-beijing.aliyuncs.com/opshub/clickhouse-clickhouse-operator
+clickhouse/metrics-exporter: registry.cn-beijing.aliyuncs.com/opshub/clickhouse-metrics-exporter
+foundationdb/fdb-kubernetes-operator: registry.cn-beijing.aliyuncs.com/opshub/foundationdb-fdb-kubernetes-operator
+foundationdb/foundationdb-kubernetes-sidecar: registry.cn-beijing.aliyuncs.com/opshub/foundationdb-foundationdb-kubernetes-sidecar
+foundationdb/foundationdb: registry.cn-beijing.aliyuncs.com/opshub/foundationdb-foundationdb
