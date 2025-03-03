@@ -13,26 +13,24 @@ metadata:
 spec:
   configuration:
     users:
-      # reference to namespace/name/field in the secret with plain password
-      ch3fs/k8s_secret_password: 3fs-system/clickhouse-credentials/ch3fs
+      ch3fs/k8s_secret_password: 3fs-system/test-cluster-credentials/ch3fs
     clusters:
       - name: "test-cluster"
-        # Templates are specified for this cluster explicitly
         templates:
-          podTemplate: "test-cluster-template"
+          podTemplate: pod-template-with-volumes
         layout:
-          shardsCount: 1
-          replicasCount: 1
+          shardsCount: 2
+          replicasCount: 2
 
   templates:
     podTemplates:
-      - name: "test-cluster-template"
+      - name: pod-template-with-volumes
         spec:
           nodeSelector:
             3fs: "true"
           containers:
             - name: clickhouse
-              image: hub-mirror.wps.cn/kas-open/clickhouse/clickhouse-server:23.8  
+              image: registry.cn-beijing.aliyuncs.com/opshub/altinity-clickhouse-server:23.8
               volumeMounts:
                 - name: data-storage-vc-template
                   mountPath: /var/lib/clickhouse
