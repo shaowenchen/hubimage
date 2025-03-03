@@ -1,0 +1,56 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: test-cluster-credentials
+type: Opaque
+stringData:
+  ch3fs: "59x4j^OlCW4="
+---
+apiVersion: "clickhouse.altinity.com/v1"
+kind: "ClickHouseInstallation"
+metadata:
+  name: test-cluster
+spec:
+  configuration:
+    users:
+      # reference to namespace/name/field in the secret with plain password
+      ch3fs/k8s_secret_password: 3fs-system/clickhouse-credentials/ch3fs
+    clusters:
+      - name: "test-cluster"
+        # Templates are specified for this cluster explicitly
+        templates:
+          podTemplate: "test-cluster-template"
+        layout:
+          shardsCount: 1
+          replicasCount: 1
+
+  templates:
+    podTemplates:
+      - name: "test-cluster-template"
+        spec:
+          nodeSelector:
+            3fs: "true"
+          containers:
+            - name: clickhouse
+              image: hub-mirror.wps.cn/kas-open/clickhouse/clickhouse-server:23.8  
+              volumeMounts:
+                - name: data-storage-vc-template
+                  mountPath: /var/lib/clickhouse
+                - name: log-storage-vc-template
+                  mountPath: /var/log/clickhouse-server
+
+    volumeClaimTemplates:
+      - name: data-storage-vc-template
+        spec:
+          accessModes:
+            - ReadWriteOnce
+          resources:
+            requests:
+              storage: 3Gi
+      - name: log-storage-vc-template
+        spec:
+          accessModes:
+            - ReadWriteOnce
+          resources:
+            requests:
+              storage: 2Gi
