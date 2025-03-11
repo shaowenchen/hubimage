@@ -1,3 +1,4 @@
+quay.io/ascend/vllm-ascend: registry.cn-beijing.aliyuncs.com/opshub/vllm-ascend
 nvcr.io/nvidia/tritonserver: registry.cn-beijing.aliyuncs.com/opshub/nvidia-tritonserver
 vllm/vllm-openai: registry.cn-beijing.aliyuncs.com/opshub/vllm-openai
 nvcr.io/nvidia/tensorrtserver: registry.cn-beijing.aliyuncs.com/opshub/nvidia-tensorrtserver
