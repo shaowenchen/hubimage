@@ -62,6 +62,7 @@ spec:
             requests:
               storage: 16G
   routing:
+    publicIPSource: service
     defineDNSLocalityFields: true
   sidecarContainer:
     enableLivenessProbe: true
