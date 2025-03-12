@@ -4,7 +4,7 @@ metadata:
   name: test-cluster-credentials
 type: Opaque
 stringData:
-  ch3fs: "59x4j^OlCW4="
+  app: "RSh9CICD9WApNfaH"
 ---
 apiVersion: "clickhouse.altinity.com/v1"
 kind: "ClickHouseInstallation"
@@ -13,8 +13,8 @@ metadata:
 spec:
   configuration:
     users:
-      ch3fs/k8s_secret_password: 3fs-system/test-cluster-credentials/ch3fs
-      ch3fs/networks/ip:
+      app/k8s_secret_password: default/test-cluster-credentials/app
+      app/networks/ip:
         - "0.0.0.0/0"
     clusters:
       - name: "test-cluster"
