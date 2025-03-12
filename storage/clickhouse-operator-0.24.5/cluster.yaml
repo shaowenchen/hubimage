@@ -32,7 +32,7 @@ spec:
             3fs: "true"
           containers:
             - name: clickhouse
-              image: registry.cn-beijing.aliyuncs.com/opshub/altinity-clickhouse-server:23.8
+              image: registry.cn-beijing.aliyuncs.com/opshub/clickhouse-clickhouse-server:23.8
               volumeMounts:
                 - name: data-storage-vc-template
                   mountPath: /var/lib/clickhouse

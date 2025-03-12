@@ -851,7 +851,7 @@ data:
                 "containers" : [
                   {
                     "name": "clickhouse",
-                    "image": "clickhouse/clickhouse-server:23.8",
+                    "image": "registry.cn-beijing.aliyuncs.com/opshub/clickhouse-clickhouse-server:23.8",
                     "ports": [
                       {
                         "name": "http",
