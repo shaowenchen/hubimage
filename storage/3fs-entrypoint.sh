@@ -24,7 +24,7 @@ run_mgmtd() {
     # mgmtd_main_launcher.toml
     sed -i "s/^node_id.*/node_id = ${MGMTD_NODE_ID}/" /opt/3fs/etc/mgmtd_main_launcher.toml
     # mgmtd_main_app.toml
-    sed -i "s|remote_ip = \".*\"|remote_ip = \"${REMOTE_IP}\"|g" /opt/3fs/etc/mgmtd_main.toml
+    sed -i "s|remote_ip = \".*\"|remote_ip = \"${REMOTE_IP}\"|g" /opt/3fs/etc/mgmtd_main_app.toml
     # device_filter
     if [[ -n "${DEVICE_FILTER}" ]]; then
         sed -i "s|device_filter = \[\]|device_filter = [\"${DEVICE_FILTER//,/\",\"}\"]|g" /opt/3fs/etc/mgmtd_main_app.toml
