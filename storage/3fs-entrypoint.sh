@@ -20,7 +20,7 @@ run_monitor() {
 run_mgmtd() {
     # env: FDB_CLUSTER, MGMTD_SERVER_ADDRESSES, MGMTD_NODE_ID, DEVICE_FILTER, REMOTE_IP
     config_admin_cli
-    echo ${FDB_CLUSTER} >/opt/3fs/etc/fdb.cluster
+    echo ${FDB_CLUSTER} >/etc/foundationdb/fdb.cluster
     # mgmtd_main_launcher.toml
     sed -i "s/^node_id.*/node_id = ${MGMTD_NODE_ID}/" /opt/3fs/etc/mgmtd_main_launcher.toml
     # mgmtd_main_app.toml
