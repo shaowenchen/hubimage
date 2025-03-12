@@ -20,7 +20,7 @@ for image in ${ALL_IMAGES}; do
             continue
         fi
 
-        if tag_exists ${imagearr[1]} ${tag} && [ ${tag} != "latest" ] && [ ${tag} != "master" ] && [ ${tag} != "main" ] && [ ${tag} != "dev" ] && [ ${tag} != "development" ] && [ ${tag} != "nightly" ] && [ ${tag} != "test" ] && [ ${tag} != "testing" ] && [ ${tag} != "staging" ] && [ ${tag} != "experimental" ] && [ ${tag} != "alpha" ] && [ ${tag} != "beta" ]; then
+        if tag_exists ${imagearr[1]} ${tag} && [ ! "$tag" == *"latest"* ] && [ ${tag} != "master" ] && [ ${tag} != "main" ] && [ ${tag} != "dev" ] && [ ${tag} != "development" ] && [ ${tag} != "nightly" ] && [ ${tag} != "test" ] && [ ${tag} != "testing" ] && [ ${tag} != "staging" ] && [ ${tag} != "experimental" ] && [ ${tag} != "alpha" ] && [ ${tag} != "beta" ]; then
             echo "Skipping copy ${imagearr[0]}:${tag} as it already exists in ${imagearr[1]}:${tag}"
         else
             echo "Copying ${imagearr[0]}:${tag} to ${imagearr[1]}:${tag}"

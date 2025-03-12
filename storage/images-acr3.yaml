@@ -1,3 +1,6 @@
+shaowenchen/demo-3fs: registry.cn-beijing.aliyuncs.com/shaowenchen/demo-3fs
+shaowenchen/demo-3fs-builder: registry.cn-beijing.aliyuncs.com/shaowenchen/demo-3fs-builder
+shaowenchen/demo-fluid-3fs: registry.cn-beijing.aliyuncs.com/shaowenchen/demo-fluid-3fs
 altinity/clickhouse-operator: registry.cn-beijing.aliyuncs.com/opshub/altinity-clickhouse-operator
 altinity/clickhouse-server: registry.cn-beijing.aliyuncs.com/opshub/altinity-clickhouse-server
 altinity/metrics-exporter: registry.cn-beijing.aliyuncs.com/opshub/altinity-metrics-exporter
