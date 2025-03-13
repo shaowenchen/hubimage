@@ -74,16 +74,18 @@ run_storage() {
     /opt/3fs/bin/storage_main --launcher_cfg /opt/3fs/etc/storage_main_launcher.toml --app-cfg /opt/3fs/etc/storage_main_app.toml
 }
 
-config_cluster_id(){
+config_cluster_id() {
     # env: CLUSTER_ID
     sed -i "s/^cluster_id.*/cluster_id = \"${CLUSTER_ID:-default}\"/" /opt/3fs/etc/*
 }
 
 config_admin_cli() {
-    # env: FDB_CLUSTER, MGMTD_SERVER_ADDRESSES, DEVICE_FILTER
+    # env: FDB_CLUSTER, MGMTD_SERVER_ADDRESSES, DEVICE_FILTER, REMOTE_IP
     # admin_cli.toml
     echo ${FDB_CLUSTER} >/etc/foundationdb/fdb.cluster
     sed -i "s|^clusterFile.*|clusterFile = '/etc/foundationdb/fdb.cluster'|" /opt/3fs/etc/admin_cli.toml
+    # remote_ip
+    sed -i "s|remote_ip = \".*\"|remote_ip = \"${REMOTE_IP}\"|g" /opt/3fs/etc/mgmtd_main.toml
     # device_filter
     if [[ -n "${DEVICE_FILTER}" ]]; then
         sed -i "s|device_filter = \[\]|device_filter = [\"${DEVICE_FILTER//,/\",\"}\"]|g" /opt/3fs/etc/admin_cli.toml
@@ -92,9 +94,8 @@ config_admin_cli() {
 }
 
 run_admin_cli() {
-    # env: FDB_CLUSTER, MGMTD_SERVER_ADDRESSES, DEVICE_FILTER, CLUSTER_ID
+    # env: FDB_CLUSTER, MGMTD_SERVER_ADDRESSES, DEVICE_FILTER, REMOTE_IP
     config_admin_cli
-    #/opt/3fs/bin/admin_cli -cfg /opt/3fs/etc/admin_cli.toml
     sleep infinity
 }
 
