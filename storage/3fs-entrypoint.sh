@@ -21,13 +21,15 @@ run_mgmtd() {
     # env: FDB_CLUSTER, MGMTD_SERVER_ADDRESSES, MGMTD_NODE_ID, DEVICE_FILTER, REMOTE_IP, CLUSTER_ID
     config_admin_cli
     echo ${FDB_CLUSTER} >/etc/foundationdb/fdb.cluster
+    # mgmtd_main_launcher.toml
+    sed -i "/\[fdb\]/,/^\[/{s|^clusterFile.*|clusterFile = '/etc/foundationdb/fdb.cluster'|}" /opt/3fs/etc/mgmtd_main_launcher.toml
     # mgmtd_main_app.toml
     sed -i "s/^node_id.*/node_id = ${MGMTD_NODE_ID}/" /opt/3fs/etc/mgmtd_main_app.toml
     # mgmtd_main.toml
     sed -i "s|remote_ip = .*|remote_ip = '${REMOTE_IP}'|g" /opt/3fs/etc/mgmtd_main.toml
     # device_filter
     if [[ -n "${DEVICE_FILTER}" ]]; then
-        sed -i "s|device_filter = \[\]|device_filter = [\"${DEVICE_FILTER//,/\",\"}\"]|g" /opt/3fs/etc/mgmtd_main_app.toml
+        sed -i "s|device_filter = \[\]|device_filter = [\"${DEVICE_FILTER//,/\",\"}\"]|g" /opt/3fs/etc/mgmtd_main_launcher.toml
     fi
     # run mgmtd
     /opt/3fs/bin/mgmtd_main --launcher_cfg /opt/3fs/etc/mgmtd_main_launcher.toml --app-cfg /opt/3fs/etc/mgmtd_main_app.toml
@@ -41,6 +43,7 @@ run_meta() {
     # meta_main_app.toml
     sed -i "s/^node_id.*/node_id = ${META_NODE_ID}/" /opt/3fs/etc/meta_main_app.toml
     # meta_main.toml
+    sed -i "s|mgmtd_server_addresses = \[\]|mgmtd_server_addresses = [\"${MGMTD_SERVER_ADDRESSES//,/\",\"}\"]|g" /opt/3fs/etc/meta_main.toml
     sed -i "s|remote_ip = .*|remote_ip = '${REMOTE_IP}'|g" /opt/3fs/etc/meta_main.toml
     # device_filter
     if [[ -n "${DEVICE_FILTER}" ]]; then
@@ -59,6 +62,8 @@ run_storage() {
     sed -i "s|mgmtd_server_addresses = \[\]|mgmtd_server_addresses = [\"${MGMTD_SERVER_ADDRESSES//,/\",\"}\"]|g" /opt/3fs/etc/storage_main_launcher.toml
     # storage_main_app.toml
     sed -i "s/^node_id.*/node_id = ${STORAGE_NODE_ID}/" /opt/3fs/etc/storage_main_app.toml
+    # storage_main.toml
+    sed -i "s|mgmtd_server_addresses = \[\]|mgmtd_server_addresses = [\"${MGMTD_SERVER_ADDRESSES//,/\",\"}\"]|g" /opt/3fs/etc/storage_main.toml
     # /opt/3fs/etc/storage_main.toml
     if [[ -n "${TARGET_PATHS}" ]]; then
         sed -i "s|^target_paths = .*|target_paths = [\"${TARGET_PATHS//,/\",\"}\"]|g" /opt/3fs/etc/storage_main.toml
@@ -102,12 +107,16 @@ run_admin_cli() {
 run_fuse() {
     # env: FDB_CLUSTER, MGMTD_SERVER_ADDRESSES, TOKEN, DEVICE_FILTER, REMOTE_IP
     config_admin_cli
+    mkdir -p /mnt/3fs
     # TOKEN
     echo ${TOKEN} >/opt/3fs/etc/token.txt
     # hf3fs_fuse_main_launcher.toml
     sed -i "s|mgmtd_server_addresses = \[\]|mgmtd_server_addresses = [\"${MGMTD_SERVER_ADDRESSES//,/\",\"}\"]|g" /opt/3fs/etc/hf3fs_fuse_main_launcher.toml
+    sed -i "s|mountpoint = ''|mountpoint = '/mnt/3fs'|g" /opt/3fs/etc/hf3fs_fuse_main_launcher.toml
+    sed -i "s|token_file = ''|token_file = '/opt/3fs/etc/token.txt'|g" /opt/3fs/etc/hf3fs_fuse_main_launcher.toml
     # hf3fs_fuse_main.toml
-    sed -i "s|remote_ip = \".*\"|remote_ip = \"${REMOTE_IP}\"|g" /opt/3fs/etc/hf3fs_fuse_main.toml
+    sed -i "s|remote_ip = ''|remote_ip = \"${REMOTE_IP}\"|g" /opt/3fs/etc/hf3fs_fuse_main.toml
+    sed -i "s|mgmtd_server_addresses = \[\]|mgmtd_server_addresses = [\"${MGMTD_SERVER_ADDRESSES//,/\",\"}\"]|g" /opt/3fs/etc/hf3fs_fuse_main.toml
     # device_filter
     if [[ -n "${DEVICE_FILTER}" ]]; then
         sed -i "s|device_filter = \[\]|device_filter = [\"${DEVICE_FILTER//,/\",\"}\"]|g" /opt/3fs/etc/hf3fs_fuse_main_launcher.toml
