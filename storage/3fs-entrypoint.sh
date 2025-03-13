@@ -82,7 +82,8 @@ config_cluster_id{
 config_admin_cli() {
     # env: FDB_CLUSTER, MGMTD_SERVER_ADDRESSES, DEVICE_FILTER
     # admin_cli.toml
-    sed -i "s/^clusterFile.*/clusterFile = ${FDB_CLUSTER}/" /opt/3fs/etc/admin_cli.toml
+    echo ${FDB_CLUSTER} >/etc/foundationdb/fdb.cluster
+    sed -i "s|^clusterFile.*|clusterFile = '/etc/foundationdb/fdb.cluster'|" /opt/3fs/etc/admin_cli.toml
     # device_filter
     if [[ -n "${DEVICE_FILTER}" ]]; then
         sed -i "s|device_filter = \[\]|device_filter = [\"${DEVICE_FILTER//,/\",\"}\"]|g" /opt/3fs/etc/admin_cli.toml
