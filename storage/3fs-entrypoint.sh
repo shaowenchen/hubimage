@@ -74,7 +74,7 @@ run_storage() {
     /opt/3fs/bin/storage_main --launcher_cfg /opt/3fs/etc/storage_main_launcher.toml --app-cfg /opt/3fs/etc/storage_main_app.toml
 }
 
-config_cluster_id{
+config_cluster_id(){
     # env: CLUSTER_ID
     sed -i "s/^cluster_id.*/cluster_id = \"${CLUSTER_ID:-default}\"/" /opt/3fs/etc/*
 }
