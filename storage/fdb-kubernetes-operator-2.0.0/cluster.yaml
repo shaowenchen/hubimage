@@ -73,4 +73,4 @@ spec:
     imageConfigs:
       - baseImage: registry.cn-beijing.aliyuncs.com/opshub/foundationdb-foundationdb
   useExplicitListenAddress: true
-  version: 7.1.26
+  version: 7.3.59
