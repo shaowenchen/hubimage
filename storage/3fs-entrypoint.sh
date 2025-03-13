@@ -76,7 +76,7 @@ run_storage() {
 
 config_cluster_id{
     # env: CLUSTER_ID
-    sed -i "s/^cluster_id.*/cluster_id = ${CLUSTER_ID}/" /opt/3fs/etc/*
+    sed -i "s/^cluster_id.*/cluster_id = \"${CLUSTER_ID:-default}\"/" /opt/3fs/etc/*
 }
 
 config_admin_cli() {
