@@ -92,9 +92,10 @@ config_admin_cli() {
 }
 
 run_admin_cli() {
-    # env: FDB_CLUSTER, MGMTD_SERVER_ADDRESSES
+    # env: FDB_CLUSTER, MGMTD_SERVER_ADDRESSES, DEVICE_FILTER, CLUSTER_ID
     config_admin_cli
-    /opt/3fs/bin/admin_cli -cfg /opt/3fs/etc/admin_cli.toml
+    #/opt/3fs/bin/admin_cli -cfg /opt/3fs/etc/admin_cli.toml
+    sleep infinity
 }
 
 run_fuse() {
