@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: thanos-query
+  name: thanos-query
+  namespace: monitoring
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: thanos-query
+  template:
+    metadata:
+      labels:
+        app: thanos-query
+    spec:
+      containers:
+      - args:
+        - query
+        - --log.level=info
+        - --query.replica-label=prometheus_replica
+        - --store=dnssrv+prometheus-operated.monitoring.svc.cluster.local:10901
+        - --store=dnssrv+thanos-store.monitoring.svc.cluster.local:10901
+          #- --store=dnssrv+_grpc._tcp.thanos-sidecar.monitoring.svc.cluster.local
+          #- --store=dnssrv+_grpc._tcp.thanos-store.monitoring.svc.cluster.local
+        - --web.external-prefix=/thanos
+        - --web.route-prefix=/thanos
+        image: registry.cn-beijing.aliyuncs.com/opshub/thanos:v0.28.1
+        name: thanos-query
+        ports:
+        - containerPort: 10902
+          name: http
+        - containerPort: 10901
+          name: grpc
+---
+
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: thanos-query
+  name: thanos-query
+  namespace: monitoring
+spec:
+  type: NodePort
+  ports:
+  - name: http
+    port: 10902
+    protocol: TCP
+    nodePort: 30902
+  selector:
+    app: thanos-query
