@@ -1,3 +1,12 @@
+# metrics
+quay.io/prometheus-operator/prometheus-config-reloader: registry.cn-beijing.aliyuncs.com/opshub/prometheus-config-reloader
+quay.io/prometheus-operator/prometheus-operator: registry.cn-beijing.aliyuncs.com/opshub/prometheus-operator
+registry.k8s.io/metrics-server/metrics-server: registry.cn-beijing.aliyuncs.com/opshub/metrics-server
+thanosio/thanos: registry.cn-beijing.aliyuncs.com/opshub/thanos
+quay.io/prometheus/node-exporter: registry.cn-beijing.aliyuncs.com/opshub/prometheus-node-exporter
+quay.io/prometheus/alertmanager: hubimage/prometheus-alertmanager
+quay.io/prometheus/prometheus: registry.cn-beijing.aliyuncs.com/opshub/prometheus
+jimmidyson/configmap-reload: registry.cn-beijing.aliyuncs.com/opshub/jimmidyson-configmap-reload
 # istio
 istio/pilot: registry.cn-beijing.aliyuncs.com/opshub/istio-pilot
 istio/proxyv2: registry.cn-beijing.aliyuncs.com/opshub/istio-proxyv2
@@ -19,11 +28,3 @@ nats: registry.cn-beijing.aliyuncs.com/opshub/nats
 natsio/nats-box: registry.cn-beijing.aliyuncs.com/opshub/nats-box
 natsio/prometheus-nats-exporter: registry.cn-beijing.aliyuncs.com/opshub/natsio-prometheus-nats-exporter
 natsio/nats-server-config-reloader: registry.cn-beijing.aliyuncs.com/opshub/natsio-nats-server-config-reloader
-# metrics
-registry.k8s.io/metrics-server/metrics-server: registry.cn-beijing.aliyuncs.com/opshub/metrics-server
-thanosio/thanos: registry.cn-beijing.aliyuncs.com/opshub/thanos
-quay.io/prometheus/node-exporter: registry.cn-beijing.aliyuncs.com/opshub/prometheus-node-exporter
-quay.io/prometheus/alertmanager: hubimage/prometheus-alertmanager
-quay.io/prometheus/prometheus: registry.cn-beijing.aliyuncs.com/opshub/prometheus
-jimmidyson/configmap-reload: registry.cn-beijing.aliyuncs.com/opshub/jimmidyson-configmap-reload
-quay.io/prometheus-operator/prometheus-config-reloader: registry.cn-beijing.aliyuncs.com/opshub/prometheus-config-reloader
