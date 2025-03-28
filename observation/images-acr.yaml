@@ -1,3 +1,4 @@
+registry.k8s.io/kube-state-metrics/kube-state-metrics: registry.cn-beijing.aliyuncs.com/opshub/kube-state-metrics
 # metrics
 quay.io/prometheus-operator/prometheus-config-reloader: registry.cn-beijing.aliyuncs.com/opshub/prometheus-config-reloader
 quay.io/prometheus-operator/prometheus-operator: registry.cn-beijing.aliyuncs.com/opshub/prometheus-operator

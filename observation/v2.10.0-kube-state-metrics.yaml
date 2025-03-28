@@ -21,7 +21,7 @@ spec:
     spec:
       automountServiceAccountToken: true
       containers:
-      - image: hubimage/kube-state-metrics:v2.10.0
+      - image: registry.cn-beijing.aliyuncs.com/opshub/kube-state-metrics:v2.10.0
         livenessProbe:
           httpGet:
             path: /healthz
