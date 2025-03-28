@@ -47,4 +47,4 @@ spec:
     path: /metrics/prometheus/
   selector:
     matchLabels:
-      monitored-by: prometheus
+      app.kubernetes.io/instance: apache-spark
