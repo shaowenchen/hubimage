@@ -6,14 +6,23 @@ metadata:
     app.kubernetes.io/name: kube-state-metrics
   namespace: monitoring
 spec:
+  endpoints:
+  - interval: 30s
+    metricRelabelings:
+    - action: keep
+      regex: ^(.*)$
+      sourceLabels:
+      - exported_namespace
+    - action: keep
+      regex: kube_(pod|node)_.*
+      sourceLabels:
+      - __name__
+    port: http-metrics
+  namespaceSelector:
+    matchNames:
+    - kube-system
   selector:
     matchLabels:
-      prometheus-scrape: "true"
-  endpoints:
-    - port: metrics
-      path: /metrics
-      targetPort: 8080
-      honorLabels: true
-      scheme: https
-      tlsConfig:
-        insecureSkipVerify: true
+      app.kubernetes.io/name: kube-state-metrics
+  targetLabels:
+  - app.kubernetes.io/name
