@@ -1,0 +1,9 @@
+gcr.io/knative-releases/knative.dev/serving/cmd/default-domain: hubimage/knative-serving-default-domain
+gcr.io/knative-releases/knative.dev/serving/cmd/autoscaler-hpa: hubimage/knative-serving-autoscaler-hpa
+gcr.io/knative-releases/knative.dev/eventing/cmd/in_memory/channel_controller: hubimage/knative-eventing-inmemory-channel-controller
+gcr.io/knative-releases/knative.dev/eventing/cmd/in_memory/channel_dispatcher: hubimage/knative-eventing-inmemory-channel-dispatcher
+gcr.io/knative-releases/knative.dev/pkg/apiextensions/storageversion/cmd/migrate: hubimage/knative-serving-apiextensions-storageversion-migrate
+gcr.io/knative-releases/knative.dev/eventing/cmd/heartbeats: hubimage/knative-eventing-heartbeats
+gcr.io/knative-releases/knative.dev/eventing/test/test_images/recordevents: hubimage/knative-eventing-test-recordevents
+gcr.io/knative-releases/knative.dev/eventing/vendor/knative.dev/pkg/apiextensions/storageversion/cmd/migrate: hubimage/knative-serving-apiextensions-storageversion-migrate
+gcr.io/knative-releases/knative.dev/eventing/cmd/sugar_controller: hubimage/knative-eventing-sugar-controller
