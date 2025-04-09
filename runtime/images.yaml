@@ -1,0 +1,7 @@
+hubimage/runtime-python: registry.cn-beijing.aliyuncs.com/opshub/runtime-python
+hubimage/runtime-ubuntu: registry.cn-beijing.aliyuncs.com/opshub/runtime-ubuntu
+hubimage/runtime-nginx: registry.cn-beijing.aliyuncs.com/opshub/runtime-nginx
+hubimage/runtime-node: registry.cn-beijing.aliyuncs.com/opshub/runtime-node
+hubimage/runtime-openjdk: registry.cn-beijing.aliyuncs.com/opshub/runtime-openjdk
+hubimage/runtime-openresty: registry.cn-beijing.aliyuncs.com/opshub/runtime-openresty
+hubimage/runtime-pypy: registry.cn-beijing.aliyuncs.com/opshub/runtime-pypy
