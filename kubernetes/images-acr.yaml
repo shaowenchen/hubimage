@@ -1,7 +1,7 @@
 # kubernetes 1.25+, k8s.gcr.io -> registry.k8s.io
 registry.k8s.io/kubectl: registry.cn-beijing.aliyuncs.com/opshub/kubectl
 registry.k8s.io/node-problem-detector/node-problem-detector: registry.cn-beijing.aliyuncs.com/opshub/node-problem-detector
-registry.k8s.io/k8s-dns-node-cache: registry.cn-beijing.aliyuncs.com/opshub/k8s-dns-node-cache
+registry.k8s.io/dns/k8s-dns-node-cache: registry.cn-beijing.aliyuncs.com/opshub/k8s-dns-node-cache
 registry.k8s.io/kube-apiserver: registry.cn-beijing.aliyuncs.com/opshub/kube-apiserver
 registry.k8s.io/kube-controller-manager: registry.cn-beijing.aliyuncs.com/opshub/kube-controller-manager
 registry.k8s.io/kube-scheduler: registry.cn-beijing.aliyuncs.com/opshub/kube-scheduler
