@@ -1,4 +1,4 @@
-name: Builder
+name: Builder-build
 
 on:
   push:
@@ -28,5 +28,13 @@ jobs:
           registry: https://registry.cn-beijing.aliyuncs.com
           username: "${{ secrets.ACR_USERNAME }}"
           password: "${{ secrets.ACR_PASSWORD }}"
-      - name: Working
-        run: bash ./.github/workflows/copy.sh ./builder/images.yaml
+      - name: Build and Push Node
+        run: cd ./builder/node && bash run.sh
+      - name: Build and Push Golang
+        run: cd ./builder/golang && bash run.sh
+      - name: Build and Push Python
+        run: cd ./builder/python && bash run.sh
+      - name: Build and Push PyPy
+        run: cd ./builder/pypy && bash run.sh
+      - name: Build and Push Maven
+        run: cd ./builder/maven && bash run.sh
