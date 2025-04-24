@@ -28,8 +28,6 @@ spec:
     podTemplates:
       - name: pod-template-with-volumes
         spec:
-          nodeSelector:
-            3fs: "true"
           containers:
             - name: clickhouse
               image: registry.cn-beijing.aliyuncs.com/opshub/clickhouse-clickhouse-server:23.8
