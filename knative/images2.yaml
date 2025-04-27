@@ -2,6 +2,4 @@
 gcr.io/knative-releases/knative.dev/eventing/cmd/websocketsource: hubimage/knative-eventing-websocketsource
 gcr.io/knative-releases/knative.dev/eventing/cmd/event_display: hubimage/knative-eventing-event-display
 gcr.io/knative-releases/knative.dev/eventing/cmd/appender: hubimage/knative-eventing-appender
-gcr.io/knative-releases/knative.dev/eventing/cmd/controller: hubimage/knative-eventing-controller
-gcr.io/knative-releases/knative.dev/eventing/cmd/apiserver_receive_adapter: hubimage/knative-eventing-apiserver-receive-adapter
 

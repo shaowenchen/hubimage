@@ -3,3 +3,4 @@ gcr.io/knative-releases/knative.dev/eventing/cmd/webhook: hubimage/knative-event
 gcr.io/knative-releases/knative.dev/eventing/cmd/broker/filter: hubimage/knative-eventing-broker-filter
 gcr.io/knative-releases/knative.dev/eventing/cmd/broker/ingress: hubimage/knative-eventing-broker-ingress
 gcr.io/knative-releases/knative.dev/eventing/cmd/mtchannel_broker: hubimage/knative-eventing-mtchannel-broker
+gcr.io/knative-releases/knative.dev/eventing/cmd/apiserver_receive_adapter: hubimage/knative-eventing-apiserver-receive-adapter

@@ -2,4 +2,3 @@
 gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/controller: hubimage/tekton-pipeline-controller
 gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/kubeconfigwriter: hubimage/tekton-pipeline-kubeconfigwriter
 gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/entrypoint: hubimage/tekton-pipeline-entrypoint
-gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/git-init: hubimage/tekton-pipeline-git-init

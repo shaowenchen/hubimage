@@ -7,3 +7,4 @@ gcr.io/knative-releases/knative.dev/eventing/cmd/heartbeats: hubimage/knative-ev
 gcr.io/knative-releases/knative.dev/eventing/test/test_images/recordevents: hubimage/knative-eventing-test-recordevents
 gcr.io/knative-releases/knative.dev/eventing/vendor/knative.dev/pkg/apiextensions/storageversion/cmd/migrate: hubimage/knative-serving-apiextensions-storageversion-migrate
 gcr.io/knative-releases/knative.dev/eventing/cmd/sugar_controller: hubimage/knative-eventing-sugar-controller
+gcr.io/knative-releases/knative.dev/eventing/cmd/controller: hubimage/knative-eventing-controller
