@@ -2,4 +2,6 @@
 gcr.io/knative-releases/knative.dev/eventing/cmd/websocketsource: hubimage/knative-eventing-websocketsource
 gcr.io/knative-releases/knative.dev/eventing/cmd/event_display: hubimage/knative-eventing-event-display
 gcr.io/knative-releases/knative.dev/eventing/cmd/appender: hubimage/knative-eventing-appender
-
+gcr.io/knative-releases/knative.dev/serving/cmd/domain-mapping-webhook: hubimage/knative-serving-domain-mapping-webhook
+gcr.io/knative-releases/knative.dev/serving/cmd/webhook: hubimage/knative-serving-webhook
+gcr.io/knative-releases/knative.dev/serving/cmd/domain-mapping: hubimage/knative-serving-domain-mapping

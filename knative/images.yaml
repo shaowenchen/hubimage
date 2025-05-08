@@ -3,6 +3,3 @@ gcr.io/knative-releases/knative.dev/serving/cmd/queue: hubimage/knative-serving-
 gcr.io/knative-releases/knative.dev/serving/cmd/activator: hubimage/knative-serving-activator
 gcr.io/knative-releases/knative.dev/serving/cmd/autoscaler: hubimage/knative-serving-autoscaler
 gcr.io/knative-releases/knative.dev/serving/cmd/controller: hubimage/knative-serving-controller
-gcr.io/knative-releases/knative.dev/serving/cmd/domain-mapping-webhook: hubimage/knative-serving-domain-mapping-webhook
-gcr.io/knative-releases/knative.dev/serving/cmd/webhook: hubimage/knative-serving-webhook
-gcr.io/knative-releases/knative.dev/serving/cmd/domain-mapping: hubimage/knative-serving-domain-mapping
