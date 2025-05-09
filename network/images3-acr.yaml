@@ -1,3 +1,4 @@
+quay.io/superq/smokeping-prober: registry.cn-beijing.aliyuncs.com/opshub/smokeping-prober
 dragonflyoss/scheduler: registry.cn-beijing.aliyuncs.com/opshub/dragonflyoss-scheduler
 dragonflyoss/dfdaemon: registry.cn-beijing.aliyuncs.com/opshub/dragonflyoss-dfdaemon
 dragonflyoss/manager: registry.cn-beijing.aliyuncs.com/opshub/dragonflyoss-manager
