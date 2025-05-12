@@ -13,14 +13,20 @@ function tag_exists() {
 
 for image in ${ALL_IMAGES}; do
     IFS=', ' read -r -a imagearr <<<"$image"
-    for tag in $(skopeo list-tags docker://${imagearr[0]} | jq '.Tags[]' | sed '1!G;h;$!d'); do
+    # 获取源仓库和目标仓库的所有标签
+    src_tags=$(skopeo list-tags docker://${imagearr[0]} | jq '.Tags[]' | sed '1!G;h;$!d')
+    dest_tags=$(skopeo list-tags docker://${imagearr[1]} | jq '.Tags[]' | sed '1!G;h;$!d')
+    
+    for tag in $src_tags; do
         tag=$(echo $tag | sed 's/"//g')
         if [[ ${#tag} -gt 30 || ${tag} == *"--"* || ${tag} =~ ([0-9]{8}) || ${tag} =~ -[a-f0-9]{7,}- || ${tag} =~ -SNAPSHOT$ || ${tag} =~ beta[0-9]+ || ${tag} == *"windows"* || ${tag} == *"0.0.0"* || ${tag} == *"dev"* || ${tag} == sha256* || ${tag} == *.sig || ${tag} == *post1 || ${tag} == *post2 || ${tag} =~ [0-9]{4}-[0-9]{2}-[0-9]{2} ]]; then
             echo "Skipping special tag ${imagearr[0]}:${tag}"
             continue
         fi
 
-        if tag_exists ${imagearr[1]} ${tag} && [[ ! ${tag} == *"latest"* ]] && [ ${tag} != "master" ] && [ ${tag} != "main" ] && [ ${tag} != "dev" ] && [ ${tag} != "development" ] && [ ${tag} != "nightly" ] && [ ${tag} != "test" ] && [ ${tag} != "testing" ] && [ ${tag} != "staging" ] && [ ${tag} != "experimental" ] && [ ${tag} != "alpha" ] && [ ${tag} != "beta" ]; then
+        if echo "$dest_tags" | grep -q "\"$tag\""; then
+            echo "Skipping copy ${imagearr[0]}:${tag} as it already exists in ${imagearr[1]}:${tag}"
+        elif tag_exists ${imagearr[1]} ${tag} && [[ ! ${tag} == *"latest"* ]] && [ ${tag} != "master" ] && [ ${tag} != "main" ] && [ ${tag} != "dev" ] && [ ${tag} != "development" ] && [ ${tag} != "nightly" ] && [ ${tag} != "test" ] && [ ${tag} != "testing" ] && [ ${tag} != "staging" ] && [ ${tag} != "experimental" ] && [ ${tag} != "alpha" ] && [ ${tag} != "beta" ]; then
             echo "Skipping copy ${imagearr[0]}:${tag} as it already exists in ${imagearr[1]}:${tag}"
         else
             echo "Copying ${imagearr[0]}:${tag} to ${imagearr[1]}:${tag}"
