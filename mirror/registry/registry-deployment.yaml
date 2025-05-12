@@ -1,0 +1,154 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: registry-proxy
+  namespace: kube-system
+  labels:
+    app: registry-proxy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: registry-proxy
+  template:
+    metadata:
+      labels:
+        app: registry-proxy
+    spec:
+      hostNetwork: true
+      containers:
+      - name: registry
+        image: registry.cn-beijing.aliyuncs.com/opshub/registry:2
+        ports:
+        - containerPort: 443
+          name: registry
+        environment:
+        - name: REGISTRY_STORAGE
+          valueFrom:
+            configMapKeyRef:
+              name: registry-config
+              key: REGISTRY_STORAGE
+        - name: REGISTRY_STORAGE_S3_ACCESSKEY
+          valueFrom:
+            configMapKeyRef:
+              name: registry-config
+              key: REGISTRY_STORAGE_S3_ACCESSKEY
+        - name: REGISTRY_STORAGE_S3_SECRETKEY
+          valueFrom:
+            configMapKeyRef:
+              name: registry-config
+              key: REGISTRY_STORAGE_S3_SECRETKEY
+        - name: REGISTRY_STORAGE_S3_REGION
+          valueFrom:
+            configMapKeyRef:
+              name: registry-config
+              key: REGISTRY_STORAGE_S3_REGION
+        - name: REGISTRY_STORAGE_S3_BUCKET
+          valueFrom:
+            configMapKeyRef:
+              name: registry-config
+              key: REGISTRY_STORAGE_S3_BUCKET
+        - name: REGISTRY_STORAGE_S3_REGIONENDPOINT
+          valueFrom:
+            configMapKeyRef:
+              name: registry-config
+              key: REGISTRY_STORAGE_S3_REGIONENDPOINT
+        - name: REGISTRY_HTTP_TLS_CERTIFICATE
+          value: /certs/tls.crt
+        - name: REGISTRY_HTTP_TLS_KEY
+          value: /certs/tls.key
+        volumeMounts:
+        - name: config
+          mountPath: /etc/docker/registry/config.yml
+          subPath: config.yml
+        - name: auth
+          mountPath: /auth
+        - name: certs
+          mountPath: /certs
+      volumes:
+      - name: config
+        configMap:
+          name: registry-config
+      - name: auth
+        secret:
+          secretName: registry-auth
+      - name: certs
+        secret:
+          secretName: registry-tls
+    storage:
+      cache:
+        blobdescriptor: inmemory
+      s3:
+        region: us-east-1
+        bucket: your-s3-bucket-name
+        encrypt: false
+        secure: true
+        v4auth: true
+    http:
+      addr: :443
+      headers:
+        X-Content-Type-Options: [nosniff]
+    health:
+      storagedriver:
+        enabled: true
+        interval: 10s
+        threshold: 3
+    proxy:
+      remoteurl: https://your-harbor-registry.com
+      username: [your-username]
+      password: [your-password]
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: registry-config
+  namespace: kube-system
+data:
+  config.yml: |
+    version: 0.1
+    log:
+      fields:
+        service: registry
+    storage:
+      cache:
+        blobdescriptor: inmemory
+      filesystem:
+        rootdirectory: /registry
+    http:
+      addr: :443
+      headers:
+        X-Content-Type-Options: [nosniff]
+    health:
+      storagedriver:
+        enabled: true
+        interval: 10s
+        threshold: 3
+    proxy:
+      remoteurl: https://your-harbor-registry.com
+      username: [your-username]
+      password: [your-password]
+  REGISTRY_STORAGE: s3
+  REGISTRY_STORAGE_S3_ACCESSKEY: 
+  REGISTRY_STORAGE_S3_SECRETKEY: 
+  REGISTRY_STORAGE_S3_REGION: 
+  REGISTRY_STORAGE_S3_BUCKET: 
+  REGISTRY_STORAGE_S3_REGIONENDPOINT: 
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: registry-auth
+  namespace: kube-system
+type: Opaque
+data:
+  htpasswd: ""
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: registry-tls
+  namespace: kube-system
+type: kubernetes.io/tls
+data:
+  tls.crt: ""
+  tls.key: ""
