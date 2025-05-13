@@ -22,7 +22,7 @@ spec:
         ports:
         - containerPort: 443
           name: registry
-        environment:
+        env:
         - name: REGISTRY_STORAGE
           valueFrom:
             configMapKeyRef:
@@ -61,42 +61,19 @@ spec:
         - name: config
           mountPath: /etc/docker/registry/config.yml
           subPath: config.yml
-        - name: auth
-          mountPath: /auth
-        - name: certs
-          mountPath: /certs
+        - name: config
+          mountPath: /auth/htpasswd
+          subPath: htpasswd
+        - name: config
+          mountPath: /certs/tls.crt
+          subPath: tls.crt
+        - name: config
+          mountPath: /certs/tls.key
+          subPath: tls.key
       volumes:
       - name: config
         configMap:
           name: registry-config
-      - name: auth
-        secret:
-          secretName: registry-auth
-      - name: certs
-        secret:
-          secretName: registry-tls
-    storage:
-      cache:
-        blobdescriptor: inmemory
-      s3:
-        region: us-east-1
-        bucket: your-s3-bucket-name
-        encrypt: false
-        secure: true
-        v4auth: true
-    http:
-      addr: :443
-      headers:
-        X-Content-Type-Options: [nosniff]
-    health:
-      storagedriver:
-        enabled: true
-        interval: 10s
-        threshold: 3
-    proxy:
-      remoteurl: https://your-harbor-registry.com
-      username: [your-username]
-      password: [your-password]
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -124,31 +101,18 @@ data:
         interval: 10s
         threshold: 3
     proxy:
-      remoteurl: https://your-harbor-registry.com
-      username: [your-username]
-      password: [your-password]
+      remoteurl: https://your-source-registry.com
+      username: ""
+      password: ""
   REGISTRY_STORAGE: s3
-  REGISTRY_STORAGE_S3_ACCESSKEY: 
-  REGISTRY_STORAGE_S3_SECRETKEY: 
-  REGISTRY_STORAGE_S3_REGION: 
-  REGISTRY_STORAGE_S3_BUCKET: 
-  REGISTRY_STORAGE_S3_REGIONENDPOINT: 
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: registry-auth
-  namespace: kube-system
-type: Opaque
-data:
+  REGISTRY_STORAGE_S3_ACCESSKEY: ""
+  REGISTRY_STORAGE_S3_SECRETKEY: ""
+  REGISTRY_STORAGE_S3_REGION: ""
+  REGISTRY_STORAGE_S3_BUCKET: ""
+  REGISTRY_STORAGE_S3_REGIONENDPOINT: ""
   htpasswd: ""
+  tls.crt: |
+    ""
+  tls.key: |
+    ""
 ---
-apiVersion: v1
-kind: Secret
-metadata:
-  name: registry-tls
-  namespace: kube-system
-type: kubernetes.io/tls
-data:
-  tls.crt: ""
-  tls.key: ""

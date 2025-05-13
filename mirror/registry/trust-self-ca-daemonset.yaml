@@ -21,10 +21,16 @@ spec:
         command: ["/bin/bash", "-c"]
         args:
         - |
-          apt-get update && apt-get install -y ca-certificates
+          if [ -f /usr/local/share/ca-certificates/$CA_NAME ]; then
+            echo "CA certificate already exists on this node."
+            update-ca-certificates
+            sleep infinity
+          fi
           cp /ca-certificates/ca.crt /usr/local/share/ca-certificates/$CA_NAME
+          echo "CA certificate copied to this node."
           update-ca-certificates
-          echo "CA certificate trusted on this node."
+          echo "Certificate store updated."
+          sleep infinity
         env:
         - name: CA_NAME
           value: "self-ca.crt"
@@ -44,7 +50,16 @@ spec:
       - name: host-ca-certificates
         hostPath:
           path: /usr/local/share/ca-certificates
-      restartPolicy: OnFailure
+      restartPolicy: Always
+      tolerations:
+      - effect: NoSchedule
+        operator: Exists
+      - effect: NoExecute
+        operator: Exists
+      - key: CriticalAddonsOnly
+        operator: Exists
+      - key: node-role.kubernetes.io/control-plane
+        effect: NoSchedule
 ---
 apiVersion: v1
 kind: ConfigMap
