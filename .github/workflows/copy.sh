@@ -25,7 +25,7 @@ for image in ${ALL_IMAGES}; do
         fi
 
         if echo "$dest_tags" | grep -q "\"$tag\""; then
-            echo "Skipping copy ${imagearr[0]}:${tag} as it already exists in ${imagearr[1]}:${tag}"
+            echo "Skipping copy existed tag ${imagearr[1]}:${tag}"
         elif tag_exists ${imagearr[1]} ${tag} && [[ ! ${tag} == *"latest"* ]] && [ ${tag} != "master" ] && [ ${tag} != "main" ] && [ ${tag} != "dev" ] && [ ${tag} != "development" ] && [ ${tag} != "nightly" ] && [ ${tag} != "test" ] && [ ${tag} != "testing" ] && [ ${tag} != "staging" ] && [ ${tag} != "experimental" ] && [ ${tag} != "alpha" ] && [ ${tag} != "beta" ]; then
             echo "Skipping copy ${imagearr[0]}:${tag} as it already exists in ${imagearr[1]}:${tag}"
         else
