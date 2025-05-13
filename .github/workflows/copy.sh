@@ -13,7 +13,7 @@ function tag_exists() {
 
 for image in ${ALL_IMAGES}; do
     IFS=', ' read -r -a imagearr <<<"$image"
-    # 获取源仓库和目标仓库的所有标签
+
     src_tags=$(skopeo list-tags docker://${imagearr[0]} | jq '.Tags[]' | sed '1!G;h;$!d')
     dest_tags=$(skopeo list-tags docker://${imagearr[1]} | jq '.Tags[]' | sed '1!G;h;$!d')
     
