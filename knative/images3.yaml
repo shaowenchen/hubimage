@@ -1,6 +1,6 @@
-gcr.io/knative-releases/knative.dev/eventing/cmd/mtping: hubimage/knative-eventing-mtping
-gcr.io/knative-releases/knative.dev/eventing/cmd/webhook: hubimage/knative-eventing-webhook
-gcr.io/knative-releases/knative.dev/eventing/cmd/broker/filter: hubimage/knative-eventing-broker-filter
-gcr.io/knative-releases/knative.dev/eventing/cmd/broker/ingress: hubimage/knative-eventing-broker-ingress
-gcr.io/knative-releases/knative.dev/eventing/cmd/mtchannel_broker: hubimage/knative-eventing-mtchannel-broker
-gcr.io/knative-releases/knative.dev/eventing/cmd/apiserver_receive_adapter: hubimage/knative-eventing-apiserver-receive-adapter
+gcr.io/knative-releases/knative.dev/eventing/cmd/mtping: hubimage/knative-releases-knative-dev-eventing-cmd-mtping
+gcr.io/knative-releases/knative.dev/eventing/cmd/webhook: hubimage/knative-releases-knative-dev-eventing-cmd-webhook
+gcr.io/knative-releases/knative.dev/eventing/cmd/broker/filter: hubimage/knative-releases-knative-dev-eventing-cmd-broker-filter
+gcr.io/knative-releases/knative.dev/eventing/cmd/broker/ingress: hubimage/knative-releases-knative-dev-eventing-cmd-broker-ingress
+gcr.io/knative-releases/knative.dev/eventing/cmd/mtchannel_broker: hubimage/knative-releases-knative-dev-eventing-cmd-mtchannel-broker
+gcr.io/knative-releases/knative.dev/eventing/cmd/apiserver_receive_adapter: hubimage/knative-releases-knative-dev-eventing-cmd-apiserver-receive-adapter

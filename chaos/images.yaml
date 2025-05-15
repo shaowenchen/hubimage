@@ -1,5 +1,5 @@
-ghcr.io/chaos-mesh/chaos-mesh: hubimage/chaos-mesh
-ghcr.io/chaos-mesh/chaos-daemon: hubimage/chaos-daemon
-ghcr.io/chaos-mesh/chaos-dashboard: hubimage/chaos-dashboard
-ghcr.io/chaos-mesh/chaos-coredns: hubimage/chaos-coredns
+ghcr.io/chaos-mesh/chaos-mesh: hubimage/chaos-mesh-chaos-mesh
+ghcr.io/chaos-mesh/chaos-daemon: hubimage/chaos-mesh-chaos-daemon
+ghcr.io/chaos-mesh/chaos-dashboard: hubimage/chaos-mesh-chaos-dashboard
+ghcr.io/chaos-mesh/chaos-coredns: hubimage/chaos-mesh-chaos-coredns
 gcr.io/google-containers/pause: hubimage/google-containers-pause

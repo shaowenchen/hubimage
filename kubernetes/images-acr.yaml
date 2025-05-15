@@ -1,21 +1,21 @@
 # kubernetes 1.25+, k8s.gcr.io -> registry.k8s.io
 registry.k8s.io/kubectl: registry.cn-beijing.aliyuncs.com/opshub/kubectl
-registry.k8s.io/node-problem-detector/node-problem-detector: registry.cn-beijing.aliyuncs.com/opshub/node-problem-detector
-registry.k8s.io/dns/k8s-dns-node-cache: registry.cn-beijing.aliyuncs.com/opshub/k8s-dns-node-cache
+registry.k8s.io/node-problem-detector/node-problem-detector: registry.cn-beijing.aliyuncs.com/opshub/node-problem-detector-node-problem-detector
+registry.k8s.io/dns/k8s-dns-node-cache: registry.cn-beijing.aliyuncs.com/opshub/dns-k8s-dns-node-cache
 registry.k8s.io/kube-apiserver: registry.cn-beijing.aliyuncs.com/opshub/kube-apiserver
 registry.k8s.io/kube-controller-manager: registry.cn-beijing.aliyuncs.com/opshub/kube-controller-manager
 registry.k8s.io/kube-scheduler: registry.cn-beijing.aliyuncs.com/opshub/kube-scheduler
 registry.k8s.io/kube-proxy: registry.cn-beijing.aliyuncs.com/opshub/kube-proxy
 registry.k8s.io/pause: registry.cn-beijing.aliyuncs.com/opshub/pause
 registry.k8s.io/etcd: registry.cn-beijing.aliyuncs.com/opshub/etcd
-registry.k8s.io/coredns/coredns: registry.cn-beijing.aliyuncs.com/opshub/coredns
+registry.k8s.io/coredns/coredns: registry.cn-beijing.aliyuncs.com/opshub/coredns-coredns
 # without v in tag
-coredns/coredns: registry.cn-beijing.aliyuncs.com/opshub/coredns
+coredns/coredns: registry.cn-beijing.aliyuncs.com/opshub/coredns-coredns
 
 # kubebuilder
-gcr.io/kubebuilder/kube-rbac-proxy: registry.cn-beijing.aliyuncs.com/opshub/kube-rbac-proxy
+gcr.io/kubebuilder/kube-rbac-proxy: registry.cn-beijing.aliyuncs.com/opshub/kubebuilder-kube-rbac-proxy
 
 # vpa
-registry.k8s.io/autoscaling/vpa-admission-controller: registry.cn-beijing.aliyuncs.com/opshub/vpa-admission-controller
-registry.k8s.io/autoscaling/vpa-recommender: registry.cn-beijing.aliyuncs.com/opshub/vpa-recommender
-registry.k8s.io/autoscaling/vpa-updater: registry.cn-beijing.aliyuncs.com/opshub/vpa-updater
+registry.k8s.io/autoscaling/vpa-admission-controller: registry.cn-beijing.aliyuncs.com/opshub/autoscaling-vpa-admission-controller
+registry.k8s.io/autoscaling/vpa-recommender: registry.cn-beijing.aliyuncs.com/opshub/autoscaling-vpa-recommender
+registry.k8s.io/autoscaling/vpa-updater: registry.cn-beijing.aliyuncs.com/opshub/autoscaling-vpa-updater

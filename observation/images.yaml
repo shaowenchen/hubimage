@@ -1,20 +1,20 @@
 # metrics
-registry.k8s.io/metrics-server/metrics-server: hubimage/metrics-server
-registry.k8s.io/kube-state-metrics/kube-state-metrics: hubimage/kube-state-metrics
+registry.k8s.io/metrics-server/metrics-server: hubimage/metrics-server-metrics-server
+registry.k8s.io/kube-state-metrics/kube-state-metrics: hubimage/kube-state-metrics-kube-state-metrics
 
 # exporters
 ncabatoff/process-exporter: hubimage/ncabatoff-process-exporter
 
 # thanos
-thanosio/thanos: hubimage/thanos
+thanosio/thanos: hubimage/thanosio-thanos
 
 # grafana
-grafana/grafana: hubimage/grafana
+grafana/grafana: hubimage/grafana-grafana
 
 # prometheus
 quay.io/prometheus/node-exporter: hubimage/prometheus-node-exporter
 quay.io/prometheus/alertmanager: hubimage/prometheus-alertmanager
-quay.io/prometheus/prometheus: hubimage/prometheus
+quay.io/prometheus/prometheus: hubimage/prometheus-prometheus
 jimmidyson/configmap-reload: hubimage/jimmidyson-configmap-reload
 quay.io/prometheus-operator/prometheus-config-reloader: hubimage/prometheus-config-reloader
 prom/pushgateway: hubimage/prom-pushgateway
@@ -26,5 +26,5 @@ logstash: hubimage/logstash
 elastic/filebeat: hubimage/elastic-filebeat
 elastic/kibana: hubimage/elastic-kibana
 elastic/metricbeat: hubimage/elastic-metricbeat
-docker.elastic.co/eck/eck-operator: hubimage/eck-operator
-ghcr.io/jaegertracing/spark-dependencies/spark-dependencies: hubimage/jaegertracing-spark-dependencies
+docker.elastic.co/eck/eck-operator: hubimage/eck-eck-operator
+ghcr.io/jaegertracing/spark-dependencies/spark-dependencies: hubimage/jaegertracing-spark-dependencies-spark-dependencies

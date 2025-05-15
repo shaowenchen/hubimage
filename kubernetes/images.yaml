@@ -1,6 +1,6 @@
 # kubernetes 1.25+, k8s.gcr.io -> registry.k8s.io
 registry.k8s.io/kubectl: hubimage/kubectl
-registry.k8s.io/node-problem-detector/node-problem-detector: hubimage/node-problem-detector
+registry.k8s.io/node-problem-detector/node-problem-detector: hubimage/node-problem-detector-node-problem-detector
 registry.k8s.io/k8s-dns-node-cache: hubimage/k8s-dns-node-cache
 registry.k8s.io/kube-apiserver: hubimage/kube-apiserver
 registry.k8s.io/kube-controller-manager: hubimage/kube-controller-manager
@@ -8,14 +8,14 @@ registry.k8s.io/kube-scheduler: hubimage/kube-scheduler
 registry.k8s.io/kube-proxy: hubimage/kube-proxy
 registry.k8s.io/pause: hubimage/pause
 registry.k8s.io/etcd: hubimage/etcd
-registry.k8s.io/coredns/coredns: hubimage/coredns
+registry.k8s.io/coredns/coredns: hubimage/coredns-coredns
 # without v in tag
-coredns/coredns: hubimage/coredns
+coredns/coredns: hubimage/coredns-coredns
 
 # kubebuilder
-gcr.io/kubebuilder/kube-rbac-proxy: hubimage/kube-rbac-proxy
+gcr.io/kubebuilder/kube-rbac-proxy: hubimage/kubebuilder-kube-rbac-proxy
 
 # vpa
-registry.k8s.io/autoscaling/vpa-admission-controller: hubimage/vpa-admission-controller
-registry.k8s.io/autoscaling/vpa-recommender: hubimage/vpa-recommender
-registry.k8s.io/autoscaling/vpa-updater: hubimage/vpa-updater
+registry.k8s.io/autoscaling/vpa-admission-controller: hubimage/autoscaling-vpa-admission-controller
+registry.k8s.io/autoscaling/vpa-recommender: hubimage/autoscaling-vpa-recommender
+registry.k8s.io/autoscaling/vpa-updater: hubimage/autoscaling-vpa-updater
