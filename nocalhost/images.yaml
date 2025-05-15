@@ -1,4 +1,3 @@
-
 nocalhost-docker.pkg.coding.net/nocalhost/public/nocalhost-sidecar: hubimage/nocalhost-public-nocalhost-sidecar
 nocalhost-docker.pkg.coding.net/nocalhost/public/nocalhost-web: hubimage/nocalhost-public-nocalhost-web
 nocalhost-docker.pkg.coding.net/nocalhost/public/nocalhost-vpn: hubimage/nocalhost-public-nocalhost-vpn
