@@ -1,3 +1,5 @@
+ghcr.io/flannel-io/flannel-cni-plugin: registry.cn-beijing.aliyuncs.com/opshub/flannel-cni-plugin
+ghcr.io/flannel-io/flannel: registry.cn-beijing.aliyuncs.com/opshub/flannel
 quay.io/superq/smokeping-prober: registry.cn-beijing.aliyuncs.com/opshub/smokeping-prober
 dragonflyoss/scheduler: registry.cn-beijing.aliyuncs.com/opshub/dragonflyoss-scheduler
 dragonflyoss/dfdaemon: registry.cn-beijing.aliyuncs.com/opshub/dragonflyoss-dfdaemon
