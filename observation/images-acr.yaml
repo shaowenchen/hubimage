@@ -19,13 +19,13 @@ elasticsearch: registry.cn-beijing.aliyuncs.com/opshub/elasticsearch
 logstash: registry.cn-beijing.aliyuncs.com/opshub/logstash
 elastic/filebeat: registry.cn-beijing.aliyuncs.com/opshub/elastic-filebeat
 elastic/metricbeat: registry.cn-beijing.aliyuncs.com/opshub/elastic-metricbeat
-docker.elastic.co/eck/eck-operator: registry.cn-beijing.aliyuncs.com/opshub/eck-operator
+docker.elastic.co/eck/eck-operator: registry.cn-beijing.aliyuncs.com/opshub/eck-eck-operator
 ghcr.io/jaegertracing/spark-dependencies/spark-dependencies: registry.cn-beijing.aliyuncs.com/opshub/jaegertracing-spark-dependencies
 # exporter
-prom/blackbox-exporter: registry.cn-beijing.aliyuncs.com/opshub/blackbox-exporter
+prom/blackbox-exporter: registry.cn-beijing.aliyuncs.com/opshub/prom-blackbox-exporter
 # nats
 nats-streaming: registry.cn-beijing.aliyuncs.com/opshub/nats-streaming
 nats: registry.cn-beijing.aliyuncs.com/opshub/nats
-natsio/nats-box: registry.cn-beijing.aliyuncs.com/opshub/nats-box
+natsio/nats-box: registry.cn-beijing.aliyuncs.com/opshub/natsio-nats-box
 natsio/prometheus-nats-exporter: registry.cn-beijing.aliyuncs.com/opshub/natsio-prometheus-nats-exporter
 natsio/nats-server-config-reloader: registry.cn-beijing.aliyuncs.com/opshub/natsio-nats-server-config-reloader
