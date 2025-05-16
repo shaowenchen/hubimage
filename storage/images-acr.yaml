@@ -5,3 +5,40 @@ alluxio/alluxio-dev: registry.cn-beijing.aliyuncs.com/opshub/alluxio-alluxio-dev
 fluidcloudnative/alluxioruntime-controller: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudnative-alluxioruntime-controller
 fluidcloudnative/dataset-controller: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudnative-dataset-controller
 fluidcloudnative/efcruntime-controller: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudnative-efcruntime-controller
+# fluid
+juicedata/juicefs-csi-driver: registry.cn-beijing.aliyuncs.com/opshub/juicedata-juicefs-csi-driver
+juicedata/juicefs-fuse: registry.cn-beijing.aliyuncs.com/opshub/juicedata-juicefs-fuse
+juicedata/mount: registry.cn-beijing.aliyuncs.com/opshub/juicedata-mount
+
+# juicefs
+fluidcloudnative/fluid-webhook: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudnative-fluid-webhook
+fluidcloudnative/application-controller: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudnative-application-controller
+fluidcloudnative/goosefsruntime-controller: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudnative-goosefsruntime-controller
+fluidcloudnative/jindoruntime-controller: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudnative-jindoruntime-controller
+fluidcloudnative/juicefsruntime-controller: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudnative-juicefsruntime-controller
+fluidcloudnative/thinruntime-controller: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudnative-thinruntime-controller
+fluidcloudnative/vineyardruntime-controller: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudnative-vineyardruntime-controller
+fluidcloudnative/csi-node-driver-registrar: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudnative-csi-node-driver-registrar
+fluidcloudnative/fluid-csi: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudnative-fluid-csi
+
+# velero
+velero/velero: registry.cn-beijing.aliyuncs.com/opshub/velero-velero
+velero/velero-plugin-for-aws: registry.cn-beijing.aliyuncs.com/opshub/velero-velero-plugin-for-aws
+
+# nfs
+registry.k8s.io/sig-storage/csi-provisioner: registry.cn-beijing.aliyuncs.com/opshub/sig-storage-csi-provisioner
+registry.k8s.io/sig-storage/livenessprobe: registry.cn-beijing.aliyuncs.com/opshub/sig-storage-livenessprobe
+registry.k8s.io/sig-storage/nfsplugin: registry.cn-beijing.aliyuncs.com/opshub/sig-storage-nfsplugin
+registry.k8s.io/sig-storage/csi-snapshotter: registry.cn-beijing.aliyuncs.com/opshub/sig-storage-csi-snapshotter
+registry.k8s.io/sig-storage/csi-node-driver-registrar: registry.cn-beijing.aliyuncs.com/opshub/sig-storage-csi-node-driver-registrar
+
+altinity/clickhouse-operator: registry.cn-beijing.aliyuncs.com/opshub/altinity-clickhouse-operator
+clickhouse/clickhouse-server: registry.cn-beijing.aliyuncs.com/opshub/clickhouse-clickhouse-server
+altinity/metrics-exporter: registry.cn-beijing.aliyuncs.com/opshub/altinity-metrics-exporter
+foundationdb/fdb-kubernetes-operator: registry.cn-beijing.aliyuncs.com/opshub/foundationdb-fdb-kubernetes-operator
+foundationdb/foundationdb-kubernetes-sidecar: registry.cn-beijing.aliyuncs.com/opshub/foundationdb-foundationdb-kubernetes-sidecar
+foundationdb/foundationdb: registry.cn-beijing.aliyuncs.com/opshub/foundationdb-foundationdb
+
+shaowenchen/demo-3fs: registry.cn-beijing.aliyuncs.com/shaowenchen/demo-3fs
+shaowenchen/demo-3fs-builder: registry.cn-beijing.aliyuncs.com/shaowenchen/demo-3fs-builder
+shaowenchen/demo-fluid-3fs: registry.cn-beijing.aliyuncs.com/shaowenchen/demo-fluid-3fs

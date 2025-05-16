@@ -1,4 +1,25 @@
 # pipeline
-gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/controller: hubimage/tekton-pipeline-controller
-gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/kubeconfigwriter: hubimage/tekton-pipeline-kubeconfigwriter
-gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/entrypoint: hubimage/tekton-pipeline-entrypoint
+gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/controller: hubimage/tekton-releases-github-com-tektoncd-pipeline-cmd-controller
+gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/kubeconfigwriter: hubimage/tekton-releases-github-com-tektoncd-pipeline-cmd-kubeconfigwriter
+gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/entrypoint: hubimage/tekton-releases-github-com-tektoncd-pipeline-cmd-entrypoint
+# dashboard
+gcr.io/tekton-releases/github.com/tektoncd/dashboard/cmd/dashboard: hubimage/tekton-releases-github-com-tektoncd-dashboard-cmd-dashboard
+
+# trigger
+gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/controller: hubimage/tekton-releases-github-com-tektoncd-triggers-cmd-controller
+gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/eventlistenersink: hubimage/tekton-releases-github-com-tektoncd-triggers-cmd-eventlistenersink
+gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/webhook: hubimage/tekton-releases-github-com-tektoncd-triggers-cmd-webhook
+gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/interceptors: hubimage/tekton-releases-github-com-tektoncd-triggers-cmd-interceptors
+
+# tools
+gcr.io/google.com/cloudsdktool/cloud-sdk: hubimage/google-com-cloudsdktool-cloud-sdk
+gcr.io/distroless/base: hubimage/distroless-base
+
+# catalog
+gcr.io/cloud-builders/kubectl: hubimage/cloud-builders-kubectl
+gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/nop: hubimage/tekton-releases-github-com-tektoncd-pipeline-cmd-nop
+gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/imagedigestexporter: hubimage/tekton-releases-github-com-tektoncd-pipeline-cmd-imagedigestexporter
+gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/pullrequest-init: hubimage/tekton-releases-github-com-tektoncd-pipeline-cmd-pullrequest-init
+gcr.io/tekton-releases/github.com/tektoncd/pipeline/vendor/github.com/googlecloudplatform/cloud-builders/gcs-fetcher/cmd/gcs-fetcher: hubimage/tekton-releases-github-com-tektoncd-pipeline-vendor-github-com-googlecloudplatform-cloud-builders-gcs-fetcher-cmd-gcs-fetcher
+gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/webhook: hubimage/tekton-releases-github-com-tektoncd-pipeline-cmd-webhook
+gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/git-init: hubimage/tekton-releases-github-com-tektoncd-pipeline-cmd-git-init

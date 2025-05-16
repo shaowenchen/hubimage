@@ -1,2 +1,0 @@
-nvcr.io/nvidia/tritonserver: hubimage/nvidia-tritonserver
-nvcr.io/nvidia/tensorrtserver: hubimage/nvidia-tensorrtserver

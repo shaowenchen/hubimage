@@ -1,6 +1,0 @@
-gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/nop: hubimage/tekton-pipeline-nop
-gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/imagedigestexporter: hubimage/tekton-pipeline-imagedigestexporter
-gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/pullrequest-init: hubimage/tekton-pipeline-pullrequest-init
-gcr.io/tekton-releases/github.com/tektoncd/pipeline/vendor/github.com/googlecloudplatform/cloud-builders/gcs-fetcher/cmd/gcs-fetcher: hubimage/tekton-pipeline-gcs-fetcher
-gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/webhook: hubimage/tekton-pipeline-webhook
-gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/git-init: hubimage/tekton-pipeline-git-init

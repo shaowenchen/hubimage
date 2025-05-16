@@ -8,3 +8,10 @@ ghcr.io/dexidp/dex: registry.cn-beijing.aliyuncs.com/opshub/dexidp-dex
 
 # argo-events
 quay.io/argoproj/argo-events: registry.cn-beijing.aliyuncs.com/opshub/argoproj-argo-events
+
+# argo-workflow
+quay.io/argoproj/argoexec: registry.cn-beijing.aliyuncs.com/opshub/argoproj-argoexec
+quay.io/argoproj/argocli: registry.cn-beijing.aliyuncs.com/opshub/argoproj-argocli
+
+# argo-workflow
+quay.io/argoproj/workflow-controller: registry.cn-beijing.aliyuncs.com/opshub/argoproj-workflow-controller
