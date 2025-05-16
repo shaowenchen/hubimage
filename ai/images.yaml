@@ -1,6 +1,6 @@
-nvcr.io/nvidia/k8s/dcgm-exporter: hubimage/nvidia-k8s-dcgm-exporter
-nvcr.io/nvidia/tensorrt: hubimage/nvidia-tensorrt
-nvcr.io/nvidia/pytorch: hubimage/nvidia-pytorch
+nvcr.io/nvidia/k8s/dcgm-exporter: hubimage/nvcr-io-nvidia-k8s-dcgm-exporter
+nvcr.io/nvidia/tensorrt: hubimage/nvcr-io-nvidia-tensorrt
+nvcr.io/nvidia/pytorch: hubimage/nvcr-io-nvidia-pytorch
+nvcr.io/nvidia/tritonserver: hubimage/nvcr-io-nvidia-tritonserver
+nvcr.io/nvidia/tensorrtserver: hubimage/nvcr-io-nvidia-tensorrtserver
 nvidia/cuda: hubimage/nvidia-cuda
-nvcr.io/nvidia/tritonserver: hubimage/nvidia-tritonserver
-nvcr.io/nvidia/tensorrtserver: hubimage/nvidia-tensorrtserver

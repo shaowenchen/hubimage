@@ -1,3 +1,2 @@
-ghcr.io/kedacore/keda: hubimage/kedacore-keda
-ghcr.io/kedacore/keda-metrics-apiserver: hubimage/kedacore-keda-metrics-apiserver
-ghcr.io/kedacore/keda-admission-webhooks: hubimage/kedacore-keda-admission-webhooks
+ghcr.io/kedacore/keda: hubimage/ghcr-io-kedacore-keda
+ghcr.io/kedacore/keda-metrics-apiserver: hubimage/ghcr-io-kedacore-keda-metrics-apiserver

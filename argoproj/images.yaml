@@ -2,17 +2,16 @@
 natsio/prometheus-nats-exporter: hubimage/natsio-prometheus-nats-exporter
 natsio/nats-server-config-reloader: hubimage/natsio-nats-server-config-reloader
 # argo-rollouts
-quay.io/argoproj/argo-rollouts: hubimage/argoproj-argo-rollouts
-quay.io/argoproj/kubectl-argo-rollouts: hubimage/argoproj-kubectl-argo-rollouts
+quay.io/argoproj/argo-rollouts: hubimage/quay-io-argoproj-argo-rollouts
+quay.io/argoproj/kubectl-argo-rollouts: hubimage/quay-io-argoproj-kubectl-argo-rollouts
 
 # argo-cd
-quay.io/argoproj/argocd: hubimage/argoproj-argocd
-ghcr.io/dexidp/dex: hubimage/dexidp-dex
+quay.io/argoproj/argocd: hubimage/quay-io-argoproj-argocd
+ghcr.io/dexidp/dex: hubimage/ghcr-io-dexidp-dex
 
 # argo-workflow
-quay.io/argoproj/argoexec: hubimage/argoproj-argoexec
-quay.io/argoproj/argocli: hubimage/argoproj-argocli
-quay.io/argoproj/workflow-controller: hubimage/argoproj-workflow-controller
+quay.io/argoproj/argoexec: hubimage/quay-io-argoproj-argoexec
+quay.io/argoproj/argocli: hubimage/quay-io-argoproj-argocli
+quay.io/argoproj/workflow-controller: hubimage/quay-io-argoproj-workflow-controller
 
 # argo-events
-quay.io/argoproj/argo-events: hubimage/argoproj-argo-events

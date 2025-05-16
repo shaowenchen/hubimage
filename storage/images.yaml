@@ -1,8 +1,8 @@
 # csi
-registry.k8s.io/sig-storage/csi-node-driver-registrar: hubimage/sig-storage-csi-node-driver-registrar
+registry.k8s.io/sig-storage/csi-node-driver-registrar: hubimage/registry-k8s-io-sig-storage-csi-node-driver-registrar
 
 # nfs
-quay.io/external_storage/nfs-client-provisioner: hubimage/external-storage-nfs-client-provisioner
+quay.io/external_storage/nfs-client-provisioner: hubimage/quay-io-external-storage-nfs-client-provisioner
 
 # openebs
 openebs/provisioner-localpv: hubimage/openebs-provisioner-localpv

@@ -1,17 +1,17 @@
 # argo-rollouts
-quay.io/argoproj/argo-rollouts: registry.cn-beijing.aliyuncs.com/opshub/argoproj-argo-rollouts
-quay.io/argoproj/kubectl-argo-rollouts: registry.cn-beijing.aliyuncs.com/opshub/argoproj-kubectl-argo-rollouts
+quay.io/argoproj/argo-rollouts: registry.cn-beijing.aliyuncs.com/opshub/quay-io-argoproj-argo-rollouts
+quay.io/argoproj/kubectl-argo-rollouts: registry.cn-beijing.aliyuncs.com/opshub/quay-io-argoproj-kubectl-argo-rollouts
 
 # argo-cd
-quay.io/argoproj/argocd: registry.cn-beijing.aliyuncs.com/opshub/argoproj-argocd
-ghcr.io/dexidp/dex: registry.cn-beijing.aliyuncs.com/opshub/dexidp-dex
+quay.io/argoproj/argocd: registry.cn-beijing.aliyuncs.com/opshub/quay-io-argoproj-argocd
+ghcr.io/dexidp/dex: registry.cn-beijing.aliyuncs.com/opshub/ghcr-io-dexidp-dex
 
 # argo-events
-quay.io/argoproj/argo-events: registry.cn-beijing.aliyuncs.com/opshub/argoproj-argo-events
+quay.io/argoproj/argo-events: registry.cn-beijing.aliyuncs.com/opshub/quay-io-argoproj-argo-events
 
 # argo-workflow
-quay.io/argoproj/argoexec: registry.cn-beijing.aliyuncs.com/opshub/argoproj-argoexec
-quay.io/argoproj/argocli: registry.cn-beijing.aliyuncs.com/opshub/argoproj-argocli
+quay.io/argoproj/argoexec: registry.cn-beijing.aliyuncs.com/opshub/quay-io-argoproj-argoexec
+quay.io/argoproj/argocli: registry.cn-beijing.aliyuncs.com/opshub/quay-io-argoproj-argocli
 
 # argo-workflow
-quay.io/argoproj/workflow-controller: registry.cn-beijing.aliyuncs.com/opshub/argoproj-workflow-controller
+quay.io/argoproj/workflow-controller: registry.cn-beijing.aliyuncs.com/opshub/quay-io-argoproj-workflow-controller
