@@ -1,9 +1,0 @@
-# calico
-calico/kube-controllers: hubimage/calico-kube-controllers
-calico/node: hubimage/calico-node
-calico/cni: hubimage/calico-cni
-calico/csi: hubimage/calico-csi
-calico/node-driver-registrar: hubimage/calico-node-driver-registrar
-calico/pod2daemon-flexvol: hubimage/calico-pod2daemon-flexvol
-calico/ctl: hubimage/calico-ctl
-calico/typha: hubimage/calico-typha

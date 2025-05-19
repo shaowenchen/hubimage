@@ -1,0 +1,31 @@
+# serving
+gcr.io/knative-releases/knative.dev/serving/cmd/queue: hubimage/gcr-io-knative-releases-knative.dev-serving-cmd-queue
+gcr.io/knative-releases/knative.dev/serving/cmd/activator: hubimage/gcr-io-knative-releases-knative.dev-serving-cmd-activator
+gcr.io/knative-releases/knative.dev/serving/cmd/autoscaler: hubimage/gcr-io-knative-releases-knative.dev-serving-cmd-autoscaler
+gcr.io/knative-releases/knative.dev/serving/cmd/controller: hubimage/gcr-io-knative-releases-knative.dev-serving-cmd-controller
+
+# eventing
+gcr.io/knative-releases/knative.dev/eventing/cmd/websocketsource: hubimage/knative-releases-knative-dev-eventing-cmd-websocketsource
+gcr.io/knative-releases/knative.dev/eventing/cmd/event_display: hubimage/knative-releases-knative-dev-eventing-cmd-event-display
+gcr.io/knative-releases/knative.dev/eventing/cmd/appender: hubimage/knative-releases-knative-dev-eventing-cmd-appender
+gcr.io/knative-releases/knative.dev/serving/cmd/domain-mapping-webhook: hubimage/knative-releases-knative-dev-serving-cmd-domain-mapping-webhook
+gcr.io/knative-releases/knative.dev/serving/cmd/webhook: hubimage/knative-releases-knative-dev-serving-cmd-webhook
+gcr.io/knative-releases/knative.dev/serving/cmd/domain-mapping: hubimage/knative-releases-knative-dev-serving-cmd-domain-mapping
+
+gcr.io/knative-releases/knative.dev/eventing/cmd/mtping: hubimage/knative-releases-knative-dev-eventing-cmd-mtping
+gcr.io/knative-releases/knative.dev/eventing/cmd/webhook: hubimage/knative-releases-knative-dev-eventing-cmd-webhook
+gcr.io/knative-releases/knative.dev/eventing/cmd/broker/filter: hubimage/knative-releases-knative-dev-eventing-cmd-broker-filter
+gcr.io/knative-releases/knative.dev/eventing/cmd/broker/ingress: hubimage/knative-releases-knative-dev-eventing-cmd-broker-ingress
+gcr.io/knative-releases/knative.dev/eventing/cmd/mtchannel_broker: hubimage/knative-releases-knative-dev-eventing-cmd-mtchannel-broker
+gcr.io/knative-releases/knative.dev/eventing/cmd/apiserver_receive_adapter: hubimage/knative-releases-knative-dev-eventing-cmd-apiserver-receive-adapter
+
+gcr.io/knative-releases/knative.dev/serving/cmd/default-domain: hubimage/knative-releases-knative-dev-serving-cmd-default-domain
+gcr.io/knative-releases/knative.dev/serving/cmd/autoscaler-hpa: hubimage/knative-releases-knative-dev-serving-cmd-autoscaler-hpa
+gcr.io/knative-releases/knative.dev/eventing/cmd/in_memory/channel_controller: hubimage/knative-releases-knative-dev-eventing-cmd-in-memory-channel-controller
+gcr.io/knative-releases/knative.dev/eventing/cmd/in_memory/channel_dispatcher: hubimage/knative-releases-knative-dev-eventing-cmd-in-memory-channel-dispatcher
+gcr.io/knative-releases/knative.dev/pkg/apiextensions/storageversion/cmd/migrate: hubimage/knative-releases-knative-dev-serving-apiextensions-storageversion-migrate
+gcr.io/knative-releases/knative.dev/eventing/cmd/heartbeats: hubimage/knative-releases-knative-dev-eventing-cmd-heartbeats
+gcr.io/knative-releases/knative.dev/eventing/test/test_images/recordevents: hubimage/knative-releases-knative-dev-eventing-test-test-images-recordevents
+gcr.io/knative-releases/knative.dev/eventing/vendor/knative.dev/pkg/apiextensions/storageversion/cmd/migrate: hubimage/knative-releases-knative-dev-eventing-vendor-knative-dev-pkg-apiextensions-storageversion-migrate
+gcr.io/knative-releases/knative.dev/eventing/cmd/sugar_controller: hubimage/knative-releases-knative-dev-eventing-cmd-sugar-controller
+gcr.io/knative-releases/knative.dev/eventing/cmd/controller: hubimage/knative-releases-knative-dev-eventing-cmd-controller

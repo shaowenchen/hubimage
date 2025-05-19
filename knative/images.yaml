@@ -1,5 +1,0 @@
-# serving
-gcr.io/knative-releases/knative.dev/serving/cmd/queue: hubimage/gcr-io-knative-releases-knative.dev-serving-cmd-queue
-gcr.io/knative-releases/knative.dev/serving/cmd/activator: hubimage/gcr-io-knative-releases-knative.dev-serving-cmd-activator
-gcr.io/knative-releases/knative.dev/serving/cmd/autoscaler: hubimage/gcr-io-knative-releases-knative.dev-serving-cmd-autoscaler
-gcr.io/knative-releases/knative.dev/serving/cmd/controller: hubimage/gcr-io-knative-releases-knative.dev-serving-cmd-controller

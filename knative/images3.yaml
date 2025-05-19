@@ -1,6 +1,0 @@
-gcr.io/knative-releases/knative.dev/eventing/cmd/mtping: hubimage/knative-releases-knative-dev-eventing-cmd-mtping
-gcr.io/knative-releases/knative.dev/eventing/cmd/webhook: hubimage/knative-releases-knative-dev-eventing-cmd-webhook
-gcr.io/knative-releases/knative.dev/eventing/cmd/broker/filter: hubimage/knative-releases-knative-dev-eventing-cmd-broker-filter
-gcr.io/knative-releases/knative.dev/eventing/cmd/broker/ingress: hubimage/knative-releases-knative-dev-eventing-cmd-broker-ingress
-gcr.io/knative-releases/knative.dev/eventing/cmd/mtchannel_broker: hubimage/knative-releases-knative-dev-eventing-cmd-mtchannel-broker
-gcr.io/knative-releases/knative.dev/eventing/cmd/apiserver_receive_adapter: hubimage/knative-releases-knative-dev-eventing-cmd-apiserver-receive-adapter
