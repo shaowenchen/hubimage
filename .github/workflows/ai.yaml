@@ -28,4 +28,4 @@ jobs:
           username: "${{ secrets.ACR_USERNAME }}"
           password: "${{ secrets.ACR_PASSWORD }}"
       - name: Working
-        run: bash ./.github/workflows/copy.sh ./ai/images-acr.yaml
+        run: bash ./.github/workflows/copy.sh ./ai/images.yaml
