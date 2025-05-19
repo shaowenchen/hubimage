@@ -1,3 +1,7 @@
+traefik/whoami: registry.cn-beijing.aliyuncs.com/opshub/traefik-whoami
+tekn0ir/nginx-stream: registry.cn-beijing.aliyuncs.com/opshub/tekn0ir-nginx-stream
+softonic/nginx-vts: registry.cn-beijing.aliyuncs.com/opshub/softonic-nginx-vts
+sophos/nginx-vts-exporter: registry.cn-beijing.aliyuncs.com/opshub/sophos-nginx-vts-exporter
 # calico
 calico/node: registry.cn-beijing.aliyuncs.com/opshub/calico-node
 calico/cni: registry.cn-beijing.aliyuncs.com/opshub/calico-cni
