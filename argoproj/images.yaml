@@ -1,4 +1,4 @@
-# natsio/prometheus-nats-exporter
+# natsio
 natsio/prometheus-nats-exporter: hubimage/natsio-prometheus-nats-exporter
 natsio/nats-server-config-reloader: hubimage/natsio-nats-server-config-reloader
 # argo-rollouts

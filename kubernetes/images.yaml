@@ -1,7 +1,6 @@
 # kubernetes 1.25+, k8s.gcr.io -> registry.k8s.io
 registry.k8s.io/kubectl: hubimage/registry-k8s-io-kubectl
 registry.k8s.io/node-problem-detector/node-problem-detector: hubimage/registry-k8s-io-node-problem-detector-node-problem-detector
-registry.k8s.io/k8s-dns-node-cache: hubimage/registry-k8s-io-k8s-dns-node-cache
 registry.k8s.io/kube-apiserver: hubimage/registry-k8s-io-kube-apiserver
 registry.k8s.io/kube-controller-manager: hubimage/registry-k8s-io-kube-controller-manager
 registry.k8s.io/kube-scheduler: hubimage/registry-k8s-io-kube-scheduler

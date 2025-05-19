@@ -1,3 +1,12 @@
+# openebs
+openebs/provisioner-localpv: registry.cn-beijing.aliyuncs.com/opshub/openebs-provisioner-localpv
+openebs/node-disk-exporter: registry.cn-beijing.aliyuncs.com/opshub/openebs-node-disk-exporter
+openebs/node-disk-operator: registry.cn-beijing.aliyuncs.com/opshub/openebs-node-disk-operator
+openebs/node-disk-manager: registry.cn-beijing.aliyuncs.com/opshub/openebs-node-disk-manager
+
+# nfs
+quay.io/external_storage/nfs-client-provisioner: registry.cn-beijing.aliyuncs.com/opshub/quay-io-external-storage-nfs-client-provisioner
+
 # fluid
 fluidcloudnative/fluid-crd-upgrader: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudnative-fluid-crd-upgrader
 fluidcloudnative/init-users: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudnative-init-users
@@ -5,6 +14,7 @@ alluxio/alluxio-dev: registry.cn-beijing.aliyuncs.com/opshub/alluxio-alluxio-dev
 fluidcloudnative/alluxioruntime-controller: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudnative-alluxioruntime-controller
 fluidcloudnative/dataset-controller: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudnative-dataset-controller
 fluidcloudnative/efcruntime-controller: registry.cn-beijing.aliyuncs.com/opshub/fluidcloudnative-efcruntime-controller
+
 # fluid
 juicedata/juicefs-csi-driver: registry.cn-beijing.aliyuncs.com/opshub/juicedata-juicefs-csi-driver
 juicedata/juicefs-fuse: registry.cn-beijing.aliyuncs.com/opshub/juicedata-juicefs-fuse

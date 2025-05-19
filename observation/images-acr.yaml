@@ -1,3 +1,6 @@
+prom/pushgateway: registry.cn-beijing.aliyuncs.com/opshub/prom-pushgateway
+grafana/grafana: registry.cn-beijing.aliyuncs.com/opshub/grafana-grafana
+ncabatoff/process-exporter: registry.cn-beijing.aliyuncs.com/opshub/ncabatoff-process-exporter
 registry.k8s.io/kube-state-metrics/kube-state-metrics: registry.cn-beijing.aliyuncs.com/opshub/registry-k8s-io-kube-state-metrics-kube-state-metrics
 # metrics
 quay.io/prometheus-operator/prometheus-config-reloader: registry.cn-beijing.aliyuncs.com/opshub/quay-io-prometheus-operator-prometheus-config-reloader
