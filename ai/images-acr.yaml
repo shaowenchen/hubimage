@@ -1,5 +1,3 @@
-langfuse/langfuse-worker: registry.cn-beijing.aliyuncs.com/opshub/langfuse-langfuse-worker
-langfuse/langfuse: registry.cn-beijing.aliyuncs.com/opshub/langfuse-langfuse
 nvcr.io/nvidia/tritonserver: registry.cn-beijing.aliyuncs.com/opshub/nvcr-io-nvidia-tritonserver
 vllm/vllm-openai: registry.cn-beijing.aliyuncs.com/opshub/vllm-vllm-openai
 nvcr.io/nvidia/tensorrtserver: registry.cn-beijing.aliyuncs.com/opshub/nvcr-io-nvidia-tensorrtserver
