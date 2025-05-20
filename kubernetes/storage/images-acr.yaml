@@ -1,3 +1,6 @@
+minio/minio: registry.cn-beijing.aliyuncs.com/opshub/minio-minio
+redis: registry.cn-beijing.aliyuncs.com/opshub/redis
+postgres: registry.cn-beijing.aliyuncs.com/opshub/postgres
 # openebs
 openebs/provisioner-localpv: registry.cn-beijing.aliyuncs.com/opshub/openebs-provisioner-localpv
 openebs/node-disk-exporter: registry.cn-beijing.aliyuncs.com/opshub/openebs-node-disk-exporter
