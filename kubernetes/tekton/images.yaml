@@ -12,7 +12,7 @@ gcr.io/tekton-releases/github-com/tektoncd/triggers/cmd/webhook: hubimage/gcr-io
 gcr.io/tekton-releases/github-com/tektoncd/triggers/cmd/interceptors: hubimage/gcr-io-tekton-releases-github-com-tektoncd-triggers-cmd-interceptors
 
 # tools
-gcr.io/google.com/cloudsdktool/cloud-sdk: hubimage/gcr-io-google.com-cloudsdktool-cloud-sdk
+gcr.io/google.com/cloudsdktool/cloud-sdk: hubimage/gcr-io-google-com-cloudsdktool-cloud-sdk
 gcr.io/distroless/base: hubimage/gcr-io-distroless-base
 
 # catalog
