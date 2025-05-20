@@ -1,14 +1,19 @@
-name: Network-ACR
+name: Timer-ACR
 
 on:
   push:
     paths:
-      - "network/images-acr.yaml"
+      - "ai/images-acr.yaml"
     branches:
       - main
   schedule:
-    - cron: "0 17 * * 6"
+    - cron: "0 18,6 * * *"
   workflow_dispatch:
+    inputs:
+      directory:
+        description: 'Directory to search for images.yaml and images-acr.yaml files (default: all directories)'
+        required: false
+        default: './'
 jobs:
   build:
     name: Image Sync
@@ -28,4 +33,9 @@ jobs:
           username: "${{ secrets.ACR_USERNAME }}"
           password: "${{ secrets.ACR_PASSWORD }}"
       - name: Working
-        run: bash ./.github/workflows/copy.sh ./network/images-acr.yaml
+        run: |
+          SEARCH_DIR="${{ github.event.inputs.directory || './' }}"
+          echo "Searching in directory: $SEARCH_DIR"
+          
+          find "$SEARCH_DIR" -type f -name "images.yaml" -exec bash ./.github/workflows/copy.sh {} \;
+          find "$SEARCH_DIR" -type f -name "images-acr.yaml" -exec bash ./.github/workflows/copy.sh {} \;
