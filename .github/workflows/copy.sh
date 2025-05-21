@@ -25,9 +25,11 @@ for image in ${ALL_IMAGES}; do
         fi
 
         if echo "$dest_tags" | grep -q "\"$tag\""; then
-            echo "Skipping copy existed tag ${imagearr[1]}:${tag}"
+            # echo "Skipping copy existed tag ${imagearr[1]}:${tag}"
+            continue
         elif tag_exists ${imagearr[1]} ${tag} && [[ ! ${tag} == *"latest"* ]] && [ ${tag} != "master" ] && [ ${tag} != "main" ] && [ ${tag} != "dev" ] && [ ${tag} != "development" ] && [ ${tag} != "nightly" ] && [ ${tag} != "test" ] && [ ${tag} != "testing" ] && [ ${tag} != "staging" ] && [ ${tag} != "experimental" ] && [ ${tag} != "alpha" ] && [ ${tag} != "beta" ]; then
-            echo "Skipping copy ${imagearr[0]}:${tag} as it already exists in ${imagearr[1]}:${tag}"
+            # echo "Skipping copy ${imagearr[0]}:${tag} as it already exists in ${imagearr[1]}:${tag}"
+            continue
         else
             echo "Copying ${imagearr[0]}:${tag} to ${imagearr[1]}:${tag}"
             docker run --rm -v ~/.docker/config.json:/auth.json quay.io/skopeo/stable copy --multi-arch all docker://${imagearr[0]}:${tag} docker://${imagearr[1]}:${tag} --dest-authfile /auth.json --insecure-policy --src-tls-verify=false --dest-tls-verify=false --retry-times 5
