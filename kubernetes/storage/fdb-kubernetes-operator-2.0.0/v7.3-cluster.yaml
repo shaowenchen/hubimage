@@ -27,6 +27,8 @@ spec:
       - knob_disable_posix_kernel_aio=1
       podTemplate:
         spec:
+          nodeSelector:
+            kubernetes.io/arch: amd64
           containers:
           - name: foundationdb
             resources:
