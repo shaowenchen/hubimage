@@ -269,7 +269,7 @@ spec:
         - --copy-binary
         - fdbrestore
         - --output-dir
-        - /var/output-files/7.1.26
+        - /var/output-files/7.3.59
         - --init-mode
         image: registry.cn-beijing.aliyuncs.com/opshub/foundationdb-foundationdb-kubernetes-sidecar:7.3.59-1
         name: foundationdb-kubernetes-init-7-3
