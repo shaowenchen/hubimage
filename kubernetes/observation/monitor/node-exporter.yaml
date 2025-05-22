@@ -6,30 +6,35 @@ metadata:
   name: node-exporter
   namespace: monitoring
 spec:
-  clusterIP: None
   ports:
-  - name: https
+  - name: metric
     port: 9100
-    targetPort: https
+    protocol: TCP
+    targetPort: 9100
   selector:
-    app: node-exporter
+    k8s-app: node-exporter
 ---
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   labels:
-    k8s-app: node-exporter
+    tier: atms
   name: node-exporter
   namespace: monitoring
 spec:
   endpoints:
-  - bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
-    interval: 30s
-    port: https
-    scheme: https
-    tlsConfig:
-      insecureSkipVerify: true
-  jobLabel: k8s-app
+  - interval: 30s
+    port: metric
+    relabelings:
+    - action: replace
+      sourceLabels:
+      - __meta_kubernetes_endpoint_node_name
+      targetLabel: node
+  namespaceSelector:
+    matchNames:
+    - monitoring
   selector:
     matchLabels:
       k8s-app: node-exporter
+  targetLabels:
+  - tier

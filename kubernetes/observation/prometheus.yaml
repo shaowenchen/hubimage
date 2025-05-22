@@ -2,13 +2,14 @@ apiVersion: monitoring.coreos.com/v1
 kind: Prometheus
 metadata:
   labels:
-    prometheus: ai
-  name: ai
+    prometheus: ops
+  name: ops
   namespace: monitoring
 spec:
+  retention: 2h
   alerting:
     alertmanagers:
-    - name: alertmanager-main
+    - name: alertmanager-mopsn
       namespace: monitoring
       pathPrefix: /alertmanager
       port: web
@@ -30,7 +31,7 @@ spec:
   ruleNamespaceSelector: {}
   ruleSelector:
     matchLabels:
-      prometheus: ai
+      prometheus: ops
       role: alert-rules
   scrapeInterval: 30s
   securityContext:
@@ -40,4 +41,6 @@ spec:
   serviceAccountName: prometheus
   serviceMonitorSelector:
     matchLabels:
-      tier: ai
+      tier: ops
+  thanos:
+    image: registry.cn-beijing.aliyuncs.com/opshub/thanosio-thanos:v0.25.2
