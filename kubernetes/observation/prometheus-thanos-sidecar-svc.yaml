@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: ops-thanos-sidecar
+  name: prometheus-thanos-sidecar-svc
   namespace: monitoring
   labels:
     app: prometheus
