@@ -9,7 +9,6 @@ metadata:
 spec:
   type: NodePort
   selector:
-    app: prometheus
     prometheus: ops
   ports:
     - name: grpc
