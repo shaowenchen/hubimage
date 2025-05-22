@@ -19,7 +19,7 @@ kind: ServiceMonitor
 metadata:
   labels:
     tier: ops
-  name: node-exporter
+  name: ops-node-exporter
   namespace: monitoring
 spec:
   endpoints:
