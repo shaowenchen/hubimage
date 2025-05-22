@@ -1,0 +1,31 @@
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: PrometheusAgent
+metadata:
+  name: agent-example
+  namespace: monitoring
+spec:
+  hostAliases:
+  - hostnames:
+    - example.com
+    ip: 1.2.3.4
+  podMonitorSelector:
+    matchLabels:
+      tier: atms
+  portName: web
+  remoteWrite:
+  - bearerToken: xxx
+    name: remote-write
+    url: https://example/prometheus/api/v1/write
+  replicas: 1
+  resources:
+    limits:
+      cpu: "2"
+      memory: 8Gi
+    requests:
+      cpu: 500m
+      memory: 400Mi
+  scrapeInterval: 30s
+  serviceAccountName: prometheus
+  serviceMonitorSelector:
+    matchLabels:
+      tier: atms

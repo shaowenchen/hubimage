@@ -47091,11 +47091,12 @@ spec:
       containers:
       - args:
         - --kubelet-service=kube-system/kubelet
-        - --prometheus-config-reloader=registry.cn-beijing.aliyuncs.com/opshub/prometheus-config-reloader:v0.73.1
+        - --prometheus-config-reloader=registry.cn-beijing.aliyuncs.com/opshub/quay-io-prometheus-operator-prometheus-config-reloader:v0.73.1
+        - --prometheus-default-base-image=registry.cn-beijing.aliyuncs.com/opshub/quay-io-prometheus-prometheus
         env:
         - name: GOGC
           value: "30"
-        image: quay.io/prometheus-operator/prometheus-operator:v0.73.1
+        image: registry.cn-beijing.aliyuncs.com/opshub/quay-io-prometheus-operator-prometheus-operator:v0.73.1
         name: prometheus-operator
         ports:
         - containerPort: 8080
