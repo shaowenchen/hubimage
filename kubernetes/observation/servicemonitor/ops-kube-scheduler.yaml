@@ -2,9 +2,8 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   labels:
-    app.kubernetes.io/name: kube-scheduler
-    app.kubernetes.io/part-of: kube-prometheus
-  name: kube-scheduler
+    tier: ops
+  name: ops-kube-scheduler
   namespace: monitoring
 spec:
   endpoints:

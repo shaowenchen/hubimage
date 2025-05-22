@@ -1,7 +1,9 @@
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  name: kube-state-metrics
+  labels:
+    tier: ops
+  name: ops-kube-state-metrics
   namespace: monitoring
 spec:
   endpoints:

@@ -3,8 +3,8 @@ apiVersion: monitoring.coreos.com/v1
 kind: PodMonitor
 metadata:
   labels:
-    spark-monitoring: spark-metrics
-  name: spark-metrics
+    tier: ops
+  name: ops-spark-metrics
   namespace: monitoring
 spec:
   jobLabel: spark-monitoring

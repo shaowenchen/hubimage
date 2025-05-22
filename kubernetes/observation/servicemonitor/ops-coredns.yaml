@@ -2,9 +2,8 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   labels:
-    app.kubernetes.io/name: coredns
-    app.kubernetes.io/part-of: kube-prometheus
-  name: coredns
+    tier: ops
+  name: ops-coredns
   namespace: monitoring
 spec:
   endpoints:
