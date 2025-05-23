@@ -26,7 +26,7 @@ spec:
           #- --store=dnssrv+_grpc._tcp.thanos-store.monitoring.svc.cluster.local
         - --web.external-prefix=/thanos
         - --web.route-prefix=/thanos
-        image: registry.cn-beijing.aliyuncs.com/opshub/thanos:v0.28.1
+        image: registry.cn-beijing.aliyuncs.com/opshub/thanosio-thanos:v0.28.1
         name: thanos-query
         ports:
         - containerPort: 10902

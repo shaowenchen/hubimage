@@ -28,7 +28,7 @@ spec:
     spec:
       containers:
       - name: thanos-query-frontend
-        image: registry.cn-beijing.aliyuncs.com/opshub/thanos:v0.28.1
+        image: registry.cn-beijing.aliyuncs.com/opshub/thanosio-thanos:v0.28.1
         args:
         - query-frontend
         - --log.level=info
