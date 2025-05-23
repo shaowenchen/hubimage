@@ -24,6 +24,13 @@ metadata:
 spec:
   endpoints:
   - interval: 30s
+    basicAuth:
+        username:
+          name: node-exporter-basic-auth
+          key: username
+        password:
+          name: node-exporter-basic-auth
+          key: password
     port: metric
     relabelings:
     - action: replace
