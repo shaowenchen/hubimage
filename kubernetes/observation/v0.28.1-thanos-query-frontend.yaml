@@ -32,7 +32,7 @@ spec:
         args:
         - query-frontend
         - --log.level=info
-        - --query-frontend.downstream-url=http://thanos-query.monitoring.svc.cluster.local:10902
+        - --query-frontend.downstream-url=http://thanos-query.thanos.svc.cluster.local:10902
         - --http-address=0.0.0.0:9090
         - --query-range.split-interval=24h
         - --query-range.max-retries-per-request=5

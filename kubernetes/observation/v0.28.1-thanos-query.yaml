@@ -18,12 +18,12 @@ spec:
       containers:
       - args:
         - query
-        - --log.level=info
+        - --grpc-address=0.0.0.0:10901
+        - --http-address=0.0.0.0:10902
+        - --query.partial-response
         - --query.replica-label=prometheus_replica
-        - --store=dnssrv+prometheus-operated.monitoring.svc.cluster.local:10901
+        - --query.replica-label=rule_replica
         - --store=dnssrv+thanos-store.monitoring.svc.cluster.local:10901
-          #- --store=dnssrv+_grpc._tcp.thanos-sidecar.monitoring.svc.cluster.local
-          #- --store=dnssrv+_grpc._tcp.thanos-store.monitoring.svc.cluster.local
         - --web.external-prefix=/thanos
         - --web.route-prefix=/thanos
         image: registry.cn-beijing.aliyuncs.com/opshub/thanosio-thanos:v0.28.1
@@ -50,5 +50,9 @@ spec:
     port: 10902
     protocol: TCP
     nodePort: 30902
+  - name: grpc
+    port: 10901
+    protocol: TCP
+    nodePort: 30901
   selector:
     app: thanos-query
