@@ -1,12 +1,12 @@
 registry: registry.cn-beijing.aliyuncs.com/opshub/registry-registry
 tonistiigi/binfmt: registry.cn-beijing.aliyuncs.com/opshub/tonistiigi-binfmt
-docker.io/bitnami/redis: registry.cn-beijing.aliyuncs.com/opshub/docker-io-bitnami-redis
-docker.io/bitnami/mysql: registry.cn-beijing.aliyuncs.com/opshub/docker-io-bitnami-mysql
-busybox: registry.cn-beijing.aliyuncs.com/opshub/busybox-busybox
-golang: registry.cn-beijing.aliyuncs.com/opshub/golang-golang
-nginx: registry.cn-beijing.aliyuncs.com/opshub/nginx-nginx
-debian: registry.cn-beijing.aliyuncs.com/opshub/debian-debian
-ubuntu: registry.cn-beijing.aliyuncs.com/opshub/ubuntu-ubuntu
+bitnami/redis: registry.cn-beijing.aliyuncs.com/opshub/bitnami-redis
+bitnami/mysql: registry.cn-beijing.aliyuncs.com/opshub/bitnami-mysql
+busybox: registry.cn-beijing.aliyuncs.com/opshub/busybox
+golang: registry.cn-beijing.aliyuncs.com/opshub/golang
+nginx: registry.cn-beijing.aliyuncs.com/opshub/nginx
+debian: registry.cn-beijing.aliyuncs.com/opshub/debian
+ubuntu: registry.cn-beijing.aliyuncs.com/opshub/ubuntu
 hubimage/runtime-python: registry.cn-beijing.aliyuncs.com/opshub/hubimage-runtime-python
 hubimage/runtime-ubuntu: registry.cn-beijing.aliyuncs.com/opshub/hubimage-runtime-ubuntu
 hubimage/runtime-nginx: registry.cn-beijing.aliyuncs.com/opshub/hubimage-runtime-nginx
@@ -14,4 +14,3 @@ hubimage/runtime-node: registry.cn-beijing.aliyuncs.com/opshub/hubimage-runtime-
 hubimage/runtime-openjdk: registry.cn-beijing.aliyuncs.com/opshub/hubimage-runtime-openjdk
 hubimage/runtime-openresty: registry.cn-beijing.aliyuncs.com/opshub/hubimage-runtime-openresty
 hubimage/runtime-pypy: registry.cn-beijing.aliyuncs.com/opshub/hubimage-runtime-pypy
-
