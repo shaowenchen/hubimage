@@ -17,7 +17,16 @@ for image in ${ALL_IMAGES}; do
     src_tags=$(skopeo list-tags docker://${imagearr[0]} | jq '.Tags[]' | sed '1!G;h;$!d')
     dest_tags=$(skopeo list-tags docker://${imagearr[1]} | jq '.Tags[]' | sed '1!G;h;$!d')
     
+    # Counter for copied tags per image
+    tag_count=0
+    
     for tag in $src_tags; do
+        # Break if we've already copied 10 tags for this image
+        if [ $tag_count -ge 10 ]; then
+            echo "Copied 10 tags for ${imagearr[0]}, moving to next image"
+            break
+        fi
+
         tag=$(echo $tag | sed 's/"//g')
         if [[ ${#tag} -gt 30 || ${tag} == *"--"* || ${tag} =~ ([0-9]{8}) || ${tag} =~ -[a-f0-9]{7,}- || ${tag} =~ -SNAPSHOT$ || ${tag} =~ beta[0-9]+ || ${tag} == *"windows"* || ${tag} == *"0.0.0"* || ${tag} == *"dev"* || ${tag} == sha256* || ${tag} == *.sig || ${tag} == *post1 || ${tag} == *post2 || ${tag} =~ [0-9]{4}-[0-9]{2}-[0-9]{2} ]]; then
             # echo "Skipping special tag ${imagearr[0]}:${tag}"
@@ -37,6 +46,8 @@ for image in ${ALL_IMAGES}; do
                 echo "Failed to copy ${imagearr[0]}:${tag} to ${imagearr[1]}:${tag}"
                 break 2
             fi
+            # Increment the tag counter after successful copy
+            ((tag_count++))
         fi
     done
 done
