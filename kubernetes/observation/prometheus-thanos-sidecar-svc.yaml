@@ -16,4 +16,8 @@ spec:
       targetPort: 10901
       protocol: TCP
       nodePort: 30901
-    
+    - name: http
+      port: 9090
+      targetPort: 9090
+      protocol: TCP
+      nodePort: 30900

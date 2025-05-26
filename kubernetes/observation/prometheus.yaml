@@ -29,7 +29,7 @@ spec:
     requests:
       cpu: 500m
       memory: 400Mi
-  retention: 5m
+  retention: 2h
   routePrefix: /prometheus
   ruleNamespaceSelector: {}
   ruleSelector:
