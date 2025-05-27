@@ -6,7 +6,6 @@ metadata:
   name: node-exporter
   namespace: monitoring
 spec:
-  revisionHistoryLimit: 10
   selector:
     matchLabels:
       k8s-app: node-exporter
@@ -18,15 +17,10 @@ spec:
       labels:
         k8s-app: node-exporter
     spec:
-      affinity:
-        nodeAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-            - matchExpressions:
-              - key: node-role.kubernetes.io/master
-                operator: DoesNotExist
       containers:
       - image: registry.cn-beijing.aliyuncs.com/opshub/prometheus-node-exporter:master
+        args:
+        - --collector.tcpstat
         imagePullPolicy: IfNotPresent
         name: node-exporter
         ports:
@@ -34,18 +28,8 @@ spec:
           hostPort: 9100
           name: scrape
           protocol: TCP
-        terminationMessagePath: /dev/termination-log
-        terminationMessagePolicy: File
       dnsPolicy: ClusterFirst
       hostNetwork: true
       restartPolicy: Always
-      schedulerName: default-scheduler
-      securityContext: {}
-      terminationGracePeriodSeconds: 30
       tolerations:
-      - effect: NoSchedule
-        key: nvidia.com/gpu
-        operator: Exists
-      - effect: NoSchedule
-        key: tencent.com/vcuda-core
-        operator: Exists
+      - operator: Exists
