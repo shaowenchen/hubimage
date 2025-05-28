@@ -2,8 +2,8 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: ops-process-exporter-daemonset
-  name: ops-process-exporter-daemonset
+    app: process-exporter-daemonset
+  name: process-exporter-daemonset
   namespace: monitoring
 spec:
   ports:
@@ -12,14 +12,14 @@ spec:
     protocol: TCP
     targetPort: 9256
   selector:
-    app: ops-process-exporter-daemonset
+    app: process-exporter-daemonset
 ---
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   labels:
     tier: ops
-  name: ops-process-exporter-daemonset
+  name: process-exporter-daemonset
   namespace: monitoring
 spec:
   endpoints:
@@ -30,6 +30,6 @@ spec:
     - monitoring
   selector:
     matchLabels:
-      app: ops-process-exporter-daemonset
+      app: process-exporter-daemonset
   targetLabels:
   - tier
