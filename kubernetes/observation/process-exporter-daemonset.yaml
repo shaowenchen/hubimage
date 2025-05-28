@@ -47,6 +47,7 @@ spec:
               mountPath: /etc/process-exporter/process-exporter.yaml
               subPath: process-exporter.yaml
       hostNetwork: true
+      hostPID: true
       tolerations:
       - operator: Exists
       volumes:
