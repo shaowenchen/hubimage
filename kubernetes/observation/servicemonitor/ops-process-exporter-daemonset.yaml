@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: ops-process-exporter-daemonset
+  name: ops-process-exporter-daemonset
+  namespace: monitoring
+spec:
+  ports:
+  - name: metric
+    port: 9256
+    protocol: TCP
+    targetPort: 9256
+  selector:
+    app: ops-process-exporter-daemonset
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    tier: ops
+  name: ops-process-exporter-daemonset
+  namespace: monitoring
+spec:
+  endpoints:
+  - interval: 30s
+    port: metric
+  namespaceSelector:
+    matchNames:
+    - monitoring
+  selector:
+    matchLabels:
+      app: ops-process-exporter-daemonset
+  targetLabels:
+  - tier

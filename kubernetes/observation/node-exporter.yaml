@@ -28,8 +28,6 @@ spec:
           hostPort: 9100
           name: scrape
           protocol: TCP
-      dnsPolicy: ClusterFirst
       hostNetwork: true
-      restartPolicy: Always
       tolerations:
       - operator: Exists

@@ -30,11 +30,11 @@ spec:
               containerPort: 9256
           resources:
             limits:
-              cpu: 250m
-              memory: 200Mi
+              cpu: 500m
+              memory: 500Mi
             requests:
-              cpu: 100m
-              memory: 100Mi
+              cpu: 200m
+              memory: 200Mi
           securityContext:
             runAsGroup: 65532
             runAsNonRoot: true
@@ -46,6 +46,9 @@ spec:
             - name: config-volume
               mountPath: /etc/process-exporter/process-exporter.yaml
               subPath: process-exporter.yaml
+      hostNetwork: true
+      tolerations:
+      - operator: Exists
       volumes:
         - name: proc
           hostPath:
@@ -57,10 +60,13 @@ spec:
 apiVersion: v1
 data:
   process-exporter.yaml: |-
-    process_names:
-      - name: "{{.Comm}}"
-        cmdline:
-        - '.+'
+      process_names:
+        - name: "python"
+          cmdline:
+          - '^/.*python.*'
+        - name: "triton-server"
+          cmdline:
+          - '^/.*triton-server.*'
 kind: ConfigMap
 metadata:
   name: process-exporter-daemonset-config
