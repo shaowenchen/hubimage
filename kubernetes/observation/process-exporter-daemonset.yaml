@@ -30,8 +30,7 @@ spec:
               containerPort: 9256
           resources:
             limits:
-              cpu: 500m
-              memory: 500Mi
+              memory: 4Gi
             requests:
               cpu: 200m
               memory: 200Mi
@@ -62,12 +61,9 @@ apiVersion: v1
 data:
   process-exporter.yaml: |-
       process_names:
-        - name: "python"
-          cmdline:
-          - '^/.*python.*'
-        - name: "triton-server"
-          cmdline:
-          - '^/.*triton-server.*'
+      - name: "{{.Comm}}"
+        cmdline:
+        - '.+'
 kind: ConfigMap
 metadata:
   name: process-exporter-daemonset-config
