@@ -2,17 +2,17 @@ apiVersion: apps/v1
 kind: DaemonSet
 metadata:
   labels:
-    app.kubernetes.io/name: process-exporter
-  name: process-exporter
-  namespace: monitor
+    app.kubernetes.io/name: process-exporter-daemonset
+  name: process-exporter-daemonset
+  namespace: monitoring
 spec:
   selector:
     matchLabels:
-      app: process-exporter
+      app: process-exporter-daemonset
   template:
     metadata:
       labels:
-        app: process-exporter
+        app: process-exporter-daemonset
       annotations:
         prometheus.io/scrape: "true"
         prometheus.io/port: "9256"
@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: process-exporter
-          image: ncabatoff/process-exporter:latest
+          image: registry.cn-beijing.aliyuncs.com/opshub/ncabatoff-process-exporter
           args:
             - "--procfs=/host/proc"
             - "--config.path=/etc/process-exporter/process-exporter.yaml"
@@ -39,7 +39,6 @@ spec:
             runAsGroup: 65532
             runAsNonRoot: true
             runAsUser: 65532
-
           volumeMounts:
             - name: proc
               mountPath: /host/proc
@@ -53,7 +52,7 @@ spec:
             path: /proc
         - name: config-volume
           configMap:
-            name: process-exporter-config
+            name: process-exporter-daemonset-config
 ---
 apiVersion: v1
 data:
@@ -64,5 +63,5 @@ data:
         - '.+'
 kind: ConfigMap
 metadata:
-  name: process-exporter-config
-  namespace: monitor
+  name: process-exporter-daemonset-config
+  namespace: monitoring
