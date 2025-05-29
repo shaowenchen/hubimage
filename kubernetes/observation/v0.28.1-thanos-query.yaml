@@ -23,6 +23,7 @@ spec:
         - --grpc-address=0.0.0.0:10901
         - --http-address=0.0.0.0:10902
         - --query.partial-response
+        - --query.timeout=2m
         - --query.replica-label=prometheus_replica
         - --query.replica-label=rule_replica
         - --store=dnssrv+thanos-store.monitoring.svc.cluster.local:10901
