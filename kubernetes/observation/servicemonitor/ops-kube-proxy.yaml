@@ -1,0 +1,39 @@
+# kubectl edit cm -n kube-system kube-proxy
+# metricsBindAddress: "0.0.0.0:10249"
+apiVersion: v1
+kind: Service
+metadata:
+  name: kube-proxy
+  namespace: kube-system
+  labels:
+    k8s-app: kube-proxy
+spec:
+  selector:
+    k8s-app: kube-proxy
+  ports:
+  - name: metrics
+    port: 10249
+    targetPort: 10249
+    protocol: TCP
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: ops-kube-proxy
+  namespace: monitoring
+  labels:
+    tier: ops
+spec:
+  namespaceSelector:
+    matchNames:
+    - kube-system
+  selector:
+    matchLabels:
+      k8s-app: kube-proxy
+  endpoints:
+  - port: metrics
+    interval: 30s
+    scheme: http
+    path: /metrics
+  targetLabels:
+  - k8s-app

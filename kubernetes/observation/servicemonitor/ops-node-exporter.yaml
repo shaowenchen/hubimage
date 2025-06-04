@@ -40,6 +40,7 @@ spec:
   namespaceSelector:
     matchNames:
     - monitoring
+    - kube-system
   selector:
     matchLabels:
       k8s-app: node-exporter
