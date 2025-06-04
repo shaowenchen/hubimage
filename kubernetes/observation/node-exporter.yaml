@@ -18,7 +18,7 @@ spec:
         k8s-app: node-exporter
     spec:
       containers:
-      - image: registry.cn-beijing.aliyuncs.com/opshub/prometheus-node-exporter:master
+      - image: registry.cn-beijing.aliyuncs.com/opshub/quay-io-prometheus-node-exporter
         args:
         - --collector.tcpstat
         imagePullPolicy: IfNotPresent
