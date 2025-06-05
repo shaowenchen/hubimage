@@ -23,7 +23,7 @@ metadata:
   namespace: monitoring
 spec:
   endpoints:
-  - interval: 30s
+  - interval: 15s
     basicAuth:
         username:
           name: node-exporter-basic-auth

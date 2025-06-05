@@ -32,7 +32,7 @@ spec:
       k8s-app: kube-proxy
   endpoints:
   - port: metrics
-    interval: 30s
+    interval: 15s
     scheme: http
     path: /metrics
   targetLabels:
