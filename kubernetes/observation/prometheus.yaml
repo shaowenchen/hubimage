@@ -45,5 +45,8 @@ spec:
   serviceMonitorSelector:
     matchLabels:
       tier: ops
+  podMonitorSelector:
+    matchLabels:
+      tier: ops
   thanos:
     image: registry.cn-beijing.aliyuncs.com/opshub/thanosio-thanos:v0.25.2
