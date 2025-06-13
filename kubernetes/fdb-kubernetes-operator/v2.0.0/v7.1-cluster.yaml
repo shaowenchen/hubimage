@@ -68,7 +68,7 @@ spec:
             requests:
               storage: 16G
   routing:
-    publicIPSource: service
+    publicIPSource: pod
     defineDNSLocalityFields: true
   sidecarContainer:
     enableLivenessProbe: true
