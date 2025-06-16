@@ -1,0 +1,125 @@
+#!/bin/bash
+
+# Create temporary directory
+temp_dir=$(mktemp -d)
+
+# Set timeout (in seconds)
+npu_smi_timeout=60
+
+function check_cmd() {
+    for cmd in npu-smi hccn_tool ascend-dmi msnpureport; do
+        if ! command -v $cmd &> /dev/null; then
+            echo "Error: Command $cmd not found. Please ensure it is installed and available in the PATH."
+            exit 1
+        fi
+    done
+}
+
+function get_npu_count() {
+    # Get NPU count using npu-smi info -l command
+    npu_count=$(npu-smi info -l 2>/dev/null | grep -o 'Total Count\s*:\s*[0-9]\+' | awk '{print $NF}' | sed 's/ //g')
+    
+    if [ -z "$npu_count" ] || [ "$npu_count" -eq 0 ]; then
+        echo "Error: No NPU cards found" >&2
+        return 1
+    fi
+    
+    echo "$npu_count"
+}
+
+function collect_npu_info() {
+    echo "Collecting NPU-SMI information..."
+    npu-smi info > "$temp_dir/npu-smi-info.log" 2>&1
+}
+
+function collect_health_status() {
+    echo "Collecting NPU health status..."
+    npu_count=$(get_npu_count) || return 1
+    for i in $(seq 0 $((npu_count-1))); do
+        echo "==> NPU $i" >> "$temp_dir/npu-health.log"
+        npu-smi info -t health -i $i -c 0 >> "$temp_dir/npu-health.log" 2>&1
+    done
+}
+
+function collect_network_health() {
+    echo "Collecting network health status..."
+    npu_count=$(get_npu_count) || return 1
+    for i in $(seq 0 $((npu_count-1))); do
+        echo "==> NPU $i" >> "$temp_dir/network-health.log"
+        hccn_tool -i $i -net_health -g >> "$temp_dir/network-health.log" 2>&1
+    done
+}
+
+function collect_optical_info() {
+    echo "Collecting optical module information..."
+    npu_count=$(get_npu_count) || return 1
+    for i in $(seq 0 $((npu_count-1))); do
+        echo "==> NPU $i" >> "$temp_dir/optical-info.log"
+        hccn_tool -i $i -optical -g >> "$temp_dir/optical-info.log" 2>&1
+    done
+}
+
+function collect_link_status() {
+    echo "Collecting link status..."
+    npu_count=$(get_npu_count) || return 1
+    for i in $(seq 0 $((npu_count-1))); do
+        echo "==> NPU $i" >> "$temp_dir/link-status.log"
+        hccn_tool -i $i -link -g >> "$temp_dir/link-status.log" 2>&1
+    done
+}
+
+function collect_link_history() {
+    echo "Collecting link history..."
+    npu_count=$(get_npu_count) || return 1
+    for i in $(seq 0 $((npu_count-1))); do
+        echo "==> NPU $i" >> "$temp_dir/link-history.log"
+        hccn_tool -i $i -link_stat -g >> "$temp_dir/link-history.log" 2>&1
+    done
+}
+
+function collect_cdr_snr() {
+    echo "Collecting CDR receive side SNR quality..."
+    npu_count=$(get_npu_count) || return 1
+    for i in $(seq 0 $((npu_count-1))); do
+        echo "==> NPU $i" >> "$temp_dir/cdr-snr.log"
+        hccn_tool -i $i -scdr -t 5 >> "$temp_dir/cdr-snr.log" 2>&1
+    done
+}
+
+function collect_npu_snr() {
+    echo "Collecting NPU receive side SNR quality..."
+    npu_count=$(get_npu_count) || return 1
+    # Create comma-separated list of NPU indices
+    npu_list=$(seq -s, 0 $((npu_count-1)))
+    ascend-dmi --sq -t roce -d $npu_list > "$temp_dir/npu-snr.log" 2>&1
+}
+
+function collect_msnpureport() {
+    echo "Collecting msnpureport..."
+    msnpureport -f > "$temp_dir/msnpureport.log" 2>&1
+}
+
+# Create tar.gz file
+function package_log() {
+    timestamp=$(date +%Y%m%d_%H%M%S)
+    machine_sn=$(dmidecode -t1 | grep "Serial Number" | sed 's/.*: //')
+    tar_file="npu_logs_${machine_sn}_${timestamp}.tar.gz"
+    tar -czf "$tar_file" -C "$temp_dir" . --remove-files
+    echo -e "\n Logs have been collected and packaged as $tar_file"
+}
+
+function main() {
+    # check_cmd
+    collect_npu_info
+    collect_health_status
+    collect_network_health
+    collect_optical_info
+    collect_link_status
+    collect_link_history
+    collect_cdr_snr
+    # collect_npu_snr
+    collect_msnpureport
+    package_log
+}
+
+main
