@@ -112,9 +112,12 @@ function package_log() {
     tar_file="npu_logs_${hostname}_${timestamp}.tar.gz"
     # Get home directory absolute path
     home_dir=$(echo ~)
-    # Create tar file in user's home directory
-    tar -czf "$home_dir/$tar_file" -C "$temp_dir" .
-    echo -e "\n Logs have been collected and packaged as $home_dir/$tar_file"
+    # Create logs directory in home directory
+    logs_dir="$home_dir/npu_logs"
+    mkdir -p "$logs_dir"
+    # Create tar file in logs directory
+    tar -czf "$logs_dir/$tar_file" -C "$temp_dir" .
+    echo -e "\n Logs have been collected and packaged as $logs_dir/$tar_file"
 }
 
 function main() {
