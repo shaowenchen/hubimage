@@ -7,7 +7,7 @@ temp_dir=$(mktemp -d)
 npu_smi_timeout=60
 
 function check_cmd() {
-    for cmd in npu-smi hccn_tool ascend-dmi msnpureport; do
+    for cmd in npu-smi hccn_tool msnpureport; do
         if ! command -v $cmd &>/dev/null; then
             echo "Error: Command $cmd not found. Please ensure it is installed and available in the PATH."
             exit 1
@@ -87,6 +87,10 @@ function collect_cdr_snr() {
 }
 
 function collect_npu_snr() {
+    if ! command -v ascend-dmi &>/dev/null; then
+        echo "Error: ascend-dmi command not found. Please ensure it is installed and available in the PATH."
+        return 1
+    fi
     echo "Collecting NPU receive side SNR quality..."
     npu_count=$(get_npu_count) || return 1
     # Create comma-separated list of NPU indices
@@ -109,19 +113,16 @@ function collect_msnpureport() {
 function package_log() {
     timestamp=$(date +%Y%m%d_%H%M%S)
     hostname=$(hostname)
-    tar_file="npu_logs_${hostname}_${timestamp}.tar.gz"
-    # Get home directory absolute path
+    tar_dir_name="npu_logs_${hostname}_${timestamp}"
     home_dir=$(echo ~)
-    # Create logs directory in home directory
-    logs_dir="$home_dir/npu_logs"
-    mkdir -p "$logs_dir"
-    # Create tar file in logs directory
-    tar -czf "$logs_dir/$tar_file" -C "$temp_dir" .
-    echo -e "\n Logs have been collected and packaged as $logs_dir/$tar_file"
+    cp -r "$temp_dir" "$home_dir/$tar_dir_name"
+    tar_file="${tar_dir_name}.tar.gz"
+    tar -czf "$home_dir/$tar_file" -C "$home_dir" "$tar_dir_name" --remove-files
+    echo -e "\n Logs have been collected and packaged as $home_dir/$tar_file"
 }
 
 function main() {
-    # check_cmd
+    check_cmd
     collect_npu_info
     collect_health_status
     collect_network_health
@@ -129,7 +130,7 @@ function main() {
     collect_link_status
     collect_link_history
     collect_cdr_snr
-    # collect_npu_snr
+    collect_npu_snr
     collect_msnpureport
     package_log
 }

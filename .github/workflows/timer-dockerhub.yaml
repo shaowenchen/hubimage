@@ -1,9 +1,9 @@
-name: Timer-ACR
+name: Timer-DockerHub
 
 on:
   push:
     paths:
-      - "ai/images-acr.yaml"
+      - "ai/images.yaml"
     branches:
       - main
   schedule:
@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
     inputs:
       directory:
-        description: 'Directory to search for images-acr.yaml files (default: all directories)'
+        description: 'Directory to search for images.yaml files (default: all directories)'
         required: false
         default: './'
 jobs:
@@ -37,4 +37,4 @@ jobs:
           SEARCH_DIR="${{ github.event.inputs.directory || './' }}"
           echo "Searching in directory: $SEARCH_DIR"
           
-          find "$SEARCH_DIR" -type f -name "images-acr.yaml" -exec bash ./.github/workflows/copy.sh {} \;
+          find "$SEARCH_DIR" -type f -name "images.yaml" -exec bash ./.github/workflows/copy.sh {} \;
