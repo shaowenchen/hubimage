@@ -100,6 +100,7 @@ function collect_msnpureport() {
     mkdir -p "$msnpureport_dir"
     cd "$msnpureport_dir"
     msnpureport -f
+    cd ..
 }
 
 # Create tar.gz file
@@ -107,8 +108,8 @@ function package_log() {
     timestamp=$(date +%Y%m%d_%H%M%S)
     hostname=$(hostname)
     tar_file="npu_logs_${hostname}_${timestamp}.tar.gz"
-    tar -czf "$tar_file" -C "$temp_dir" . --remove-files
-    echo -e "\n Logs have been collected and packaged as $temp_dir/$tar_file"
+    tar -czf ./"$tar_file" -C "$temp_dir" .
+    echo -e "\n Logs have been collected and packaged as $tar_file"
 }
 
 function main() {
