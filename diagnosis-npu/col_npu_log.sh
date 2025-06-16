@@ -96,16 +96,19 @@ function collect_npu_snr() {
 
 function collect_msnpureport() {
     echo "Collecting msnpureport..."
-    msnpureport -f > "$temp_dir/msnpureport.log" 2>&1
+    msnpureport_dir="$temp_dir/msnpureport"
+    mkdir -p "$msnpureport_dir"
+    cd "$msnpureport_dir"
+    msnpureport -f
 }
 
 # Create tar.gz file
 function package_log() {
     timestamp=$(date +%Y%m%d_%H%M%S)
-    machine_sn=$(dmidecode -t1 | grep "Serial Number" | sed 's/.*: //')
-    tar_file="npu_logs_${machine_sn}_${timestamp}.tar.gz"
+    hostname=$(hostname)
+    tar_file="npu_logs_${hostname}_${timestamp}.tar.gz"
     tar -czf "$tar_file" -C "$temp_dir" . --remove-files
-    echo -e "\n Logs have been collected and packaged as $tar_file"
+    echo -e "\n Logs have been collected and packaged as $temp_dir/$tar_file"
 }
 
 function main() {
