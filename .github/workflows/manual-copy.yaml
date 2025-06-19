@@ -4,13 +4,13 @@ on:
   workflow_dispatch:
     inputs:
       src:
-        description: ''
+        description: ""
         required: true
-        default: 'shaowenchen/huggingface-cli'
+        default: "registry.k8s.io/kube-state-metrics/kube-state-metrics"
       dest:
-        description: ''
+        description: ""
         required: true
-        default: 'registry.cn-beijing.aliyuncs.com/shaowenchen/huggingface-cli'
+        default: "registry.cn-beijing.aliyuncs.com/opshub/registry-k8s-io-kube-state-metrics-kube-state-metrics"
 jobs:
   build:
     name: Image Sync
@@ -33,4 +33,6 @@ jobs:
         run: |
           echo ${{ inputs.src }}: ${{ inputs.dest }} >> ./manual-images.yaml
       - name: Working
-        run: bash ./.github/workflows/copy.sh ./manual-images.yaml
+        run: |
+          cat ./manual-images.yaml
+          bash ./.github/workflows/copy.sh ./manual-images.yaml

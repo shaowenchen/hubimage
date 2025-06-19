@@ -30,4 +30,4 @@ jobs:
       - name: Copy to Aliyun
         run: |
           export image=hubimage:latest
-          docker run --rm -v ~/.docker/config.json:/auth.json quay.io/skopeo/stable copy docker://shaowenchen/${image} docker://registry.cn-beijing.aliyuncs.com/shaowenchen/${image} --dest-authfile /auth.json --insecure-policy --src-tls-verify=false --dest-tls-verify=false --retry-times 5 --all
+          docker run --rm -v ~/.docker/config.json:/auth.json quay.io/skopeo/stable copy docker://shaowenchen/${image} docker://registry.cn-beijing.aliyuncs.com/opshub/shaowenchen-${image} --dest-authfile /auth.json --insecure-policy --src-tls-verify=false --dest-tls-verify=false --retry-times 5 --all
