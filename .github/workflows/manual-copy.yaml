@@ -35,4 +35,4 @@ jobs:
       - name: Working
         run: |
           cat ./manual-images.yaml
-          bash ./.github/workflows/copy.sh ./manual-images.yaml
+          bash ./.github/workflows/copy.sh manual-images.yaml
