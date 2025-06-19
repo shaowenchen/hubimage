@@ -6,6 +6,9 @@ spec:
   automationOptions:
     replacements:
       enabled: true
+  databaseConfiguration:
+    redundancy_mode: triple
+    storage: 5
   faultDomain:
     key: foundationdb.org/none
   imageType: split
