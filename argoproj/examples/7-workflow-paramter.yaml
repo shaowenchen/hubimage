@@ -1,0 +1,51 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Workflow
+metadata:
+  name: workflow-paramter
+spec:
+  entrypoint: dag
+  serviceAccountName: workflow-pods-sa
+  templates:
+    - name: dag
+      dag:
+        tasks:
+          - name: task-1
+            templateRef:
+              name: message-transformer-template
+              template: message-transformer
+              clusterScope: true
+            arguments:
+              parameters:
+                - name: message
+                  value: "{{workflow.parameters.message}}"
+          - name: print-task-1-output-parameter
+            templateRef:
+              name: whalesay-template
+              template: whalesay
+              clusterScope: true
+            arguments:
+              parameters:
+                - name: message
+                  value: "{{tasks.task-1.outputs.parameters.message}}"
+            dependencies: [task-1]
+          - name: print-task-1-output
+            templateRef:
+              name: whalesay-template
+              template: whalesay
+              clusterScope: true
+            arguments:
+              parameters:
+                - name: message
+                  value: |
+                    Task ID: {{tasks.task-1.id}}
+                    Task Status: {{tasks.task-1.status}}
+                    Task Exit Code: {{tasks.task-1.exitCode}}
+                    Task Started At: {{tasks.task-1.startedAt}}
+                    Task Finished At: {{tasks.task-1.finishedAt}}
+                    Task Host Node Name: {{tasks.task-1.hostNodeName}}
+                    Task Output Result: {{tasks.task-1.outputs.result}}
+            dependencies: [task-1]
+  arguments:
+    parameters:
+      - name: message
+        value: "a"

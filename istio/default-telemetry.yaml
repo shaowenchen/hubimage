@@ -1,0 +1,18 @@
+apiVersion: telemetry.istio.io/v1alpha1
+kind: Telemetry
+metadata:
+  name: default-telemetry
+  namespace: istio-system
+spec:
+  metrics:
+    - providers:
+        - name: prometheus
+      overrides:
+        - tagOverrides:
+            request_host:
+              value: "request.host"
+  accessLogging:
+    - providers:
+        - name: envoy
+      filter:
+        expression: "response.code >= 400"

@@ -1,0 +1,28 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    tier: ops
+  name: ops-kube-state-metrics
+  namespace: monitoring
+spec:
+  endpoints:
+  - interval: 15s
+    metricRelabelings:
+    - action: keep
+      regex: ^(.*)$
+      sourceLabels:
+      - exported_namespace
+    - action: keep
+      regex: kube_(pod|node)_.*
+      sourceLabels:
+      - __name__
+    port: http-metrics
+  namespaceSelector:
+    matchNames:
+    - kube-system
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: kube-state-metrics
+  targetLabels:
+  - app.kubernetes.io/name

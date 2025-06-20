@@ -1,0 +1,27 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    tier: ops
+  name: ops-istio-eastwestgateway
+  namespace: monitoring
+spec:
+  endpoints:
+  - interval: 15s
+    metricRelabelings:
+    - action: keep
+      regex: ^(istio_).*
+      sourceLabels:
+      - __name__
+    - action: keep
+      regex: unknown
+      sourceLabels:
+      - destination_app
+    path: /stats/prometheus
+    port: http-envoy-prom
+  namespaceSelector:
+    matchNames:
+    - istio-ingress
+  selector:
+    matchLabels:
+      istio: eastwestgateway

@@ -1,0 +1,52 @@
+apiVersion: monitoring.coreos.com/v1
+kind: Prometheus
+metadata:
+  labels:
+    prometheus: ops
+  name: ops
+  namespace: monitoring
+spec:
+  podMetadata:
+    labels:
+      prometheus-instance: ops
+  retention: 2h
+  alerting:
+    alertmanagers:
+    - name: alertmanager-mopsn
+      namespace: monitoring
+      pathPrefix: /alertmanager
+      port: web
+  evaluationInterval: 30s
+  externalUrl: /prometheus
+  nodeSelector:
+    monitoring: "true"
+  portName: web
+  replicas: 1
+  resources:
+    limits:
+      cpu: "2"
+      memory: 6Gi
+    requests:
+      cpu: 500m
+      memory: 400Mi
+  retention: 2h
+  routePrefix: /prometheus
+  ruleNamespaceSelector: {}
+  ruleSelector:
+    matchLabels:
+      prometheus: ops
+      role: alert-rules
+  scrapeInterval: 30s
+  securityContext:
+    fsGroup: 2000
+    runAsNonRoot: true
+    runAsUser: 1000
+  serviceAccountName: prometheus
+  serviceMonitorSelector:
+    matchLabels:
+      tier: ops
+  podMonitorSelector:
+    matchLabels:
+      tier: ops
+  thanos:
+    image: registry.cn-beijing.aliyuncs.com/opshub/thanosio-thanos:v0.25.2

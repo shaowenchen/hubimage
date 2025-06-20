@@ -1,0 +1,50 @@
+# https://blog.devgenius.io/spark-k8s-prometheus-fd427f764642
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  labels:
+    tier: ops
+  name: ops-spark-metrics
+  namespace: monitoring
+spec:
+  jobLabel: spark-monitoring
+  namespaceSelector:
+    matchNames:
+    - spark
+  podMetricsEndpoints:
+  - honorLabels: true
+    metricRelabelings:
+      - sourceLabels: [__name__]
+        regex: 'metrics_executor_(.*)'
+        targetLabel: __name__
+        replacement: $1
+      - sourceLabels: [__name__]
+        regex: 'metrics_executor_(.*)'
+        targetLabel: resource_type
+        replacement: executor
+      - sourceLabels: [__name__]
+        regex: metrics_spark_(.+)_driver_(.*)
+        targetLabel: resource_type
+        replacement: driver
+      - sourceLabels: [__name__]
+        regex: metrics_spark_(.+)_driver_(.*)
+        targetLabel: __name__
+        replacement: $2
+    relabelings:
+    - action: replace
+      regex: (.*)
+      replacement: $1
+      sourceLabels:
+      - __meta_kubernetes_pod_node_name
+      targetLabel: instance
+    - action: replace
+      regex: (.*)
+      replacement: $1
+      sourceLabels:
+      - __meta_kubernetes_namespace
+      targetLabel: namespace
+    targetPort: 4040
+    path: /metrics/prometheus/
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: apache-spark

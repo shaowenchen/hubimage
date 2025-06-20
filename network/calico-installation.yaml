@@ -1,0 +1,38 @@
+apiVersion: operator.tigera.io/v1
+kind: Installation
+metadata:
+  finalizers:
+  - tigera.io/operator-cleanup
+  name: calico-installation
+  namespace: kube-system
+spec:
+  calicoNetwork:
+    bgp: Enabled
+    hostPorts: Enabled
+    ipPools:
+    - blockSize: 26
+      cidr: 10.245.0.0/16
+      disableBGPExport: false
+      encapsulation: VXLANCrossSubnet
+      natOutgoing: Enabled
+      nodeSelector: all()
+    linuxDataplane: Iptables
+    multiInterfaceMode: None
+    nodeAddressAutodetectionV4:
+      interface: ib.*|eth.*|en.*|bo.*
+  cni:
+    ipam:
+      type: Calico
+    type: Calico
+  controlPlaneReplicas: 2
+  flexVolumePath: /usr/libexec/kubernetes/kubelet-plugins/volume/exec/
+  imagePath: opshub
+  imagePrefix: calico-
+  kubeletVolumePluginPath: /var/lib/kubelet
+  nodeUpdateStrategy:
+    rollingUpdate:
+      maxUnavailable: 1
+    type: RollingUpdate
+  nonPrivileged: Disabled
+  registry: registry.cn-beijing.aliyuncs.com/
+  variant: Calico

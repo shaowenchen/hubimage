@@ -1,0 +1,34 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    tier: ops
+  name: ops-kube-scheduler
+  namespace: monitoring
+spec:
+  endpoints:
+  - bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
+    interval: 15s
+    port: https-metrics
+    scheme: https
+    tlsConfig:
+      insecureSkipVerify: true
+  - bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
+    interval: 5s
+    metricRelabelings:
+    - action: drop
+      regex: process_start_time_seconds
+      sourceLabels:
+      - __name__
+    path: /metrics/slis
+    port: https-metrics
+    scheme: https
+    tlsConfig:
+      insecureSkipVerify: true
+  jobLabel: app.kubernetes.io/name
+  namespaceSelector:
+    matchNames:
+    - kube-system
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: kube-scheduler

@@ -1,0 +1,2 @@
+# descheduler
+registry.k8s.io/descheduler/descheduler: hubimage/registry-k8s-io-descheduler-descheduler

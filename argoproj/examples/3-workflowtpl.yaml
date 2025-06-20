@@ -1,0 +1,114 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ClusterWorkflowTemplate
+metadata:
+  name: whalesay-template
+spec:
+  templates:
+    - name: whalesay
+      inputs:
+        parameters:
+          - name: message
+      container:
+        image: docker/whalesay
+        command: [cowsay]
+        args: ["{{inputs.parameters.message}}"]
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ClusterWorkflowTemplate
+metadata:
+  name: random-boolean-template
+spec:
+  entrypoint: random-boolean
+  templates:
+    - name: random-boolean
+      script:
+        image: python:alpine3.6
+        command: [python]
+        source: |
+          import random
+          print(str(random.choice([True, False])).lower())
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ClusterWorkflowTemplate
+metadata:
+  name: random-status-template
+spec:
+  templates:
+    - name: random-status
+      inputs:
+        parameters:
+          - name: retry
+            value: "1"
+      retryStrategy:
+        limit: "{{inputs.parameters.retry}}"
+        retryPolicy: "Always"
+      script:
+        image: python:alpine3.6
+        command: [python]
+        source: |
+          import random
+          exit_code = 0 if random.choice([True, False]) else 1
+          import sys
+          sys.exit(exit_code)
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ClusterWorkflowTemplate
+metadata:
+  name: exit-status-template
+spec:
+  entrypoint: exit-status
+  templates:
+    - name: exit-status
+      inputs:
+        parameters:
+          - name: status
+      script:
+        image: python:alpine3.6
+        command: [python]
+        source: |
+          import sys
+          sys.exit(int("{{inputs.parameters.status}}"))
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ClusterWorkflowTemplate
+metadata:
+  name: message-transformer-template
+spec:
+  templates:
+    - name: message-transformer
+      inputs:
+        parameters:
+          - name: message
+      script:
+        image: python:alpine3.6
+        command: [python]
+        source: |
+          message = "{{inputs.parameters.message}} with an appended message"
+          with open("/tmp/outputs-message", "w") as f:
+              f.write(message)
+          print("written message to /tmp/outputs-message is ok")
+      outputs:
+        parameters:
+          - name: message
+            valueFrom:
+              path: /tmp/outputs-message
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ClusterWorkflowTemplate
+metadata:
+  name: whalesay-template-2
+spec:
+  templates:
+    - name: whalesay
+      inputs:
+        parameters:
+          - name: message
+            value: "{{workflow.parameters.message}}"
+      container:
+        image: docker/whalesay
+        command: [cowsay]
+        args: ["{{inputs.parameters.message}}"]
+  arguments:
+    parameters:
+      - name: message
+        value: hello

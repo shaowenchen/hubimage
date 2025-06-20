@@ -1,0 +1,46 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Workflow
+metadata:
+  name: workflow-when
+spec:
+  entrypoint: dag
+  serviceAccountName: workflow-pods-sa
+  templates:
+    - name: dag
+      dag:
+        tasks:
+          - name: choose-task
+            templateRef:
+              name: message-transformer-template
+              template: message-transformer
+              clusterScope: true
+            arguments:
+              parameters:
+                - name: message
+                  value: "{{workflow.parameters.choose}}"
+          - name: choose-a-path
+            templateRef:
+              name: whalesay-template
+              template: whalesay
+              clusterScope: true
+            arguments:
+              parameters:
+                - name: message
+                  value: a-path
+            dependencies: [choose-task]
+            when: "{{tasks.choose-task.outputs.parameters.message}} == a"
+          - name: choose-b-path
+            templateRef:
+              name: whalesay-template
+              template: whalesay
+              clusterScope: true
+            arguments:
+              parameters:
+                - name: message
+                  value: b-path
+            dependencies: [choose-task]
+            when: "{{tasks.choose-task.outputs.parameters.message}} == b"
+  arguments:
+    parameters:
+      - name: choose
+        value: "b"

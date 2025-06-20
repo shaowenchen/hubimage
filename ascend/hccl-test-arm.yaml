@@ -1,0 +1,93 @@
+apiVersion: batch.volcano.sh/v1alpha1
+kind: Job
+metadata:
+  generateName: hccl-test-arm-
+  labels:
+    ring-controller.atlas: ascend-910b
+spec:
+  minAvailable: 50
+  schedulerName: volcano
+  policies:
+    - event: PodEvicted
+      action: RestartJob
+  plugins:
+    env: []
+    kassvc: []
+    kastorch:
+      - --master=master
+      - --worker=worker
+      - --port=23456
+    ssh: []
+  maxRetry: 3
+  queue: default
+  tasks:
+    - name: master
+      replicas: 1
+      template:
+        metadata:
+          labels:
+            app: hccl-test
+            ring-controller.atlas: ascend-910b
+        spec:
+          terminationGracePeriodSeconds: 360
+          nodeSelector:
+            accelerator-type: module-910b-8
+            host-arch: huawei-arm
+          containers:
+            - name: hccl-test
+              image: hubimage/hccl-test:arm64-20240712v2
+              imagePullPolicy: IfNotPresent
+              command:
+                [
+                  "/bin/bash",
+                  "-c",
+                  "mkdir -p /var/run/sshd;/usr/sbin/sshd; sleep inf",
+                ]
+              resources:
+                requests:
+                  huawei.com/Ascend910: 8
+                limits:
+                  huawei.com/Ascend910: 8
+              volumeMounts:
+                - name: localtime
+                  mountPath: /etc/localtime
+          volumes:
+            - name: localtime
+              hostPath:
+                path: /etc/localtime
+          restartPolicy: OnFailure
+    - name: worker
+      replicas: 49
+      template:
+        metadata:
+          labels:
+            app: hccl-test
+            ring-controller.atlas: ascend-910b
+        spec:
+          terminationGracePeriodSeconds: 360
+          nodeSelector:
+            accelerator-type: module-910b-8
+            host-arch: huawei-arm
+          containers:
+            - name: hccl-test-16p
+              image: hubimage/hccl-test:arm64-20240712v2
+              imagePullPolicy: IfNotPresent
+              command:
+                [
+                  "/bin/bash",
+                  "-c",
+                  "mkdir -p /var/run/sshd; /usr/sbin/sshd; sleep inf",
+                ]
+              resources:
+                requests:
+                  huawei.com/Ascend910: 8
+                limits:
+                  huawei.com/Ascend910: 8
+              volumeMounts:
+                - name: localtime
+                  mountPath: /etc/localtime
+          volumes:
+            - name: localtime
+              hostPath:
+                path: /etc/localtime
+          restartPolicy: OnFailure

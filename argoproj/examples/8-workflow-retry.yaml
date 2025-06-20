@@ -1,0 +1,34 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Workflow
+metadata:
+  name: workflow-retry-task
+spec:
+  entrypoint: dag
+  serviceAccountName: workflow-pods-sa
+  templates:
+    - name: dag
+      dag:
+        tasks:
+          - name: task-1
+            templateRef:
+              name: random-status-template
+              template: random-status
+              clusterScope: true
+            arguments:
+              parameters:
+                - name: retry
+                  value: "{{workflow.parameters.retry}}"
+          - name: task-2
+            templateRef:
+              name: whalesay-template
+              template: whalesay
+              clusterScope: true
+            arguments:
+              parameters:
+                - name: message
+                  value: "hello"
+            dependencies: [task-1]
+  arguments:
+    parameters:
+      - name: retry
+        value: "3"

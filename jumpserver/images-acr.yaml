@@ -1,0 +1,9 @@
+jumpserver/core: registry.cn-beijing.aliyuncs.com/opshub/jumpserver-core
+jumpserver/chen: registry.cn-beijing.aliyuncs.com/opshub/jumpserver-chen
+jumpserver/koko: registry.cn-beijing.aliyuncs.com/opshub/jumpserver-koko
+jumpserver/lion: registry.cn-beijing.aliyuncs.com/opshub/jumpserver-lion
+jumpserver/magnus: registry.cn-beijing.aliyuncs.com/opshub/jumpserver-magnus
+jumpserver/razor: registry.cn-beijing.aliyuncs.com/opshub/jumpserver-razor
+jumpserver/video-worker: registry.cn-beijing.aliyuncs.com/opshub/jumpserver-video-worker
+jumpserver/web: registry.cn-beijing.aliyuncs.com/opshub/jumpserver-web
+jumpserver/xrdp: registry.cn-beijing.aliyuncs.com/opshub/jumpserver-xrdp

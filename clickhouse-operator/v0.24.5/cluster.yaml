@@ -1,0 +1,54 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: test-cluster-credentials
+type: Opaque
+stringData:
+  app: "RSh9CICD9WApNfaH"
+---
+apiVersion: "clickhouse.altinity.com/v1"
+kind: "ClickHouseInstallation"
+metadata:
+  name: test-cluster
+spec:
+  configuration:
+    users:
+      app/k8s_secret_password: default/test-cluster-credentials/app
+      app/networks/ip:
+        - "0.0.0.0/0"
+    clusters:
+      - name: "test-cluster"
+        templates:
+          podTemplate: pod-template-with-volumes
+        layout:
+          shardsCount: 2
+          replicasCount: 2
+
+  templates:
+    podTemplates:
+      - name: pod-template-with-volumes
+        spec:
+          containers:
+            - name: clickhouse
+              image: registry.cn-beijing.aliyuncs.com/opshub/clickhouse-clickhouse-server:23.8
+              volumeMounts:
+                - name: data-storage-vc-template
+                  mountPath: /var/lib/clickhouse
+                - name: log-storage-vc-template
+                  mountPath: /var/log/clickhouse-server
+
+    volumeClaimTemplates:
+      - name: data-storage-vc-template
+        spec:
+          accessModes:
+            - ReadWriteOnce
+          resources:
+            requests:
+              storage: 3Gi
+      - name: log-storage-vc-template
+        spec:
+          accessModes:
+            - ReadWriteOnce
+          resources:
+            requests:
+              storage: 2Gi

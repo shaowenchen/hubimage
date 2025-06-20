@@ -1,0 +1,68 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  labels:
+    app.kubernetes.io/name: dcgm-exporter
+    app.kubernetes.io/version: 3.1.4
+  name: dcgm-exporter
+  namespace: monitoring
+spec:
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: dcgm-exporter
+      app.kubernetes.io/version: 3.1.4
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: dcgm-exporter
+        app.kubernetes.io/version: 3.1.4
+      name: dcgm-exporter
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: gpu_monitor
+                operator: Exists
+      containers:
+      - env:
+        - name: DCGM_EXPORTER_LISTEN
+          value: :9400
+        - name: DCGM_EXPORTER_KUBERNETES
+          value: "true"
+        - name: DCGM_EXPORTER_COLLECTORS
+          value: /etc/dcgm-exporter/dcp-metrics-included.csv
+        image: registry.cn-beijing.aliyuncs.com/opshub/dcgm-exporter:3.1.7-3.1.4-ubuntu20.04
+        imagePullPolicy: IfNotPresent
+        name: dcgm-exporter
+        ports:
+        - containerPort: 9400
+          hostPort: 9400
+          name: metrics
+          protocol: TCP
+        resources: {}
+        securityContext:
+          capabilities:
+            add:
+            - SYS_ADMIN
+          runAsNonRoot: false
+          runAsUser: 0
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /data/kubelet/pod-resources
+          name: pod-gpu-resources
+          readOnly: true
+      dnsPolicy: ClusterFirst
+      hostNetwork: true
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - hostPath:
+          path: /data/kubelet/pod-resources
+          type: ""
+        name: pod-gpu-resources

@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: host-9567-exporter
+  namespace: monitor
+spec:
+  selector:
+    matchLabels:
+      app: host-9567-exporter
+  template:
+    metadata:
+      labels:
+        app: host-9567-exporter
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "19567"
+        prometheus.io/path: "/metrics"
+        prometheus.io/scheme: "http"
+    spec:
+      hostNetwork: false
+      containers:
+        - name: socat
+          image: alpine/socat
+          command: ["sh", "-c"]
+          args: ["socat TCP4-LISTEN:19567,fork TCP4:localhost:9567"]
