@@ -6,11 +6,11 @@ on:
       src:
         description: ""
         required: true
-        default: "registry.k8s.io/kube-state-metrics/kube-state-metrics"
+        default: "ghcr.io/kedacore/keda"
       dest:
         description: ""
         required: true
-        default: "registry.cn-beijing.aliyuncs.com/opshub/registry-k8s-io-kube-state-metrics-kube-state-metrics"
+        default: "hubimage/ghcr-io-kedacore-keda"
 jobs:
   build:
     name: Image Sync
