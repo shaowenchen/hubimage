@@ -21,7 +21,6 @@ for image in ${ALL_IMAGES}; do
     tag_count=0
 
     for tag in $src_tags; do
-        # Break if we've already copied 10 tags for this image
         if [ $tag_count -ge 5 ]; then
             echo "Copied 5 tags for ${imagearr[0]}, moving to next image"
             break
@@ -44,7 +43,7 @@ for image in ${ALL_IMAGES}; do
             docker run --rm -v ~/.docker/config.json:/auth.json quay.io/skopeo/stable copy --multi-arch all docker://${imagearr[0]}:${tag} docker://${imagearr[1]}:${tag} --dest-authfile /auth.json --insecure-policy --src-tls-verify=false --dest-tls-verify=false --retry-times 5 --format v2s2 
             if [ $? -ne 0 ]; then
                 echo "Failed to copy ${imagearr[0]}:${tag} to ${imagearr[1]}:${tag}"
-                break 2
+                break 1
             fi
             # Increment the tag counter after successful copy
             ((tag_count++))
