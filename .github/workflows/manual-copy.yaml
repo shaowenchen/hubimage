@@ -29,10 +29,18 @@ jobs:
           registry: https://registry.cn-beijing.aliyuncs.com
           username: "${{ secrets.ACR_USERNAME }}"
           password: "${{ secrets.ACR_PASSWORD }}"
-      - name: Generate images.yaml
-        run: |
-          echo ${{ inputs.src }}: ${{ inputs.dest }} >> ./manual-images.yaml
       - name: Working
         run: |
-          cat ./manual-images.yaml
-          bash ./.github/workflows/copy.sh manual-images.yaml
+          tags=$(docker run --rm quay.io/skopeo/stable list-tags docker://${{ inputs.src }} | jq -r '.Tags[]')
+
+          for tag in $tags; do
+            echo "Copying ${{ inputs.src }}:$tag -> ${{ inputs.dest }}:$tag"
+            docker run --rm -v ~/.docker/config.json:/auth.json quay.io/skopeo/stable copy --multi-arch all \
+              docker://${{ inputs.src }}:$tag \
+              docker://${{ inputs.dest }}:$tag \
+              --dest-authfile /auth.json \
+              --insecure-policy \
+              --src-tls-verify=false \
+              --dest-tls-verify=false \
+              --retry-times 5
+          done
